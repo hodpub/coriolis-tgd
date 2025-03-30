@@ -1,0 +1,22 @@
+{
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#700"
+    },
+    "i18n-ally.localesPaths": [
+      "lang"
+    ],
+    "i18n-ally.sourceLanguage": "en",
+    "i18n-ally.keystyle": "nested",
+    "editor.tabSize": 2,
+    "[python]": {
+      "editor.tabSize": 4
+    },
+    "editor.insertSpaces": true,
+    "liveSassCompile.settings.formats": [
+      {
+        "extensionName": ".css",
+        "format": "expanded",
+        "savePath": "/css"
+      }
+    ]
+}
