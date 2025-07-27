@@ -1,0 +1,32 @@
+<section class='tab talents scrollable {{tab.cssClass}}' data-group='primary' data-tab='talents'>
+  <div class="talent-item-title">
+    <div>
+      <label>{{localize "CORIOLIS_TGD.Actor.Tabs.Talents"}}
+        <a class='item-control item-create' data-tooltip='{{localize "DOCUMENT.Create" type=' Item'}}'
+          data-action='createDoc' data-document-class='Item' data-type='talent' data-filter="talent">
+          <i class='fas fa-plus'></i>
+        </a>
+      </label>
+      <label>{{localize "CORIOLIS_TGD.Actor.base.FIELDS.bonus"}}</label>
+      <label>{{localize "CORIOLIS_TGD.Actor.base.FIELDS.attributes.abbr"}}</label>
+    </div>
+    <label>{{localize "CORIOLIS_TGD.Item.Tabs.Description"}}</label>
+  </div>
+  {{#each talents as |item id|}}
+  <div class="talent-item draggable" data-item-id='{{item._id}}' data-document-class='Item'>
+    <div class="label-with-circle-label-label">
+      <a class='rollable' data-roll-type='item' data-action='roll'>
+        <img src='{{item.img}}' data-tooltip='{{item.name}}' width='46' height='46' />
+      </a>
+      <label>{{item.name}}</label>
+      <label>{{item.system.bonus}}</label>
+      <label>{{ifThen item.system.attribute (localize (concat "CORIOLIS_TGD.Actor.base.FIELDS.attributes." item.system.attribute ".abbr")) "-"}}</label>
+    </div>
+    <div class="expandable-field" data-action="expand">
+      {{{item.system.description}}}
+      <p><strong>TAGS (TODO: TRANSLATE/IMPLEMENT):</strong></p>
+    </div>
+  </div>
+  {{/each}}
+
+</section>

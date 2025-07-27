@@ -1,0 +1,50 @@
+{{! Biography Tab }}
+<section class='tab biography {{tab.cssClass}}' data-group='primary' data-tab='biography'>
+  <div class="grid grid-4col grid-gap-5">
+    <div>
+      {{formGroup systemFields.biography.fields.quirk value=system.biography.quirk disabled=system.playMode
+      elementType="textarea" rows=2 classes="input-with-circle-title"}}
+      {{formGroup systemFields.biography.fields.appearance value=system.biography.appearance disabled=system.playMode
+      elementType="textarea" rows=3 classes="input-with-circle-title"}}
+      {{formGroup systemFields.biography.fields.motivation value=system.biography.motivation disabled=system.playMode
+      classes="input-with-circle-title"}}
+      {{formGroup systemFields.biography.fields.origin value=system.biography.origin disabled=system.playMode
+      classes="input-with-circle-title"}}
+    </div>
+    <div>
+      {{formGroup systemFields.biography.fields.faction value=system.biography.faction disabled=system.playMode
+      classes="input-with-circle-title"}}
+      <div class="input-with-circle-title" style="height: 235px">
+        <label>{{localize "CORIOLIS_TGD.Actor.Explorer.FIELDS.biography.contacts.label"}}</label>
+        {{#if editable}}
+        <prose-mirror name="system.biography.contacts" data-document-uuid="{{actor.uuid}}"
+          value="{{system.biography.contacts}}" collaborate="true" toggled="true" style="height: 200px;" {{disabled system.playMode}}>
+          {{{enrichedContacts}}}
+        </prose-mirror>
+        {{else}} {{{enrichedContacts}}}
+        {{/if}}
+      </div>
+    </div>
+    <div class="grid-span-2">
+      <div class="input-with-circle-title">
+        <label>{{localize "CORIOLIS_TGD.Actor.Explorer.FIELDS.biography.others.label"}}</label>
+        {{#if editable}}
+        <prose-mirror name="system.biography.others" data-document-uuid="{{actor.uuid}}"
+          value="{{system.biography.others}}" collaborate="true" toggled="true" style="height: 272px;" {{disabled system.playMode}}>
+          {{{enrichedOthers}}}
+        </prose-mirror>
+        {{else}} {{{enrichedOthers}}}
+        {{/if}}
+      </div>
+    </div>
+    {{!-- {{! Editors must receive enriched text data from getData to properly handle rolls, UUID links, etc. }}
+    {{#if editable}}
+    <prose-mirror name="system.biography.others" data-document-uuid="{{actor.uuid}}" value="{{system.biography.others}}"
+      collaborate="true" toggled="true">
+      {{{enrichedBiography}}}
+    </prose-mirror>
+    {{else}} {{{enrichedBiography}}}
+    {{/if}} --}}
+
+  </div>
+</section>

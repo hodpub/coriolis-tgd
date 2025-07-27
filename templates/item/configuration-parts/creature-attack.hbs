@@ -1,0 +1,10 @@
+<section class='tab configuration scrollable {{tab.cssClass}}' data-group='primary' data-tab='configuration'>
+    {{formGroup systemFields.attackNumber value=system.attackNumber type="number" hidden=(not isEmbedded)  classes="cgd-custom"}}
+    {{formGroup systemFields.range value=system.range choices=config.Weapon.attackRangeChoices localize=true
+    classes="cgd-custom"}}
+    {{formGroup systemFields.baseDice value=system.baseDice type="number" classes="cgd-custom"}}
+    {{formGroup systemFields.damage value=system.damage type="number" classes="cgd-custom"}}
+    {{formGroup systemFields.damageCritical value=system.damageCritical type="number" classes="cgd-custom"}}
+    {{formGroup systemFields.despair value=system.despair type="number" classes="cgd-custom"}}
+    {{formGroup systemFields.blight value=system.blight type="number" classes="cgd-custom"}}
+</section>

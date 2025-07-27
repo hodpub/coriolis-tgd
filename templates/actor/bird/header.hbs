@@ -1,0 +1,63 @@
+<header class='header'>
+  <div class="title">
+    <img src="systems/coriolis-tgd/assets/decorations/title.webp" />
+    <label class="title">{{localize "TYPES.Actor.bird"}} {{localize "CORIOLIS_TGD.SheetLabels.Sheet"}}</label>
+  </div>
+
+  <div class="basic">
+    <div class="principal">
+      <img class='profile-img' src='{{actor.img}}' data-edit='img' data-tooltip='{{actor.name}}' height='194'
+        width='194' {{#if (not system.playMode)}}data-action='onEditImage' {{/if}} />
+      <img class="frame no-popup" src="systems/coriolis-tgd/assets/frames/img-2fields.svg" width="438" />
+
+      <label class="name">{{localize "Name"}}</label>
+      <input name='name' type='text' value='{{actor.name}}' placeholder='{{localize "Name"}}' {{disabled
+        system.playMode}} />
+      <label class="type">{{localize "Type"}}</label>
+      <select name="system.type" {{disabled system.playMode}}>
+        {{selectOptions config.Bird.typeChoices selected=system.type localize=true}}
+      </select>
+      {{!-- <div>
+        <div class="name input-with-circle-title">
+          <label>{{localize "Name"}}</label>
+          <input type="text" name="name" value="{{actor.name}}" {{disabled system.playMode}} />
+        </div>
+        <div class="type input-with-circle-title">
+          <label>{{localize "Type"}}</label>
+          <input type="text" name="system.type" value="{{system.type}}" {{disabled system.playMode}} />
+          <select name="system.type" {{disabled system.playMode}}>
+            {{selectOptions config.Bird.typeChoices selected=system.type localize=true}}
+          </select>
+        </div>
+      </div> --}}
+    </div>
+    <div>
+      <div>
+        <div class="label-with-circle-field">
+          <label>{{localize "CORIOLIS_TGD.Actor.base.FIELDS.health.value.label"}}</label>
+
+          <input name="system.health.max" type="number" min="0" value="{{system.health.max}}" onfocus="this.select();"
+            {{disabled system.playMode}} />
+          <input name="system.health.value" type="number" min="0" max="{{system.health.max}}"
+            value="{{system.health.value}}" onfocus="this.select();" {{disabled system.playMode}} />
+        </div>
+        {{dots system.health.value system.health.max imgCss="heart"
+        field="system.health.value"}}
+      </div>
+      <div>
+        <div class="label-with-circle-field">
+          <label>{{localize "CORIOLIS_TGD.Actor.Bird.FIELDS.energy.label"}}</label>
+          <input name="system.energy.max" type="number" min="0" value="{{system.energy.max}}" onfocus="this.select();"
+            {{disabled system.playMode}} />
+          <input name="system.energy.value" type="number" min="0" max="{{system.energy.max}}"
+            value="{{system.energy.value}}" onfocus="this.select();" {{disabled system.playMode}} />
+        </div>
+        {{dots system.energy.value system.energy.max imgCss="heart"
+        field="system.energy.value"}}
+      </div>
+    </div>
+    {{formGroup systemFields.appearance value=system.appearance disabled=system.playMode
+    elementType="textarea" rows=5 classes="input-with-circle-title"}}
+  </div>
+  <img src="systems/coriolis-tgd/assets/decorations/divider2.svg" />
+</header>

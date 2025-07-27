@@ -1,0 +1,769 @@
+{
+  "CORIOLIS_TGD": {
+    "SheetLabels": {
+      "Actor": {
+        "Explorer": "Coriolis: The Great Dark Explorer Actor Sheet",
+        "NPC": "Coriolis: The Great Dark NPC Actor Sheet",
+        "Creature": "Coriolis: The Great Dark Creature Actor Sheet",
+        "Bird": "Coriolis: The Great Dark Bird Actor Sheet",
+        "Crew": "Coriolis: The Great Dark Crew Actor Sheet",
+        "Vehicle": "Coriolis: The Great Dark Vehicle (Rover/Shuttle) Actor Sheet"
+      },
+      "Item": "Coriolis: The Great Dark Item Sheet",
+      "Sheet": "Sheet"
+    },
+    "Actor": {
+      "Tabs": {
+        "Biography": "Bio",
+        "Talents": "Talents",
+        "Equipments": "Equipments",
+        "Combat": "Combat",
+        "Effects": "Effects",
+        "Afflictions": "Afflictions",
+        "Powers": "Powers",
+        "Maneuvers": "Maneuvers",
+        "Cargo": "Cargo",
+        "Upgrades": "Upgrades",
+        "Stats": "Stats"
+      },
+      "base": {
+        "FIELDS": {
+          "playMode": {
+            "true": "Change to Edit Mode",
+            "false": "Change to Play Mode"
+          },
+          "biography": {
+            "label": "Biography"
+          },
+          "setValue": "Set to {value}",
+          "derivedAttributes": {
+            "health": {
+              "value": {
+                "label": "Health"
+              },
+              "max": {
+                "label": "Max. Health"
+              }
+            }
+          },
+          "health": {
+            "value": {
+              "label": "Health"
+            },
+            "max": {
+              "label": "Maximum Health"
+            }
+          },
+          "hope": {
+            "value": {
+              "label": "Hope"
+            },
+            "max": {
+              "label": "Maximum Hope"
+            }
+          },
+          "heart": {
+            "value": {
+              "label": "Heart"
+            },
+            "max": {
+              "label": "Maximum Heart"
+            }
+          },
+          "attributes": {
+            "label": "Attributes",
+            "abbr": "Attr.",
+            "selectWhenRolling": {
+              "label": "(select when rolling)"
+            },
+            "strength": {
+              "label": "Strength",
+              "abbr": "STR"
+            },
+            "agility": {
+              "label": "Agility",
+              "abbr": "AGI"
+            },
+            "empathy": {
+              "label": "Empathy",
+              "abbr": "EMP"
+            },
+            "logic": {
+              "label": "Logic",
+              "abbr": "LOG"
+            },
+            "insight": {
+              "label": "Insight",
+              "abbr": "INS"
+            },
+            "perception": {
+              "label": "Perception",
+              "abbr": "PER"
+            }
+          },
+          "conditions": {
+            "exhausted": {
+              "label": "Exhausted"
+            },
+            "dazed": {
+              "label": "Dazed"
+            },
+            "shaken": {
+              "label": "Shaken"
+            },
+            "distracted": {
+              "label": "Distracted"
+            },
+            "confused": {
+              "label": "Confused"
+            },
+            "disheartened": {
+              "label": "Disheartened"
+            }
+          },
+          "bonus": "Bonus"
+        }
+      },
+      "Explorer": {
+        "FIELDS": {
+          "attributes.level.value": {
+            "label": "Level"
+          },
+          "experience": {
+            "label": "Experience"
+          },
+          "biography": {
+            "appearance.label": "Appearance",
+            "quirk.label": "Quirk",
+            "motivation.label": "Motivation",
+            "faction.label": "Faction",
+            "contacts.label": "Contacts",
+            "origin.label": "Origin",
+            "others.label": "Others"
+          },
+          "biography.profession": {
+            "label": "Profession"
+          },
+          "biography.speciality": {
+            "label": "Speciality"
+          },
+          "rukh": {
+            "label": "Rukh"
+          },
+          "encumbrance": {
+            "label": "Encumbrance",
+            "abbr": "Enc."
+          }
+        }
+      },
+      "Creature": {
+        "FIELDS": {
+          "size": {
+            "label": "Size",
+            "small": {
+              "label": "Small"
+            },
+            "normal": {
+              "label": "Normal"
+            },
+            "large": {
+              "label": "Large"
+            }
+          },
+          "ferocity": {
+            "label": "Ferocity"
+          },
+          "armor": {
+            "label": "Armor"
+          },
+          "containmentProtocol": {
+            "label": "Containment Protocol"
+          },
+          "containmentProtocolBonus": {
+            "label": "Prot. Bonus"
+          },
+          "abilities": {
+            "label": "Abilities"
+          },
+          "behavior": {
+            "label": "Behavior Pattern"
+          },
+          "attacks": {
+            "label": "Signature Attacks"
+          }
+        }
+      },
+      "Bird": {
+        "FIELDS": {
+          "type": {
+            "ward.label": "Ward",
+            "guide.label": "Guide",
+            "specter.label": "Specter"
+          },
+          "energy": {
+            "label": "Energy"
+          },
+          "powers.label": "Powers",
+          "appearance.label": "Appearance"
+        }
+      },
+      "Crew": {
+        "FIELDS": {
+          "roles": {
+            "label": "Role",
+            "delver.label": "Delver",
+            "scout.label": "Scout",
+            "guard.label": "Guard",
+            "burrower.label": "Burrower",
+            "archaeologist.label": "Archaeologist"
+          },
+          "crewPoints.label": "Crew Points"
+        }
+      },
+      "Vehicle": {
+        "FIELDS": {
+          "maneuverability.label": "Maneuverability",
+          "maxManeuverability.label": "Maximum Maneuverability",
+          "hull.label": "Hull",
+          "armor.label": "Armor",
+          "passengers.label": "Passengers",
+          "slots": {
+            "label": "Slots",
+            "capacity": "Upgrade Slots Capacity:"
+          },
+          "cargo": {
+            "label": "Cargo",
+            "capacity": "Cargo Capacity:"
+          },
+          "weapon": {
+            "capacity": "Weapon Turrets Capacity:"
+          }
+        }
+      },
+      "Rover": {
+        "FIELDS": {
+          "speed.label": "Speed",
+          "blightProtection.label": "Blight Protection",
+          "propulsion.label": "Propulsion"
+        }
+      },
+      "Shuttle": {
+        "FIELDS": {
+          "combatSpeed.label": "Combat Speed",
+          "travelSpeed.label": "Travel Speed",
+          "range.label": "Range"
+        }
+      },
+      "general": {
+        "TransferTo": "Transfer to {actor}",
+        "QuantityToTransfer": "Quantity To Transfer"
+      }
+    },
+    "Item": {
+      "Tabs": {
+        "Configuration": "Config",
+        "Attributes": "Attributes",
+        "Description": "Info",
+        "Effects": "Effects",
+        "Automations": "Auto",
+        "Features": "Features"
+      },
+      "Talent": {
+        "FIELDS": {
+          "maxLevel": {
+            "label": "Maximum Level"
+          },
+          "bonusPerLevel": {
+            "label": "Bonus per Level"
+          },
+          "currentLevel": {
+            "label": "Current Level",
+            "error": "The Current Level should not be higher than the Maximum Level"
+          },
+          "attribute": {
+            "label": "Attribute"
+          }
+        }
+      },
+      "Affliction": {
+        "FIELDS": {
+          "afflictionType": {
+            "label": "Affliction Type",
+            "criticalInjury": "Critical Injury",
+            "mentalTrauma": "Mental Trauma",
+            "blightManifestation": "Blight Manifestation"
+          },
+          "healTime": {
+            "label": "Heal Time"
+          },
+          "lethal": {
+            "label": "Lethal"
+          },
+          "permanent": {
+            "label": "Permanent"
+          },
+          "effect": {
+            "label": "Effect"
+          }
+        }
+      },
+      "Equipment": {
+        "FIELDS": {
+          "supply": {
+            "label": "Supply",
+            "automation": "Consume Supply"
+          },
+          "bonus": {
+            "label": "Bonus",
+            "error": "The Bonus should not be higher than the Maximum Bonus."
+          },
+          "maxBonus": {
+            "label": "Maximum Bonus"
+          },
+          "quantity": {
+            "label": "Quantity",
+            "abbr": "Qtd."
+          },
+          "deleteWhenZero": {
+            "label": "Delete when 0 Qtd."
+          },
+          "weight": {
+            "0": {
+              "25label": "¼",
+              "5label": "½"
+            },
+            "label": "Weight",
+            "abbr": "Wgh.",
+            "tiny": {
+              "label": "0: Tiny"
+            },
+            "veryLight": {
+              "label": "¼: Very Light"
+            },
+            "light": {
+              "label": "½: Light"
+            },
+            "regular": {
+              "label": "1: Regular"
+            },
+            "heavy": {
+              "label": "2: Heavy"
+            },
+            "veryHeavy": {
+              "label": "3: Very Heavy"
+            },
+            "superHeavy": {
+              "label": "4: Super Heavy"
+            },
+            "extreme": {
+              "label": "5: Extreme"
+            },
+            "0label": "Tiny",
+            "1label": "1",
+            "2label": "2",
+            "3label": "3",
+            "4label": "4",
+            "5label": "5"
+          },
+          "cost": {
+            "label": "Cost",
+            "abbr": "Wgh."
+          },
+          "consumable": {
+            "label": "Consumable",
+            "abbr": "Cons."
+          },
+          "supplyConsumed": {
+            "label": "Supply Consumed",
+            "abbr": "Supply",
+            "description": "Supplies consumed: {supplyConsumed}"
+          },
+          "tech": {
+            "label": "Tech",
+            "ordinary": {
+              "label": "Ordinary",
+              "abbr": "O"
+            },
+            "guildExplorers": {
+              "label": "Explorers Guild",
+              "abbr": "G(E)"
+            },
+            "guildNavigators": {
+              "label": "Navigators Guild",
+              "abbr": "G(N)"
+            },
+            "guildMachinists": {
+              "label": "Machinists Guild",
+              "abbr": "G(M)"
+            },
+            "guildGardeners": {
+              "label": "Gardeners Guild",
+              "abbr": "G(G)"
+            },
+            "heirloom": {
+              "label": "Heirloom",
+              "abbr": "H"
+            },
+            "restricted": {
+              "label": "Restricted (*)",
+              "abbr": "*"
+            },
+            "guildGmChoice": {
+              "label": "Guild (GM Choice)",
+              "abbr": "G"
+            }
+          }
+        }
+      },
+      "Weapon": {
+        "label": "Weapons",
+        "atHand": {
+          "label": "(At hand)",
+          "equip": "Equip at Hand",
+          "unequip": "Unequip at Hand"
+        },
+        "installed.label": "Installed",
+        "FIELDS": {
+          "attackType": {
+            "label": "Attack Type",
+            "close": {
+              "label": "Close Combat"
+            },
+            "ranged": {
+              "label": "Ranged Combat"
+            },
+            "vehicle": {
+              "label": "Vehicle Combat"
+            }
+          },
+          "grip": {
+            "label": "Grip",
+            "oneHand": {
+              "label": "One Hand",
+              "abbr": "1H"
+            },
+            "twoHands": {
+              "label": "Two Hands",
+              "abbr": "2H"
+            }
+          },
+          "damage": {
+            "label": "Damage",
+            "abbr": "DMG"
+          },
+          "critical": {
+            "label": "Critical Threshold",
+            "abbr": "CRIT"
+          },
+          "minRange": {
+            "label": "Minimum Range"
+          },
+          "maxRange": {
+            "label": "Maximum Range"
+          },
+          "range": {
+            ".label": "-",
+            "label": "Range",
+            "engaged": {
+              "label": "Engaged",
+              "abbr": "E"
+            },
+            "short": {
+              "label": "Short",
+              "abbr": "S"
+            },
+            "medium": {
+              "label": "Medium",
+              "abbr": "M"
+            },
+            "long": {
+              "label": "Long",
+              "abbr": "L"
+            },
+            "extreme": {
+              "label": "Extreme",
+              "abbr": "X"
+            },
+            "special": {
+              "label": "Special",
+              "abbr": "S"
+            }
+          },
+          "loaded": {
+            "label": "Loaded / Charged",
+            "unloaded": "Weapon unloaded / uncharged. Reload / recharge to use it again.",
+            "noReload": "Weapon still has ammo. No reload required.",
+            "emptyMagazine": "Magazine is empty."
+          }
+        }
+      },
+      "Armor": {
+        "label": "Armor",
+        "FIELDS": {
+          "armorRating": {
+            "label": "Armor Rating"
+          },
+          "armorProtection": {
+            "label": "Armor Protection"
+          },
+          "blightProtection": {
+            "label": "Blight Protection"
+          },
+          "cost": {
+            "label": "Cost"
+          },
+          "extras": {
+            "label": "Extras"
+          },
+          "tech": {
+            "label": "Tech"
+          }
+        }
+      },
+      "CreatureAttack": {
+        "FIELDS": {
+          "attackNumber": {
+            "label": "Attack Number"
+          },
+          "baseDice": {
+            "label": "Base Dice",
+            "info": "dice {value}"
+          },
+          "damage": {
+            "label": "Damage",
+            "info": "damage {value}"
+          },
+          "damageCritical": {
+            "label": "Critical",
+            "info": "crit {value}"
+          },
+          "despair": {
+            "label": "Despair",
+            "info": "despair {value}"
+          },
+          "blight": {
+            "label": "Blight",
+            "info": "Blight {value}"
+          },
+          "range": {
+            "label": "Range"
+          },
+          "actions": {
+            "attack": "Roll Signature Attack",
+            "behavior": "Roll Behavior Pattern"
+          }
+        }
+      },
+      "BirdPower": {
+        "FIELDS": {
+          "isAttack.label": "Is Attack",
+          "damage.label": "Damage",
+          "critical.label": "Critical Threshold",
+          "range.label": "Range",
+          "minEnergy.label": "Min. Energy",
+          "energyBonus": "Energy => Bonus"
+        }
+      },
+      "CrewManeuver": {
+        "FIELDS": {
+          "role": {
+            "label": "Role"
+          }
+        }
+      },
+      "VehicleUpgrade": {
+        "FIELDS": {
+          "bonus.label": "Bonus",
+          "maxBonus.label": "Maximum Bonus",
+          "cost.label": "Cost (CP)",
+          "tech.label": "Tech",
+          "slot.label": "Slot",
+          "installed.label": "Installed",
+          "partOfFrame.label": "Part of the Frame",
+          "upgradesNotInstalled": "Upgrades not Installed"
+        },
+        "uninstall": "Uninstall",
+        "install": "Install"
+      },
+      "RoverUpgrade": {
+        "FIELDS": {}
+      },
+      "Feature": {
+        "FIELDS": {
+          "modifier.label": "Modifier",
+          "type": {
+            "label": "Type",
+            "weapon.label": "Weapon Feature",
+            "armor.label": "Exo & Delving Suit Feature"
+          }
+        }
+      }
+    },
+    "Effect": {
+      "Source": "Source",
+      "Toggle": "Toggle Effect",
+      "Temporary": "Temporary Effects",
+      "Passive": "Passive Effects",
+      "Inactive": "Inactive Effects"
+    },
+    "Chat": {
+      "Success": "Successes",
+      "SendToChat": "Send to Chat"
+    },
+    "Automation": {
+      "new": "New {type}",
+      "addNew": "Add new Automation",
+      "automate": "Automate {name} [{actor}]",
+      "actorBroken": "\"{actor}\" is broken. Are you sure you want to execute this roll?",
+      "Type": {
+        "automation": "Automation",
+        "rollAttribute": "Roll Attribute",
+        "rollAttack": "Roll Attack",
+        "reloadWeapon": "Reload / Recharge Weapon",
+        "runMacro": "Run Macro",
+        "consume": "Consume Item",
+        "consumeSupply": "Consume Supply",
+        "runSequence": "Run Automations in Sequence",
+        "rollArmorDamage": "Roll Armor's Damage Protection",
+        "rollArmorBlight": "Roll Armor's Blight Protection",
+        "rollCreatureAttack": "Roll Creature Attack",
+        "rollBirdPower": "Roll Bird Power",
+        "rollUpgrade": "Roll Upgrade"
+      },
+      "FIELDS": {
+        "showAsSelection": {
+          "label": "Show as Selection"
+        },
+        "attribute": {
+          "label": "Attribute"
+        },
+        "rollAttribute": {
+          "requireAttribute.label": "Requires Attribute",
+          "canChangeAttribute.label": "Can change Attribute"
+        },
+        "rollAttack": {
+          "notLoaded": "You cannot attack with an weapon that is not loaded/charged.",
+          "postExecutionMacro.label": "Post Execution Macro"
+        },
+        "reloadWeapon": {
+          "reloaded": "Weapon reloaded / recharged. Suppies consumed: {supplyConsumed}. Supplies available: {newQuantity}."
+        },
+        "macro": {
+          "open": "Open Macro",
+          "drop": "Drop a macro here or paste its UUID on the field",
+          "error": "This automation is not of type \"Run Macro\"",
+          "notFound": "Macro not set or not found. Please, verify."
+        },
+        "consume": {
+          "noQuantity": "This item does not have a quantity. Check the automation.",
+          "notConsumable": "This item is not marked as consumable. Check the automation.",
+          "notEnough": "You don't have more quantity to use of this item.",
+          "itemUsed": "Item used. New quantity available: {newQuantity}"
+        },
+        "consumeSupply": {
+          "noSupplyConsumed": "This item does not have a supply consumption configuration. Check the item configuration.",
+          "notEnough": "You don't have enough supply to use of this item. Supplies required: {required}. Supplies available: {available}.",
+          "itemUsed": "Item used and supply consumed. Supplies consumed: {supplyConsumed}. Supplies available: {newQuantity}"
+        },
+        "sequence": {
+          "add": "Add Automation to Sequence",
+          "delete": "Delete Automation from Sequence"
+        },
+        "armorRoll": {
+          "notArmor": "The item associated with this automation is not an armor. Please, check the configuration.",
+          "armorRatingTitle": "Damage Protection",
+          "blightProtectionTitle": "Blight Protection",
+          "armorRatingZero": "The armor rating is configured as zero. Check the item configuration.",
+          "blightProtectionZero": "The armor rating is configured as zero. Check the item configuration."
+        },
+        "birdPower": {
+          "noExplorer": "Select an explorer to command the bird.",
+          "notEnoughEnergy": "The bird does not have enough energy to execute this power."
+        },
+        "upgrade": {
+          "noExplorer": "Select an explorer to use the vehicle upgrade."
+        }
+      }
+    },
+    "Roller": {
+      "Bonuses": {
+        "manualBonus": {
+          "label": "Manual Bonus",
+          "name": "{dice} Base Dice"
+        },
+        "targetSize": {
+          "label": "Target Size",
+          "proneOrSmall": "Prone or Small",
+          "largeOrVehicle": "Large or Vehicle"
+        },
+        "aimed": {
+          "label": "Aimed",
+          "aimedFire": "Aimed Fire"
+        },
+        "restrained": {
+          "label": "Restrained",
+          "restrainedOrUnaware": "Restrained or Unaware"
+        },
+        "cover": {
+          "label": "Cover",
+          "Shubbery": "Shubbery",
+          "Furniture": "Furniture",
+          "Door": "Door",
+          "InnerBulkhead": "Inner bulkhead",
+          "OuterBulkhead": "Outer bulkhead",
+          "ArmoredBulkhead": "Armored bulkhead"
+        }
+      }
+    },
+    "Errors": {
+      "NoTarget": "No target to apply the damage."
+    }
+  },
+  "YZUR": {
+    "CHAT.ROLL": {
+      "Push": "Push",
+      "Accept": "Accept",
+      "EnergyUsed": "Energy Used",
+      "AttackDamage": "Attack Damage",
+      "Trauma": "Hope Lost",
+      "GearDamage": "Gear Damage",
+      "ATTACK": {
+        "DAMAGE": "Attack Damage",
+        "CRITICAL": "Crit. Threshold",
+        "DESPAIR": "Despair Damage",
+        "BLIGHT": "Blight Damage",
+        "ApplyDamage": "Apply Damage"
+      }
+    },
+    "DIETERMS": {
+      "GearDie": "Gear Success Count",
+      "BaseDie": "Base Success Count"
+    }
+  },
+  "TYPES": {
+    "Actor": {
+      "explorer": "Explorer",
+      "npc": "NPC",
+      "creature": "Creature",
+      "bird": "Bird",
+      "crew": "Crew",
+      "rover": "Rover",
+      "shuttle": "Shuttle"
+    },
+    "Item": {
+      "talent": "Talent",
+      "affliction": "Affliction",
+      "equipment": "Equipment",
+      "weapon": "Weapon",
+      "armor": "Armor",
+      "creatureAttack": "Creature's Attack",
+      "creatureAbility": "Creature's Ability",
+      "birdPower": "Bird Power",
+      "crewManeuver": "Crew Maneuver",
+      "roverUpgrade": "Rover Upgrade",
+      "shuttleUpgrade": "Shuttle Upgrade",
+      "vehicleWeapon": "Vehicle Weapon",
+      "feature": "Feature"
+    }
+  }
+}

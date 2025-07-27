@@ -1,0 +1,34 @@
+<header class='header'>
+  <div class="title">
+    <img src="systems/coriolis-tgd/assets/decorations/title.webp" />
+    <label class="title">{{localize (concat "TYPES.Actor." actor.type)}} {{localize
+      "CORIOLIS_TGD.SheetLabels.Sheet"}}</label>
+  </div>
+  <div class="principal">
+    <img class='profile-img' src='{{actor.img}}' data-edit='img' data-tooltip='{{actor.name}}' height='194' width='194'
+      {{#if (not system.playMode)}} data-action='onEditImage' {{/if}} />
+    <div>
+      <div class="name input-with-circle-title-small">
+        <label>{{localize "Name"}}</label>
+        <input type="text" name="name" value="{{actor.name}}" {{disabled system.playMode}} />
+      </div>
+    </div>
+    <div>
+      {{formGroup systemFields.maneuverability value=system.maneuverability disabled=system.playMode
+      classes="cgd-custom"}}
+      <div>
+        <div class="label-with-circle-field">
+          <label>{{localize "CORIOLIS_TGD.Actor.Vehicle.FIELDS.hull.label"}}</label>
+          <input name="system.hull.max" type="number" min="0" value="{{system.hull.max}}" onfocus="this.select();"
+            {{disabled system.playMode}} />
+          <input name="system.hull.value" type="number" min="0" max="{{system.hull.max}}" value="{{system.hull.value}}"
+            onfocus="this.select();" {{disabled system.playMode}} />
+        </div>
+        {{dots system.hull.value system.hull.max imgCss="heart"
+        field="system.hull.value"}}
+      </div>
+    </div>
+  </div>
+  <br>
+  <img src="systems/coriolis-tgd/assets/decorations/divider2.svg" />
+</header>

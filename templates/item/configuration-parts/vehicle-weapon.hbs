@@ -1,0 +1,14 @@
+<section class='tab configuration scrollable {{tab.cssClass}}' data-group='primary' data-tab='configuration'>
+  {{formGroup systemFields.bonus value=system.bonus type="number" classes="cgd-custom"}}
+  {{formGroup systemFields.maxBonus value=system.maxBonus type="number" classes="cgd-custom"}}
+  {{formGroup systemFields.damage value=system.damage type="number" classes="cgd-custom"}}
+  {{formGroup systemFields.critical value=system.critical type="number" classes="cgd-custom"}}
+  {{formGroup systemFields.loaded value=system.loaded classes="cgd-custom"}}
+  {{formGroup systemFields.minRange value=system.minRange choices=config.Weapon.attackRangeChoices localize=true
+  classes="cgd-custom"}}
+  {{formGroup systemFields.maxRange value=system.maxRange choices=config.Weapon.attackRangeChoices localize=true
+  classes="cgd-custom"}}
+  {{formGroup systemFields.cost value=system.cost classes="cgd-custom"}}
+  {{formGroup systemFields.tech value=system.tech localize=true
+  classes="cgd-custom"}}
+</section>

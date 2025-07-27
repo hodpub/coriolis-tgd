@@ -1,0 +1,10 @@
+<div>
+  <div class="meter-label">
+    <label>{{localize label}} {{current}} / {{max}}
+    </label>
+  </div>
+  <div class="meter">
+    <div class="inner" style="width: {{percentage current max}}%;{{#if (gt current max)}} background: red;{{/if}}">
+    </div>
+  </div>
+</div>

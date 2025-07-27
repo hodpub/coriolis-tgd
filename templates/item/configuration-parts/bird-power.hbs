@@ -1,0 +1,9 @@
+<section class='tab configuration scrollable {{tab.cssClass}}' data-group='primary' data-tab='configuration'>
+  {{formGroup systemFields.range value=system.range choices=config.Weapon.attackRangeChoices localize=true
+  classes="cgd-custom"}}
+  {{formGroup systemFields.minEnergy value=system.minEnergy classes="cgd-custom"}}
+  {{formGroup systemFields.isAttack value=system.isAttack classes="cgd-custom"}}
+  {{formGroup systemFields.damage value=system.damage classes="cgd-custom" hidden=(not system.isAttack)}}
+  {{formGroup systemFields.critical value=system.critical classes="cgd-custom" hidden=(not
+  system.isAttack)}}
+</section>

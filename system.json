@@ -1,0 +1,163 @@
+{
+  "id": "coriolis-tgd",
+  "title": "Coriolis: The Great Dark",
+  "description": "The Coriolis: The Great Dark system for FoundryVTT!",
+  "version": "0.1.0",
+  "compatibility": {
+    "minimum": "13.341",
+    "verified": "13.341"
+  },
+  "authors": [
+    {
+      "name": "Cussa Mitre [Hod Publishing]",
+      "url": "https://hodpub.com",
+      "discord": "CussaMitre"
+    }
+  ],
+  "documentTypes": {
+    "Actor": {
+      "explorer": {
+        "htmlFields": [
+          "biography.contacts",
+          "biography.others"
+        ]
+      },
+      "bird": {},
+      "crew": {},
+      "rover": {},
+      "shuttle": {},
+      "npc": {
+        "htmlFields": [
+          "biography"
+        ]
+      },
+      "creature": {
+        "htmlFields": [
+          "biography",
+          "containmentProtocol"
+        ]
+      }
+    },
+    "Item": {
+      "talent": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "affliction": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "equipment": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "weapon": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "armor": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "creatureAttack": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "creatureAbility": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "birdPower": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "crewManeuver": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "roverUpgrade": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "shuttleUpgrade": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "vehicleWeapon": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "feature": {
+        "htmlFields": [
+          "description"
+        ]
+      }
+    }
+  },
+  "flags": {
+    "hotReload": {
+      "extensions": [
+        "css",
+        "html",
+        "hbs",
+        "json"
+      ],
+      "paths": [
+        "css",
+        "lang",
+        "templates"
+      ]
+    }
+  },
+  "url": "Replace this with a link to your public repository",
+  "license": "LICENSE.txt",
+  "readme": "README.md",
+  "bugs": "Replace this with a link to file issues or tickets",
+  "changelog": "CHANGELOG.md",
+  "media": [
+    {
+      "type": "setup",
+      "url": "systems/coriolis-tgd/assets/coriolis.webp",
+      "thumbnail": "systems/coriolis-tgd/assets/coriolis.webp"
+    }
+  ],
+  "esmodules": [
+    "module/coriolis-tgd.mjs"
+  ],
+  "styles": [
+    "css/coriolis-tgd.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "packs": [],
+  "packFolders": [],
+  "socket": false,
+  "manifest": "Replace this with a link to the /latest release system.json so people can receive updates after they've installed the system",
+  "download": "This must link to a .zip file of the current version",
+  "background": "systems/coriolis-tgd/assets/coriolis.webp",
+  "grid": {
+    "type": 1,
+    "distance": 1,
+    "units": "m",
+    "diagonals": 0
+  },
+  "primaryTokenAttribute": "derivedAttributes.health",
+  "secondaryTokenAttribute": "derivedAttributes.hope"
+}

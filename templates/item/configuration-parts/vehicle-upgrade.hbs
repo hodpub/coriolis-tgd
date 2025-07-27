@@ -1,0 +1,9 @@
+<section class='tab configuration scrollable {{tab.cssClass}}' data-group='primary' data-tab='configuration'>
+    {{formGroup systemFields.bonus value=system.bonus type="number" classes="cgd-custom"}}
+    {{formGroup systemFields.maxBonus value=system.maxBonus type="number" classes="cgd-custom"}}
+    {{formGroup systemFields.cost value=system.cost type="number" classes="cgd-custom"}}
+    {{formGroup systemFields.slot value=system.slot type="number" classes="cgd-custom"}}
+    {{formGroup systemFields.installed value=system.installed hidden=(not isEmbedded) classes="cgd-custom"}}
+    {{formGroup systemFields.partOfFrame value=system.partOfFrame hidden=(not isEmbedded) classes="cgd-custom"}}
+    {{formGroup systemFields.tech value=system.tech classes="cgd-custom" localize=true}}
+</section>

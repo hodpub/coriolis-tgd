@@ -1,0 +1,30 @@
+<div>
+  <div class="form-group cgd-custom">
+    <label for="system.automations.{{key}}.attribute">{{localize
+      "CORIOLIS_TGD.Automation.FIELDS.attribute.label"}}</label>
+    <select name="system.automations.{{key}}.attribute">
+      {{selectOptions @root.config.Attributes.choices selected=automation.attribute
+      blank="CORIOLIS_TGD.Actor.base.FIELDS.attributes.selectWhenRolling.label" localize=true}}
+    </select>
+  </div>
+  <div class="form-group cgd-custom">
+    <label for="system.automations.{{@key}}.canChangeAttribute">{{localize
+      "CORIOLIS_TGD.Automation.FIELDS.rollAttribute.canChangeAttribute.label"}}</label>
+    <input type="checkbox" name="system.automations.{{@key}}.canChangeAttribute" {{checked
+      automation.canChangeAttribute}} />
+  </div>
+  <div class="form-group cgd-custom">
+    <label for="system.automations.{{key}}.macro">{{localize "CORIOLIS_TGD.Automation.FIELDS.rollAttack.postExecutionMacro.label"}}</label>
+    <input type="text" name="system.automations.{{key}}.postExecution" value="{{automation.postExecution}}">
+    {{#if automation.postExecution}}
+    <label class="hint">
+      <a class='automation-open-macro' data-action="automationCommand" data-command='viewAutomationMacro'>
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        {{localize 'CORIOLIS_TGD.Automation.FIELDS.macro.open'}}
+      </a>
+    </label>
+    {{else}}
+    <label class="hint">{{localize 'CORIOLIS_TGD.Automation.FIELDS.macro.drop'}}</label>
+    {{/if}}
+  </div>
+</div>

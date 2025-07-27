@@ -1,0 +1,163 @@
+.chat-message {
+  --default-margin: 10px;
+
+  background: no-repeat url(../assets/chat/public.webp);
+  background-size: 100% auto;
+
+  &.whisper {
+    background-image: url(../assets/chat/private.webp);
+  }
+
+  &.whisper.blind {
+    background-image: url(../assets/chat/blind.webp);
+  }
+
+  .message-content,
+  .message-content *:not(a):not(.roll),
+  .message-header {
+    color: $c-gold;
+  }
+
+  .message-content {
+    border-image-slice: 10% 6%;
+    border-image-width: 15px;
+    border-image-outset: 0px;
+    border-image-repeat: stretch stretch;
+    border-image-source: url(../assets/chat/normal-content.svg);
+    border-style: solid;
+    padding: calc(var(--default-margin)*1.5);
+
+    ol.dice-rolls,
+    div.dice-rolls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 5px;
+
+      img {
+        border: 1px solid $c-gold;
+      }
+    }
+
+    ol.dice-rolls:has(div.dice-rolls) {
+      flex-direction: column;
+
+      span.roll {
+        width: 34px;
+      }
+    }
+
+    .dice-roll:has(+div div) {
+      margin-bottom: 8px;
+    }
+
+    .dice-roll .dice-total {
+      font-family: $font-serif;
+
+      &.failure {
+        color: red;
+      }
+
+      &.success {
+        color: green;
+      }
+    }
+
+    .dice-roll .dice-formula,
+    .dice-roll .dice-total,
+    .dice-tooltip .part-header .part-total,
+    .dice-tooltip .part-header {
+      border-color: $c-gold;
+    }
+  }
+
+  .message-header {
+    flex-direction: column;
+    gap: calc(var(--default-margin)*0.5);
+    margin-bottom: var(--default-margin);
+
+    &>* {
+      flex: 1 0 0;
+      width: 100%;
+    }
+
+    h4 {
+      text-align: center;
+      text-transform: uppercase;
+      position: relative;
+      font-weight: bold;
+      margin: 0;
+      font-family: $font-serif;
+      color: $c-gold;
+    }
+
+    .top-banner {
+      position: relative;
+      min-height: 44px;
+      align-content: center;
+
+      img.banner {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      img.avatar {
+        --avatar-size: 38px;
+        width: var(--avatar-size);
+        height: var(--avatar-size);
+        position: absolute;
+        border: 1px solid $c-gold;
+        top: 50%;
+        left: 50%;
+        margin-top: calc((var(--avatar-size) * -0.5));
+        margin-left: calc((var(--avatar-size) * -0.5));
+        border-radius: 50%;
+        background-color: $c-brown;
+      }
+
+    }
+
+    .whisper-to {
+      text-align: center;
+    }
+  }
+
+  img.bottom {
+    margin-top: var(--default-margin);
+    width: 195px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .roll-damage,
+  .roll-critical,
+  .roll-despair,
+  .roll-blight,
+  .roll-trauma,
+  .roll-gear-damage,
+  .roll-energy {
+    text-align: center;
+    margin: 6px 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+
+  div.dice-buttons {
+    margin-top: 6px;
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+
+    button.dice-button {
+      @extend %button;
+
+    }
+  }
+
+  ul.table-results li img{
+    display: none;
+  }
+}

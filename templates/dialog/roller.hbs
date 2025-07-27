@@ -1,0 +1,140 @@
+<div>
+  <img src="systems/coriolis-tgd/assets/decorations/divider4.svg" />
+  <div class="dices">
+    {{#if dice.base}}
+    <div>
+      <label>{{dice.base}} x</label> <img src="systems/coriolis-tgd/assets/dice/base-6.webp" width="36">
+    </div>
+    {{/if}}
+    {{#if dice.gear}}
+    <div>
+      <label>{{dice.gear}} x</label> <img src="systems/coriolis-tgd/assets/dice/gear-6.webp" width="36">
+    </div>
+    {{/if}}
+  </div>
+  <img src="systems/coriolis-tgd/assets/decorations/divider4.svg" />
+  <div class="grid grid-gap-10">
+    <div>
+      {{#if (and (not attributeInfo) (not hideAttribute))}}
+      <div class="selectAttribute">
+        <label>Select the Attribute</label>
+        {{#each config.Attributes.choices as |label att|}}
+        <button type="button" data-action="selectAttribute" data-choice="{{att}}">
+          <label>
+            {{localize label}}
+          </label>
+        </button>
+        {{/each}}
+      </div>
+      {{/if}}
+      <div class="infos">
+        {{#if birdPower}}
+        <div>
+          <label data-tooltipe-text="{{birdPower.actor.name}}: {{birdPower.name}}">{{birdPower.actor.name}}:
+            {{birdPower.name}}</label>
+          <label></label>
+          <label>{{birdEnergy}}</label>
+        </div>
+        {{/if}}
+        {{#if upgrade}}
+        <div>
+          <label data-tooltip-text="{{upgrade.actor.name}}: {{upgrade.name}}">{{upgrade.actor.name}}:
+            {{upgrade.name}}</label>
+          <label></label>
+          <label>{{upgrade.system.bonus}}</label>
+        </div>
+        {{/if}}
+        {{#if attributeInfo}}
+        <div>
+          <label>{{attributeInfo.name}} </label>
+          {{#if canChangeAttribute}}
+          <label class="rollable" data-action="selectAttribute" data-choice=""><i class="fa-solid fa-trash"></i></label>
+          {{/if}}
+          <label>{{attributeInfo.bonus}}</label>
+        </div>
+        {{/if}}
+        {{#each conditions as |condition|}}
+        <div>
+          <label data-tooltip-text="{{condition.name}}">{{condition.name}}</label>
+          <label>{{condition.system.bonus}}</label>
+        </div>
+        {{/each}}
+        {{#if talent}}
+        <div>
+          <label>{{talent.name}}</label>
+          {{#if canRemoveTalent}}
+          <label class="rollable" data-action="remove" data-type="talent"><i class="fa-solid fa-trash"></i></label>
+          {{else}}
+          <label></label>
+          {{/if}}
+          <label>{{talent.system.bonus}}</label>
+        </div>
+        {{/if}}
+        {{#if gear}}
+        <div>
+          <label>{{gear.name}}</label>
+          {{#if canRemoveGear}}
+          <label class="rollable" data-action="remove" data-type="gear"><i class="fa-solid fa-trash"></i></label>
+          {{else}}
+          <label></label>
+          {{/if}}
+          <label>{{gear.system.bonus}}</label>
+        </div>
+        {{/if}}
+        {{#if armor}}
+        <div>
+          <label>{{armor.label}}</label>
+          <label>{{armor.system.bonus}}</label>
+        </div>
+        {{/if}}
+        {{#if creatureAttack}}
+        <div>
+          <label>{{creatureAttack.name}}</label>
+          <label>{{creatureAttack.system.baseDice}}</label>
+        </div>
+        {{/if}}
+        {{#if canAddGearTalent}}
+        {{#if (or (not talent) (not gear))}}
+        <img src="systems/coriolis-tgd/assets/decorations/divider4.svg" />
+        {{/if}}
+        {{#if (not talent)}}
+        <div class="add">
+          <label data-action="add" data-type="talent">Add Talent <i
+              class="fa-solid fa-arrow-up-right-from-square"></i></label>
+        </div>
+        {{/if}}
+        {{#if (not gear)}}
+        <div class="add">
+          <label data-action="add" data-type="gear">Add Equipment/Weapon <i
+              class="fa-solid fa-arrow-up-right-from-square"></i></label>
+        </div>
+        {{/if}}
+        {{/if}}
+      </div>
+    </div>
+    <div class="bonuses scrollable">
+      {{#each bonusGroups as | group groupName |}}
+
+      {{#if (gt @index 0)}}
+      <img src="systems/coriolis-tgd/assets/decorations/divider4.svg" />
+      {{/if}}
+      {{#if (gt group.length 1)}}
+      <label class="title">{{localize (concat "CORIOLIS_TGD.Roller.Bonuses." groupName ".label")}}</label>
+      {{/if}}
+      {{#each group as | item |}}
+      <div>
+        {{!-- <div class="form-group cgd-custom"> --}}
+        <label data-tooltip-html="{{ifThen item.tooltip item.tooltip item.label}}">{{item.label}}</label>
+          <input type="checkbox" id="item.label" name="{{groupName}}" {{checked item.selected}}
+            onchange="this.form.submit()" />
+          {{!--
+        </div> --}}
+        <label>{{item.bonus}}</label>
+      </div>
+      {{/each}}
+      {{/each}}
+    </div>
+  </div>
+
+  <img src="systems/coriolis-tgd/assets/decorations/divider4.svg" />
+</div>

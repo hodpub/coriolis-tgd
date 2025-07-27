@@ -1,0 +1,33 @@
+$c-gold: #C2AD76;
+$c-brown: #2C2611;
+$c-cream: #F0E3C6;
+
+:root {
+  --cgd-c-dark: #{$c-gold};
+  --cgd-c-faint: #c9c7b8;
+  --cgd-c-beige: #b5b3a4;
+  --cgd-c-tan: #{$c-gold};
+  --cgd-c-white: #ffffff;
+  --cgd-c-black: #000000;
+  --cgd-c-groove: #eeede0;
+}
+
+.theme-dark {
+  --cgd-c-dark: #{$c-gold};
+  --cgd-c-faint: #191813;
+  --cgd-c-beige: #444444;
+  --cgd-c-tan: #{$c-gold};
+  --cgd-c-white: #000000;
+  --cgd-c-black: #ffffff;
+  --cgd-c-groove: #11121f;
+}
+
+$c-white: var(--cgd-c-white);
+$c-black: var(--cgd-c-black);
+
+$c-dark: var(--cgd-c-dark);
+$c-faint: var(--cgd-c-faint);
+$c-beige: var(--cgd-c-beige);
+$c-tan: var(--cgd-c-tan);
+
+$c-groove: var(--cgd-c-groove);

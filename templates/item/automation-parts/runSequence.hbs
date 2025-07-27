@@ -1,0 +1,37 @@
+<div>
+  <div class="form-group cgd-custom">
+    <label for="system.automations.{{@key}}.attribute">{{localize
+      "CORIOLIS_TGD.Automation.Type.automation"}}</label>
+    <select class="sequence-options">
+      {{selectOptions (getItemAutomations @root.system.automations @key) selected=automation.sequence localize=true}}
+    </select>
+    {{!-- <label class="hint">
+      <a class='automation-add-sequence' data-action='addSequence'>
+        <i class="fa-solid fa-plus"></i>
+        {{localize 'CORIOLIS_TGD.Automation.FIELDS.sequence.add'}}
+      </a>
+    </label> --}}
+    <div class='sequence-list'>
+      <div class="sequence-list-title">
+        <div>{{localize "Name"}}</div>
+        <div>{{localize "Type"}}</div>
+        <div><a class='automation-add-sequence' data-action='automationCommand' data-command="addSequence">
+            <i class="fa-solid fa-plus"></i>
+          </a></div>
+      </div>
+      {{#each this.sequence as | sequenceId |}}
+      {{#with (lookup @root.system.automations sequenceId) as | sequence| }}
+      <div class="sequence-list-title">
+        <div>{{sequence.name}}</div>
+        <div>{{localize (concat "CORIOLIS_TGD.Automation.Type." sequence.type)}}</div>
+        <div>
+          <a class='automation-delete-sequence' data-action='automationCommand' data-command="deleteSequence" data-index="{{@index}}">
+            <i class="fa-solid fa-trash"></i>
+          </a>
+        </div>
+      </div>
+      {{/with}}
+      {{/each}}
+    </div>
+  </div>
+</div>

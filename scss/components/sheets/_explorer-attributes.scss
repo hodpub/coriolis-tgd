@@ -1,0 +1,159 @@
+div.attributes {
+  background: url(../assets/frames/attributes.svg);
+  background-repeat: no-repeat;
+  background-size: 98% 98%;
+
+  position: relative;
+  margin-top: -50px;
+  margin-bottom: -45px;
+  width: 300px;
+  height: 300px;
+
+  label {
+    position: absolute;
+    color: $c-gold;
+    font-weight: bold;
+  }
+
+  label.rollable.attribute-label {
+
+    &:hover,
+    &:focus {
+      text-shadow: 0 0 10px $c-gold;
+    }
+  }
+
+  label.strength {
+    top: 58px;
+    left: 16px;
+  }
+
+  label.agility {
+    top: 58px;
+    right: 35px;
+  }
+
+  label.empathy {
+    top: 105px;
+    left: -5px;
+  }
+
+  label.logic {
+    top: 105px;
+    right: 22px;
+  }
+
+  label.insight {
+    bottom: 65px;
+    left: 29px;
+  }
+
+  label.perception {
+    bottom: 65px;
+    right: 7px;
+  }
+
+  label.attribute-field {
+    @extend %inputClean;
+    color: $c-brown;
+    width: 35px;
+    font-size: var(--font-size-24);
+  }
+
+  input.attribute-field {
+    @extend %inputClean;
+    color: $c-brown;
+    position: absolute;
+    width: 35px;
+    font-size: var(--font-size-24);
+    font-weight: bold;
+    // background: #ff000099;
+  }
+
+  input.attribute-field[data-value="strength"] {
+    top: 53px;
+    left: 84px;
+  }
+
+  input.attribute-field[data-value="agility"] {
+    top: 53px;
+    right: 89px;
+  }
+
+  input.attribute-field[data-value="empathy"] {
+    top: 131px;
+    left: 39px;
+  }
+
+  input.attribute-field[data-value="logic"] {
+    top: 131px;
+    right: 43px;
+  }
+
+  input.attribute-field[data-value="insight"] {
+    bottom: 58px;
+    left: 84px;
+  }
+
+  input.attribute-field[data-value="perception"] {
+    bottom: 58px;
+    right: 89px;
+  }
+
+  svg {
+    path {
+      fill: none;
+    }
+
+    text {
+      fill: $c-gold;
+      font-weight: bold;
+      font-size: 8px;
+      letter-spacing: -0.5px;
+      text-transform: uppercase;
+      font-family: $font-sans;
+
+      &.attributes {
+        font-size: 16px;
+        letter-spacing: 8px;
+        font-family: $font-serif;
+      }
+    }
+  }
+
+  img.condition {
+    height: 16px;
+    width: 16px;
+    position: absolute;
+  }
+
+  img.condition[data-value="exhausted"]{
+    top: 42px;
+    left: 83px;
+  }
+
+  img.condition[data-value="dazed"]{
+    top: 42px;
+    right: 88px;
+  }
+
+  img.condition[data-value="confused"]{
+    top: 139px;
+    right: 33px;
+  }
+
+  img.condition[data-value="distracted"]{
+    top: 237px;
+    right: 89px;
+  }
+
+  img.condition[data-value="shaken"]{
+    top: 237px;
+    left: 83px;
+  }
+
+  img.condition[data-value="disheartened"]{
+    top: 139px;
+    left: 27px;
+  }
+}

@@ -1,0 +1,8 @@
+<div class="form-group cgd-custom">
+  <label>{{localize (concat "CORIOLIS_TGD.Actor.Crew.FIELDS.roles." role ".label")}}</label>
+  <div class="form-fields">
+    <select name="system.roles.{{role}}">
+      {{selectOptions explorers selected=(get system.roles role) blank=""}}
+    </select>
+  </div>
+</div>

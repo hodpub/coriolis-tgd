@@ -1,0 +1,50 @@
+<div>
+  <div class="weapon-item-title">
+    <label>{{localize "CORIOLIS_TGD.Item.Weapon.label"}}
+      {{#if complement}}
+      {{localize (concat "CORIOLIS_TGD.Item.Weapon." complement ".label")}}
+      {{else}}
+      <a class='item-control item-create' data-tooltip='{{localize "DOCUMENT.Create" type=' Item'}}'
+        data-action='createDoc' data-document-class='Item' data-type='{{dataType}}' data-filter="{{dataFilter}}"
+        data-system.at-hand="{{ifThen (lt weapons.length 3) " true" "false" }}">
+        <i class='fas fa-plus'></i>
+      </a>
+      {{/if}}
+    </label>
+    <label>{{localize "CORIOLIS_TGD.Item.Equipment.FIELDS.bonus.label"}}</label>
+    <label>{{localize "CORIOLIS_TGD.Item.Weapon.FIELDS.damage.label"}}</label>
+    <label>{{localize "CORIOLIS_TGD.Item.Weapon.FIELDS.critical.abbr"}}</label>
+    <label>{{localize "CORIOLIS_TGD.Item.Weapon.FIELDS.range.label"}}</label>
+    <label>{{localize "CORIOLIS_TGD.Item.Tabs.Description"}}</label>
+  </div>
+  <div>
+    {{#each weapons as |item id|}}
+    <div class="weapon-item draggable" data-item-id='{{item._id}}' data-document-class='Item'>
+      <div>
+        <a {{#if ../complement}} class='rollable' data-roll-type='item' data-action='roll' {{else}}disabled{{/if}}>
+          <img src='{{item.img}}' data-tooltip='{{item.name}}' width='46' height='46' />
+        </a>
+        <label class="item-name" data-tooltip="{{item.name}}">{{item.name}}</label>
+      </div>
+      <label>{{item.system.bonus}}</label>
+      <label>{{item.system.damage}}</label>
+      <label>{{item.system.critical}}</label>
+      <label>{{localize (concat "CORIOLIS_TGD.Item.Weapon.FIELDS.range." item.system.minRange ".abbr")}} /
+        {{localize (concat "CORIOLIS_TGD.Item.Weapon.FIELDS.range." item.system.maxRange ".abbr")}}</label>
+      <div class="expandable-field" data-action="expand">
+        {{{item.system.description}}}
+        <p>{{localize "CORIOLIS_TGD.Item.Equipment.FIELDS.tech.label"}}: {{system.techDescription}}</p>
+        {{#if item.system.consumable}}
+        <p><strong>{{localize "CORIOLIS_TGD.Item.Equipment.FIELDS.consumable.label"}}</strong></p>
+        {{/if}}
+        {{#if item.system.supplyConsumed}}
+        <p><strong>{{localize "CORIOLIS_TGD.Item.Equipment.FIELDS.supplyConsumed.description"
+            supplyConsumed=system.supplyConsumed}}</strong>
+        </p>
+        {{/if}}
+        {{{item.system.featureTags}}}
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</div>

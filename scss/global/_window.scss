@@ -1,0 +1,144 @@
+body,
+body.theme-dark,
+.journal-entry-page {
+  --font-header: #{$font-header};
+  --font-sans: #{$font-sans};
+  --font-serif: #{$font-serif};
+
+  --font-body: var(--font-serif);
+  --font-editor: #{$font-cursive};
+  --font-text-editor: #{$font-cursive};
+
+  --font-h1: var(--font-header);
+  --font-h2: var(--font-serif);
+  --font-h3: var(--font-serif);
+  --font-h4: var(--font-serif);
+  --font-h5: var(--font-serif);
+  --font-h6: var(--font-serif);
+
+  --font-size-8: 0.5rem;
+  --font-size-6: 0.375rem;
+
+  --color-light-1: #{$c-cream};
+  --color-cool-4: #{$c-faint};
+
+  --color-text-accent: #{$c-gold};
+  --color-text-secondary: #{$c-brown};
+  --color-shadow-primary: #{$c-brown};
+  --color-border: #{$c-gold};
+  --background: #{$c-brown};
+
+  --color-scrollbar: #{$c-gold};
+}
+
+body .application,
+body.theme-dark .application {
+  --color-text-accent: #{$c-gold};
+  --color-shadow-primary: #{$c-brown};
+  --color-border: #{$c-brown};
+  --background: url(../systems/coriolis-tgd/assets/frames/texture-500px.jpg);
+  --color-header-background: none;
+
+
+  .window-header {
+    border-bottom: 0;
+  }
+
+  .window-content {
+    backdrop-filter: unset;
+  }
+
+  nav.tabs {
+    border-top: 0;
+    border-bottom-color: $c-gold;
+    margin: 10px 0;
+    color: $c-gold;
+
+    text-transform: uppercase;
+    justify-content: center;
+
+    &.scrollable {
+      justify-content: unset;
+    }
+
+    [data-tab] {
+      color: $c-gold;
+      padding-left: 10px;
+      padding-right: 10px;
+      line-height: 1.5;
+      border: 3px solid transparent;
+
+      &.active {
+        color: $c-brown;
+        border-image-slice: 20% 3% 5% 3% fill;
+        border-image-width: 5px 5px 1px;
+        border-image-outset: 0px 0px 0px 0px;
+        border-image-repeat: stretch stretch;
+        border-image-source: url(../assets/decorations/tab-background.svg);
+        border-style: solid;
+      }
+    }
+  }
+}
+
+h1 {
+  text-transform: uppercase;
+  // text-align: center;
+}
+
+h2,
+h3 {
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: 1px;
+}
+
+h4.divider {
+  font-size: var(--font-size-16);
+}
+
+#menu {
+  width: 380px;
+}
+
+#pause img {
+  content: url(../assets/pause.webp);
+  width: 120px;
+  height: 120px;
+}
+
+.rollable {
+
+  &:hover,
+  &:focus {
+    color: $c-black;
+    text-shadow: 0 0 10px $c-brown;
+    cursor: pointer;
+
+    * {
+      cursor: pointer;
+    }
+  }
+}
+
+#context-menu {
+  --background-color: #{$c-cream};
+  // --border-color: #999;
+  --text-color: #{$c-brown};
+  --hover-text-color: #{$c-brown};
+  // --group-separator: #999;
+  // --hover-entry-border: #999;
+  --hover-entry-background:#{$c-gold};
+  max-width: 400px;
+}
+
+body.isNotGM .dice-buttons.apply-damage{
+  display: none;
+}

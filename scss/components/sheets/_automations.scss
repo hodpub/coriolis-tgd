@@ -1,0 +1,82 @@
+section.automations {
+
+  div.border {
+    &>label:first-child {
+      @extend %title-main;
+      text-align: center;
+      font-size: var(--font-size-16);
+      margin-bottom: 5px;
+      width: 100%;
+      display: inline-block;
+    }
+  }
+
+  div.sequence-list {
+    &>div {
+      @extend .grid, .grid-12col;
+
+      div:nth-child(1) {
+        @extend .grid-span-6;
+      }
+
+      div:nth-child(2) {
+        @extend .grid-span-5;
+      }
+    }
+
+    div.sequence-list-title {
+      div {
+        text-align: center;
+      }
+    }
+  }
+}
+
+&.choice-dialog {
+  .form-footer {
+    flex-direction: column;
+    padding: 5%;
+    padding-top: 0;
+
+    button {
+      @extend %button;
+    }
+
+    &:before,
+    &:after {
+      content: "";
+      background: url(../assets/decorations/divider4.svg) no-repeat;
+      background-position: center;
+
+      height: 20px;
+      width: 100%;
+    }
+
+    &:before {
+      margin-bottom: 10px;
+    }
+
+    &:after {
+      margin-top: 10px;
+    }
+  }
+}
+
+section.automations.list {
+  div.all {
+    @extend .grid, .grid-4col, .grid-gap-5;
+
+    button {
+      @extend %button;
+      background-color: $c-cream;
+      height: 71px;
+      flex-direction: column;
+
+      span {
+        &:nth-child(2) {
+          font-size: var(--font-size-12);
+        }
+      }
+    }
+  }
+}

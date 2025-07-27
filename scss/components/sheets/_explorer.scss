@@ -1,0 +1,130 @@
+&.actor.explorer {
+  background: url(../assets/decorations/explorer-background.webp);
+
+
+  input,
+  label.attribute-field {
+    @extend %cursive;
+    color: $c-brown;
+  }
+
+  section.window-content {
+    padding-top: 0px;
+  }
+
+  header.header {
+    margin-bottom: 10px;
+
+    div.title {
+      position: relative;
+
+      img {
+        margin: 0px auto 0;
+      }
+
+      label {
+        position: absolute;
+        top: 1px;
+        width: 120px;
+        left: calc(50% - 60px);
+        text-transform: uppercase;
+        text-align: center;
+        color: $c-gold;
+        font-size: var(--font-size-10);
+      }
+    }
+
+    div.basic {
+      display: flex;
+      justify-content: space-between;
+
+      div.principal {
+        position: relative;
+
+        img.frame {
+          position: relative;
+          pointer-events: none;
+        }
+
+        img.profile-img {
+          position: absolute;
+          aspect-ratio: 1 / 1;
+          object-fit: contain;
+          background: $c-brown;
+          padding: 10px;
+        }
+
+        %labelPrincipal {
+          @extend %boxTitle;
+          position: absolute;
+          left: 245px;
+        }
+
+        label.name {
+          @extend %labelPrincipal;
+          top: 26px;
+        }
+
+        label.profession {
+          @extend %labelPrincipal;
+          top: 79px;
+        }
+
+        label.speciality {
+          @extend %labelPrincipal;
+          top: 130px;
+        }
+
+        %inputPrincipal {
+          @extend %inputClean;
+          position: absolute;
+          left: 200px;
+          width: 190px;
+        }
+
+        input[name="name"] {
+          @extend %inputPrincipal;
+          top: 32px;
+        }
+
+        input[name="system.biography.profession"] {
+          @extend %inputPrincipal;
+          top: 83px;
+        }
+
+        input[name="system.biography.speciality"] {
+          @extend %inputPrincipal;
+          top: 134px;
+        }
+      }
+
+      div.experience {
+        @extend %inputTag;
+        align-self: center;
+      }
+    }
+
+    div.derived {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+
+      div {
+        width: 200px;
+      }
+    }
+  }
+
+  @import 'explorer-attributes';
+  @import 'explorer-talents';
+  @import 'explorer-equipments';
+  @import 'explorer-combat';
+  @import 'explorer-afflictions';
+
+  menu.context-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

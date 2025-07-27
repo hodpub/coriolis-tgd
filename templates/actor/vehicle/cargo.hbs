@@ -1,0 +1,29 @@
+<section class='tab powers scrollable {{tab.cssClass}}' data-group='primary' data-tab='cargo'>
+  {{> "systems/coriolis-tgd/templates/actor/meter.hbs" label="CORIOLIS_TGD.Actor.Vehicle.FIELDS.cargo.capacity" current=system.cargoUsed.value max=system.cargo}}
+  <div class="cargo-item-title">
+    <label>{{localize "CORIOLIS_TGD.Actor.Tabs.Cargo"}}
+      <a class='item-control item-create' data-tooltip='{{localize "DOCUMENT.Create" type=' Item'}}'
+        data-action='createDoc' data-document-class='Item' data-type='birdPower' data-filter="birdPower">
+        <i class='fas fa-plus'></i>
+      </a>
+    </label>
+    <label>{{localize "CORIOLIS_TGD.Item.Equipment.FIELDS.weight.label"}}</label>
+    <label>{{localize "CORIOLIS_TGD.Item.Equipment.FIELDS.quantity.abbr"}}</label>
+    <label>{{localize "CORIOLIS_TGD.Item.Tabs.Description"}}</label>
+  </div>
+  {{#each cargo as |item id|}}
+  <div class="cargo-item draggable" data-item-id='{{item._id}}' data-document-class='Item'>
+    <div>
+      <a>
+        <img src='{{item.img}}' data-tooltip='{{item.name}}' width='46' height='46' />
+      </a>
+      <label>{{item.name}}</label>
+    </div>
+    <label>{{localize (concat "CORIOLIS_TGD.Item.Equipment.FIELDS.weight." item.system.weight "label")}}</label>
+    <label>{{item.system.quantity}}</label>
+    <div class="expandable-field" data-action="expand">
+      {{{item.system.description}}}
+    </div>
+  </div>
+  {{/each}}
+</section>

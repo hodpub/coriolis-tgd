@@ -1,0 +1,28 @@
+<section class='tab features scrollable {{tab.cssClass}}' data-group='primary' data-tab='features'>
+
+  {{!-- <div class="form-group cgd-custom">
+    <label>
+      <a class='automation-create' data-action='createAutomation' data-origin="{{@root.item.uuid}}">
+        <i class='fas fa-plus'></i>
+        {{localize 'DOCUMENT.New' type='Automation'}}
+      </a>
+    </label>
+  </div> --}}
+
+  {{#each system.features as | feature |}}
+  <div class="border-description" data-feature-id="{{@key}}">
+    <label style="position: absolute; top:10px; right: 10px">
+      <a class='effect-control' data-action='deleteFeature' data-tooltip='{{localize "DOCUMENT.Delete" type='
+        Feature'}}'>
+        <i class='fas fa-trash'></i>
+      </a>
+    </label>
+    <label class="bold">{{feature.name}}
+      {{#if feature.modifier}}
+      ({{numberFormat feature.modifier sign=true}})
+      {{/if}}
+    </label>
+    {{{feature.description}}}
+  </div>
+  {{/each}}
+</section>

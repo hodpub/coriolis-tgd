@@ -1,0 +1,21 @@
+<div>
+  {{{system.description}}}
+  {{#if system.damage}}
+  <div class="roll-damage">
+    <span class="label">{{localize "YZUR.CHAT.ROLL.ATTACK.DAMAGE"}}: </span>
+    <span class="result">{{system.damage}}</span>
+  </div>
+  {{/if}}
+  {{#if system.despair}}
+  <div class="roll-despair">
+    <span class="label">{{localize "YZUR.CHAT.ROLL.ATTACK.DESPAIR"}}: </span>
+    <span class="result">{{system.despair}}</span>
+  </div>
+  {{/if}}
+  {{#if system.blight}}
+  <div class="roll-blight">
+    <span class="label">{{localize "YZUR.CHAT.ROLL.ATTACK.BLIGHT"}}: </span>
+    <span class="result">{{system.blight}}</span>
+  </div>
+  {{/if}}
+</div>

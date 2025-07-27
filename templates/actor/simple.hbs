@@ -1,0 +1,171 @@
+<div class="simple-sheet">
+  <header class='sheet-header'>
+    <img class='profile-img' src='{{actor.img}}' data-edit='img' data-action='onEditImage'
+      data-tooltip='{{item.name}}' />
+    <div class='header-fields'>
+      <div class='input-with-circle-title'>
+        <label>{{localize "Name"}}</label>
+        <input name='name' type='text' value='{{actor.name}}' placeholder='Name' />
+      </div>
+    </div>
+  </header>
+  <img src="systems/coriolis-tgd/assets/decorations/divider4.svg" />
+  <div class="scrollable">
+
+    <div class="simple-attributes">
+      <label>{{localize "CORIOLIS_TGD.Actor.base.FIELDS.attributes.label"}}</label>
+      {{#each config.Attributes.list as | attribute |}}
+      <div class="form-group cgd-custom">
+        <label class="{{attribute}} rollable attribute-label" data-action="roll" data-roll-type="attribute"
+          data-value="{{attribute}}">{{localize (concat "CORIOLIS_TGD.Actor.base.FIELDS.attributes." attribute
+          ".label")}}</label>
+        <div class="form-field">
+          <input class="attribute-field" name="system.attributes.{{attribute}}" type="number" min="2" max="6"
+            data-value="{{attribute}}" value="{{get ../system.attributes attribute}}" onfocus="this.select();"
+            {{disabled ../system.playMode}} />
+        </div>
+      </div>
+      {{/each}}
+    </div>
+    <div class="simple-derived">
+      <div class="simple-health">
+        <div class="label-with-circle-field two-labels">
+          <label>{{localize "CORIOLIS_TGD.Actor.base.FIELDS.health.value.label"}}</label>
+          <label>{{system.derivedAttributes.health.max}}</label>
+          <input name="system.derivedAttributes.health.value" type="number" min="0"
+            max="{{system.derivedAttributes.health.max}}" value="{{system.derivedAttributes.health.value}}"
+            onfocus="this.select();" {{disabled system.playMode}} />
+        </div>
+        {{dots system.derivedAttributes.health.value system.derivedAttributes.health.max
+        field="system.derivedAttributes.health.value" imgCss="health"}}
+      </div>
+      <div class="simple-health">
+        <div class="label-with-circle-field two-labels">
+          <label>{{localize "CORIOLIS_TGD.Actor.base.FIELDS.hope.value.label"}}</label>
+          <label>{{system.derivedAttributes.hope.max}}</label>
+          <input name="system.derivedAttributes.hope.value" type="number" min="0"
+            max="{{system.derivedAttributes.hope.max}}" value="{{system.derivedAttributes.hope.value}}"
+            onfocus="this.select();" {{disabled system.playMode}} />
+        </div>
+        {{dots system.derivedAttributes.hope.value system.derivedAttributes.hope.max
+        field="system.derivedAttributes.hope.value" imgCss="health"}}
+      </div>
+    </div>
+    <div class="simple-biography">
+      <label>{{localize "CORIOLIS_TGD.Actor.Tabs.Biography"}}</label>
+      <div>
+        {{#if editable}}
+        <prose-mirror name="system.biography" data-document-uuid="{{actor.uuid}}" value="{{system.biography}}"
+          collaborate="true" toggled="true">
+          {{{enrichedBiography}}}
+        </prose-mirror>
+        {{else}} {{{enrichedBiography}}}
+        {{/if}}
+      </div>
+    </div>
+    <div class="simple-talents">
+      <label>{{localize "CORIOLIS_TGD.Actor.Tabs.Talents"}}
+        <a class='item-control item-create' data-tooltip='{{localize "DOCUMENT.Create" type=' Item'}}'
+          data-action='createDoc' data-document-class='Item' data-type='talent' data-filter="talent">
+          <i class='fas fa-plus'></i>
+        </a>
+      </label>
+      {{#each talents as |item id|}}
+      <div class="talent-item" data-item-id='{{item._id}}' data-document-class='Item'>
+        <div class="label-with-circle-label-label">
+          <a class='rollable' data-roll-type='item' data-action='roll'>
+            <img src='{{item.img}}' data-tooltip='{{item.name}}' width='46' height='46' />
+          </a>
+          <label>{{item.name}}</label>
+          <label>{{item.system.bonus}}</label>
+          <label>{{ifThen item.system.attribute (localize (concat "CORIOLIS_TGD.Actor.base.FIELDS.attributes."
+            item.system.attribute ".abbr")) "-"}}</label>
+        </div>
+        <div class="expandable-field" data-action="expand">
+          {{{item.system.description}}}
+          <p><strong>TAGS (TODO: TRANSLATE/IMPLEMENT):</strong></p>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+    <div class="simple-equipments">
+      <label>{{localize "CORIOLIS_TGD.Actor.Tabs.Equipments"}}
+        <a class='item-control item-create' data-tooltip='{{localize "DOCUMENT.Create" type=' Item'}}'
+          data-action='createDoc' data-document-class='Item' data-type='equipment' data-filter="equipment,weapon">
+          <i class='fas fa-plus'></i>
+        </a>
+      </label>
+      <div class="equipment-item-title">
+        <label>{{localize "CORIOLIS_TGD.Actor.Tabs.Equipments"}}</label>
+        <label>{{localize "CORIOLIS_TGD.Item.Equipment.FIELDS.bonus.label"}}</label>
+        <label>{{localize "CORIOLIS_TGD.Item.Equipment.FIELDS.weight.label"}}</label>
+        <label>{{localize "CORIOLIS_TGD.Item.Equipment.FIELDS.quantity.abbr"}}</label>
+      </div>
+      {{#each equipments as |item id|}}
+      <div class="equipment-item" data-item-id='{{item._id}}' data-document-class='Item'>
+        <div>
+          <a class='rollable' data-roll-type='item' data-action='roll'>
+            <img src='{{item.img}}' data-tooltip='{{item.name}}' width='46' height='46' />
+          </a>
+          <label class="item-name" data-tooltip="{{item.name}}">{{item.name}}</label>
+        </div>
+        <label>{{item.system.bonus}}</label>
+        <label>{{localize (concat "CORIOLIS_TGD.Item.Equipment.FIELDS.weight." item.system.weight "label")}}</label>
+        <label>{{item.system.quantity}}</label>
+        <div class="expandable-field" data-action="expand">
+          {{{item.system.description}}}
+          <p>{{localize "CORIOLIS_TGD.Item.Equipment.FIELDS.tech.label"}}: {{system.techDescription}}</p>
+          {{#if item.system.consumable}}
+          <p><strong>{{localize "CORIOLIS_TGD.Item.Equipment.FIELDS.consumable.label"}}</strong></p>
+          {{/if}}
+          {{#if item.system.supplyConsumed}}
+          <p><strong>{{localize "CORIOLIS_TGD.Item.Equipment.FIELDS.supplyConsumed.description"
+              supplyConsumed=system.supplyConsumed}}</strong>
+          </p>
+          {{/if}}
+        </div>
+      </div>
+      {{/each}}
+    </div>
+    <div class="simple-weapons">
+      <label>{{localize "CORIOLIS_TGD.Actor.Tabs.Combat"}}</label>
+      <div class="weapon-item-title">
+        <label>{{localize "CORIOLIS_TGD.Item.Weapon.label"}}</label>
+        <label>{{localize "CORIOLIS_TGD.Item.Equipment.FIELDS.bonus.label"}}</label>
+        <label>{{localize "CORIOLIS_TGD.Item.Weapon.FIELDS.damage.label"}}</label>
+        <label>{{localize "CORIOLIS_TGD.Item.Tabs.Description"}}</label>
+        <label>{{localize "CORIOLIS_TGD.Item.Weapon.FIELDS.critical.abbr"}}</label>
+        <label>{{localize "CORIOLIS_TGD.Item.Weapon.FIELDS.range.label"}}</label>
+      </div>
+      <div>
+        {{#each weapons as |item id|}}
+        <div class="weapon-item" data-item-id='{{item._id}}' data-document-class='Item'>
+          <div>
+            <a class='rollable' data-roll-type='item' data-action='roll'>
+              <img src='{{item.img}}' data-tooltip='{{item.name}}' width='46' height='46' />
+            </a>
+            <label class="item-name" data-tooltip="{{item.name}}">{{item.name}}</label>
+          </div>
+          <label>{{item.system.bonus}}</label>
+          <label>{{item.system.damage}}</label>
+          <div class="expandable-field" data-action="expand">
+            {{{item.system.description}}}
+            <p>{{localize "CORIOLIS_TGD.Item.Equipment.FIELDS.tech.label"}}: {{system.techDescription}}</p>
+            {{#if item.system.consumable}}
+            <p><strong>{{localize "CORIOLIS_TGD.Item.Equipment.FIELDS.consumable.label"}}</strong></p>
+            {{/if}}
+            {{#if item.system.supplyConsumed}}
+            <p><strong>{{localize "CORIOLIS_TGD.Item.Equipment.FIELDS.supplyConsumed.description"
+                supplyConsumed=system.supplyConsumed}}</strong>
+            </p>
+            {{/if}}
+          </div>
+          <label>{{item.system.critical}}</label>
+          <label>{{localize (concat "CORIOLIS_TGD.Item.Weapon.FIELDS.range." item.system.minRange ".abbr")}} /
+            {{localize (concat "CORIOLIS_TGD.Item.Weapon.FIELDS.range." item.system.maxRange ".abbr")}}</label>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</div>

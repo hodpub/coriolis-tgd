@@ -1,0 +1,59 @@
+<header class='header'>
+  <div class="title">
+    <img src="systems/coriolis-tgd/assets/decorations/title.webp" />
+    <label class="title">{{localize "TYPES.Actor.crew"}} {{localize "CORIOLIS_TGD.SheetLabels.Sheet"}}</label>
+  </div>
+  <div class="principal">
+    <img class='profile-img' src='{{actor.img}}' data-edit='img' data-tooltip='{{actor.name}}' height='194' width='194'
+      {{ifThen system.playMode "data-action='onEditImage'" "" }} />
+    <div>
+      <div class="name input-with-circle-title-small">
+        <label>{{localize "Name"}}</label>
+        <input type="text" name="name" value="{{actor.name}}" {{disabled system.playMode}} />
+      </div>
+    </div>
+    <div>
+      <div class="label-with-circle-field">
+        <label>{{localize "CORIOLIS_TGD.Actor.Crew.FIELDS.crewPoints.label"}}</label>
+
+        <input name="system.crewPoints" type="number" min="0" value="{{system.crewPoints}}" onfocus="this.select();"
+          {{disabled system.playMode}} />
+      </div>
+      {{dots system.crewPoints 15 imgCss="heart" field="system.crewPoints"}}
+    </div>
+
+    {{!-- <div>
+      <div>
+        <div class="label-with-circle-field">
+          <label>{{localize "CORIOLIS_TGD.Actor.base.FIELDS.health.value.label"}}</label>
+
+          <input name="system.health.max" type="number" min="0" value="{{system.health.max}}" onfocus="this.select();"
+            {{disabled system.playMode}} />
+          <input name="system.health.value" type="number" min="0" max="{{system.health.max}}"
+            value="{{system.health.value}}" onfocus="this.select();" {{disabled system.playMode}} />
+        </div>
+        {{dots system.health.value system.health.max imgCss="heart"
+        field="system.health.value"}}
+      </div>
+      <div>
+        <div class="label-with-circle-field">
+          <label>{{localize "CORIOLIS_TGD.Actor.Bird.FIELDS.energy.label"}}</label>
+          <input name="system.energy.max" type="number" min="0" value="{{system.energy.max}}" onfocus="this.select();"
+            {{disabled system.playMode}} />
+          <input name="system.energy.value" type="number" min="0" max="{{system.energy.max}}"
+            value="{{system.energy.value}}" onfocus="this.select();" {{disabled system.playMode}} />
+        </div>
+        {{dots system.energy.value system.energy.max imgCss="heart"
+        field="system.energy.value"}}
+      </div>
+    </div> --}}
+  </div>
+  <div class="crew-members">
+    {{> 'systems/coriolis-tgd/templates/actor/crew/role.hbs' role="delver"}}
+    {{> 'systems/coriolis-tgd/templates/actor/crew/role.hbs' role="scout"}}
+    {{> 'systems/coriolis-tgd/templates/actor/crew/role.hbs' role="guard"}}
+    {{> 'systems/coriolis-tgd/templates/actor/crew/role.hbs' role="burrower"}}
+    {{> 'systems/coriolis-tgd/templates/actor/crew/role.hbs' role="archaeologist"}}
+  </div>
+  <img src="systems/coriolis-tgd/assets/decorations/divider2.svg" />
+</header>

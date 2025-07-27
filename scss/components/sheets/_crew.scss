@@ -1,0 +1,113 @@
+&.actor.crew {
+  background: url(../assets/decorations/crew-background.png);
+
+
+  div.principal {
+    display: flex;
+    position: relative;
+    margin-top: -40px;
+    gap: 10px;
+
+    img.profile-img {
+      border: 2px solid $c-gold;
+      z-index: 2;
+      aspect-ratio: 1 / 1;
+      object-fit: contain;
+      background: $c-brown;
+      padding: 10px;
+    }
+
+    &>div {
+      align-self: center;
+
+      &:nth-of-type(1) {
+        flex: 3;
+        margin-left: -40px;
+
+        select {
+          @extend %cursive;
+          background: unset;
+          color: $c-brown;
+          font-weight: bold;
+          text-align: center;
+          padding-left: 20px;
+        }
+      }
+
+      &:nth-of-type(2) {
+        flex: 2;
+        padding: 40px 0 10px;
+      }
+    }
+  }
+
+  div.crew-members {
+    @extend .grid, .grid-5col;
+    margin-top: 20px;
+  }
+
+  %maneuver-item-style {
+    @extend .grid, .grid-7col;
+    margin: 0;
+    color: $c-brown;
+
+
+    &>*:nth-child(1),
+    &>*:nth-child(2) {
+      @extend .grid-span-2;
+    }
+
+    &>*:nth-child(3) {
+      @extend .grid-span-3;
+    }
+  }
+
+
+  .maneuver-item {
+    @extend %maneuver-item-style;
+
+
+    &>label,
+    div:not(.expandable-field) {
+      @extend %border-description, %cursive;
+      align-content: center;
+      height: 41px;
+      padding: 0 10px;
+    }
+
+    div:not(.expandable-field) {
+      padding: 0;
+      display: flex;
+      align-items: center;
+
+      label {
+        height: 35px;
+        display: flex;
+        align-items: center;
+        font-size: var(--font-size-16);
+      }
+    }
+
+    a img {
+      @extend %list-img;
+    }
+  }
+
+  .maneuver-item-title {
+    @extend %maneuver-item-style;
+
+    label {
+      &:first-child {
+        @extend %list-title-main;
+      }
+
+      &:not(:first-child) {
+        @extend %list-title;
+      }
+    }
+  }
+
+  a.noRole img {
+    filter: brightness(0.4);
+  }
+}

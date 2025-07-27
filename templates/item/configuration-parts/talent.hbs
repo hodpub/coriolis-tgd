@@ -1,0 +1,5 @@
+<section class='tab configuration scrollable {{tab.cssClass}}' data-group='primary' data-tab='configuration'>
+  {{formGroup systemFields.bonusPerLevel value=system.bonusPerLevel type="number" classes="cgd-custom"}}
+  {{formGroup systemFields.maxLevel value=system.maxLevel type="number" classes="cgd-custom"}}
+  {{formGroup systemFields.currentLevel value=system.currentLevel type="number" classes="cgd-custom" hidden=(not isEmbedded)}}
+</section>

@@ -1,0 +1,60 @@
+<header class='header'>
+  <div class="title">
+    <img src="systems/coriolis-tgd/assets/decorations/title.webp" />
+    <label class="title">{{localize "TYPES.Actor.explorer"}} {{localize "CORIOLIS_TGD.SheetLabels.Sheet"}}</label>
+  </div>
+  <div class="basic">
+    <div class="principal">
+      <img class='profile-img' src='{{actor.img}}' data-edit='img' 
+        data-tooltip='{{actor.name}}' height='194' width='194' {{ifThen system.playMode "data-action='onEditImage'" ""}} />
+      <img class="frame no-popup" src="systems/coriolis-tgd/assets/frames/img-3fields.svg" width="442" />
+
+      <label class="name">{{localize "Name"}}</label>
+      <input name='name' type='text' value='{{actor.name}}' placeholder='{{localize "Name"}}' {{disabled system.playMode}} />
+      <label class="profession">{{localize "CORIOLIS_TGD.Actor.Explorer.FIELDS.biography.profession.label"}}</label>
+      <input name='system.biography.profession' type='text' value='{{system.biography.profession}}'
+        placeholder='{{localize "CORIOLIS_TGD.Actor.Explorer.FIELDS.biography.profession.label"}}' {{disabled system.playMode}} />
+      <label class="speciality">{{localize "CORIOLIS_TGD.Actor.Explorer.FIELDS.biography.speciality.label"}}</label>
+      <input name='system.biography.speciality' type='text' value='{{system.biography.speciality}}'
+        placeholder='{{localize "CORIOLIS_TGD.Actor.Explorer.FIELDS.biography.speciality.label"}}' {{disabled system.playMode}} />
+    </div>
+    <div class="experience">
+      <label>{{localize "CORIOLIS_TGD.Actor.Explorer.FIELDS.experience.label"}}</label>
+      <input name='system.experience' type='number' min="0" value='{{system.experience}}' {{disabled system.playMode}} />
+    </div>
+    {{> "systems/coriolis-tgd/templates/actor/explorer/attributes.hbs"}}
+  </div>
+  <div class="derived">
+    <div>
+      <div class="label-with-circle-field">
+        <label>{{localize "CORIOLIS_TGD.Actor.base.FIELDS.health.value.label"}}</label>
+        <label>{{system.derivedAttributes.health.max}}</label>
+        <input name="system.derivedAttributes.health.value" type="number" min="0"
+          max="{{system.derivedAttributes.health.max}}" value="{{system.derivedAttributes.health.value}}"
+          onfocus="this.select();" {{disabled system.playMode}} />
+      </div>
+      {{dots system.derivedAttributes.health.value system.derivedAttributes.health.max imgCss="health" field="system.derivedAttributes.health.value"}}
+    </div>
+    <div>
+      <div class="label-with-circle-field">
+        <label>{{localize "CORIOLIS_TGD.Actor.base.FIELDS.hope.value.label"}}</label>
+        <label>{{system.derivedAttributes.hope.max}}</label>
+        <input name="system.derivedAttributes.hope.value" type="number" min="0"
+          max="{{system.derivedAttributes.hope.max}}" value="{{system.derivedAttributes.hope.value}}"
+          onfocus="this.select();" {{disabled system.playMode}}/>
+      </div>
+      {{dots system.derivedAttributes.hope.value system.derivedAttributes.hope.max imgCss="hope" field="system.derivedAttributes.hope.value"}}
+    </div>
+    <div>
+      <div class="label-with-circle-field">
+        <label>{{localize "CORIOLIS_TGD.Actor.base.FIELDS.heart.value.label"}}</label>
+        <label>{{system.derivedAttributes.heart.max}}</label>
+        <input name="system.derivedAttributes.heart.value" type="number" min="0"
+          max="{{system.derivedAttributes.heart.max}}" value="{{system.derivedAttributes.heart.value}}"
+          onfocus="this.select();" {{disabled system.playMode}} />
+      </div>
+      {{dots system.derivedAttributes.heart.value system.derivedAttributes.heart.max imgCss="heart" field="system.derivedAttributes.heart.value"}}
+    </div>
+  </div>
+  <img src="systems/coriolis-tgd/assets/decorations/divider2.svg" />
+</header>

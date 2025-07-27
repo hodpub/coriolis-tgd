@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14.25 14.25">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #c2ad76;
+      }
+
+      .cls-2 {
+        fill: #f0e3c6;
+      }
+
+      .cls-3 {
+        fill: #2c2611;
+      }
+    </style>
+  </defs>
+  <g id="NOVOS_3" data-name="NOVOS 3">
+    <g>
+      <circle class="cls-2" cx="7.13" cy="7.13" r="6.63"/>
+      <circle class="cls-3" cx="7.13" cy="7.13" r="3.63"/>
+      <path class="cls-1" d="M7.13,1c3.38,0,6.13,2.75,6.13,6.13s-2.75,6.13-6.13,6.13S1,10.5,1,7.13,3.75,1,7.13,1M7.13,0C3.2,0,0,3.2,0,7.13s3.2,7.13,7.13,7.13,7.13-3.2,7.13-7.13S11.05,0,7.13,0h0Z"/>
+    </g>
+  </g>
+</svg>

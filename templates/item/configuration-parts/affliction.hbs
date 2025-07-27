@@ -1,0 +1,10 @@
+<section class='tab configuration scrollable {{tab.cssClass}}' data-group='primary' data-tab='configuration'>
+    {{formGroup systemFields.afflictionType choices=config.Affliction.choices value=system.afflictionType localize=true
+    classes="cgd-custom"}}
+    {{formGroup systemFields.lethal value=(ifThen (not (eq system.afflictionType "criticalInjury")) false system.lethal)
+    localize=true disabled=(not (eq system.afflictionType "criticalInjury")) classes="cgd-custom" }}
+    {{formGroup systemFields.healTime
+    value=(ifThen system.permanent (localize "CORIOLIS_TGD.Item.Affliction.FIELDS.permanent.label") system.healTime)
+    disabled=system.permanent localize=true classes="cgd-custom"}}
+    {{formGroup systemFields.permanent value=system.permanent localize=true classes="cgd-custom"}}
+</section>

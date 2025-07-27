@@ -1,0 +1,64 @@
+.item-form {
+  font-family: $font-primary;
+}
+
+.sheet-header {
+  flex: 0 auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+
+  .profile-img {
+    flex: 0 0 100px;
+    height: 100px;
+    margin-right: 10px;
+  }
+
+  .header-fields {
+    flex: 1;
+  }
+}
+
+.sheet-tabs {
+  flex: 0;
+}
+
+
+prose-mirror {
+  height: 100%;
+
+  button.toggle {
+    display: none;
+
+    &[disabled] {
+      display: none;
+    }
+  }
+
+  &:hover {
+    button.toggle:not([disabled]) {
+      display: flex;
+    }
+  }
+}
+.editor {
+  font-family: var(--font-editor);
+  font-size: var(--font-size-20);
+}
+
+.tab {
+  flex: 1;
+}
+
+.tox {
+  .tox-editor-container {
+    background: $c-white;
+  }
+
+  .tox-edit-area {
+    padding: 0 8px;
+  }
+}

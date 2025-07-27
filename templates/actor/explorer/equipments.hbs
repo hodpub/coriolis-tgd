@@ -1,0 +1,67 @@
+<section class='tab equipments {{tab.cssClass}}' data-group='primary' data-tab='equipments'>
+  <div>
+    <div class="circles">
+      <div class="rukh">
+        <label>{{localize "CORIOLIS_TGD.Actor.Explorer.FIELDS.rukh.label"}}</label>
+        <input name='system.rukh' type='number' min="0" value='{{system.rukh}}' {{disabled system.playMode}} />
+      </div>
+      <div class="encumbrance fill-{{system.derivedAttributes.encumbrance.percentage}}">
+        <label data-tooltip="{{localize " CORIOLIS_TGD.Actor.Explorer.FIELDS.encumbrance.label"}}">{{localize
+          "CORIOLIS_TGD.Actor.Explorer.FIELDS.encumbrance.abbr"}}</label>
+        <label class='value'>{{system.derivedAttributes.encumbrance.value}}</label>
+        <label class='max'>{{system.derivedAttributes.encumbrance.max}}</label>
+      </div>
+    </div>
+    <div class="supply">
+      <label>{{localize "CORIOLIS_TGD.Item.Equipment.FIELDS.supply.label"}}</label>
+      {{dots system.supplyCount 32 group=4 divCss="supply"}}
+    </div>
+    <div class="keepsake input-with-circle-title">
+      <label>Keepsake</label>
+      {{!-- {{formInput systemFields.keepsake.fields.item value=system.keepsake.item}} --}}
+      <input type="text" name="system.keepsake.item" value="{{system.keepsake.item}}"
+        data-tooltip="{{system.keepsake.item}}" {{disabled system.playMode}} />
+    </div>
+  </div>
+  <div>
+    <div class="equipment-item-title">
+      <label>{{localize "CORIOLIS_TGD.Actor.Tabs.Equipments"}}
+        <a class='item-control item-create' data-tooltip='{{localize "DOCUMENT.Create" type=' Item'}}'
+          data-action='createDoc' data-document-class='Item' data-type='equipment' data-filter="equipment,weapon">
+          <i class='fas fa-plus'></i>
+        </a>
+      </label>
+      <label>{{localize "CORIOLIS_TGD.Item.Equipment.FIELDS.bonus.label"}}</label>
+      <label>{{localize "CORIOLIS_TGD.Item.Equipment.FIELDS.weight.label"}}</label>
+      <label>{{localize "CORIOLIS_TGD.Item.Equipment.FIELDS.quantity.abbr"}}</label>
+      <label>{{localize "CORIOLIS_TGD.Item.Tabs.Description"}}</label>
+    </div>
+    <div class="scrollable">
+      {{#each equipments as |item id|}}
+      <div class="equipment-item draggable" data-item-id='{{item._id}}' data-document-class='Item'>
+        <div>
+          <a class='rollable' data-roll-type='item' data-action='roll'>
+            <img src='{{item.img}}' data-tooltip='{{item.name}}' width='46' height='46' />
+          </a>
+          <label class="item-name" data-tooltip="{{item.name}}">{{item.name}}</label>
+        </div>
+        <label>{{item.system.bonus}}</label>
+        <label>{{localize (concat "CORIOLIS_TGD.Item.Equipment.FIELDS.weight." item.system.weight "label")}}</label>
+        <label>{{item.system.quantity}}</label>
+        <div class="expandable-field" data-action="expand">
+          {{{item.system.description}}}
+          <p>{{localize "CORIOLIS_TGD.Item.Equipment.FIELDS.tech.label"}}: {{system.techDescription}}</p>
+          {{#if item.system.consumable}}
+          <p><strong>{{localize "CORIOLIS_TGD.Item.Equipment.FIELDS.consumable.label"}}</strong></p>
+          {{/if}}
+          {{#if item.system.supplyConsumed}}
+          <p><strong>{{localize "CORIOLIS_TGD.Item.Equipment.FIELDS.supplyConsumed.description"
+              supplyConsumed=system.supplyConsumed}}</strong>
+          </p>
+          {{/if}}
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</section>

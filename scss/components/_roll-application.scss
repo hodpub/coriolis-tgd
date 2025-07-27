@@ -1,0 +1,143 @@
+%center-label {
+  text-align: center;
+  font-size: var(--font-size-16);
+  text-transform: uppercase;
+  color: $c-gold;
+  font-weight: bold;
+}
+
+&.roll-application {
+
+  label.rollable:hover {
+    text-shadow: 0 0 10px $c-gold;
+    color: $c-gold;
+  }
+
+  div.dices {
+    color: $c-gold;
+
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+
+    div {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: var(--font-size-32);
+
+      img {
+        border: 1px solid $c-gold;
+      }
+    }
+  }
+
+  div.selectAttribute {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin: 10px 0;
+
+    &>label {
+      @extend %center-label;
+      flex-grow: 2;
+      width: 100%;
+    }
+
+    button {
+      @extend %button;
+      flex-grow: 1;
+      width: 33%;
+      // color: $c-gold;
+      // border-color: $c-gold;
+    }
+  }
+
+  div.infos {
+
+    div {
+      margin-bottom: 5px;
+    }
+
+    div:not([class]) {
+      @extend .label-with-circle-field;
+
+      label:nth-child(1) label {
+        font-size: var(--font-size-8);
+      }
+    }
+
+    div.add {
+      @extend %center-label;
+      margin-bottom: 10px;
+
+      label {
+        @extend .rollable;
+      }
+    }
+  }
+
+  .form-footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+
+    button {
+      @extend %button;
+      flex-grow: 1;
+      flex-basis: 45%;
+    }
+  }
+
+  .window-content>div>img,
+  div.infos>img,
+  div.bonuses>img {
+    margin: 10px 0;
+  }
+
+  div.bonuses {
+    max-height: 310px;
+
+    label.title {
+      @extend %center-label;
+      width: 100%;
+      display: inline-block;
+    }
+
+    div:not([class]) {
+      @extend .label-with-circle-field;
+
+      label:nth-child(1) label {
+        font-size: var(--font-size-8);
+      }
+
+      input[type=checkbox] {
+
+        &::before {
+          content: "";
+          background-image: url(../assets/frames/checkbox-empty.webp);
+          width: 30px;
+          height: 30px;
+          display: block;
+          margin-top: -10px;
+        }
+
+        &:checked::before {
+          background-image: url(../assets/frames/checkbox-checked.webp);
+          width: 30px;
+          height: 30px;
+          display: block;
+
+          margin-top: -20px;
+          margin-left: -5px;
+        }
+
+        &::after {
+          content: unset;
+        }
+      }
+    }
+  }
+}

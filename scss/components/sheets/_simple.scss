@@ -1,0 +1,156 @@
+%simple-box {
+  margin-bottom: 10px;
+
+  &>label:first-child {
+    @extend .grid-span-3, %title-main;
+    text-align: center;
+    font-size: var(--font-size-18);
+    margin-bottom: 5px;
+    width: 100%;
+    display: inline-block;
+  }
+}
+
+&.actor.simple {
+  background: url(../assets/decorations/npc-background.png);
+  background-position: 27%;
+
+  div.simple-sheet {
+    // display: flex;
+    // flex-direction: column;
+    height: 100%;
+
+    .rollable {
+
+      &:hover,
+      &:focus {
+        text-shadow: 0 0 10px $c-cream;
+        color: $c-gold;
+      }
+    }
+
+    .sheet-header {
+      flex-direction: column;
+      flex: 1 1 auto;
+
+      img.profile-img {
+        width: 40%;
+        height: 40%;
+        margin: 0 auto 10px;
+        border: 2px solid $c-gold;
+        aspect-ratio: 1 / 1;
+        object-fit: contain;
+        background: $c-brown;
+        padding: 10px;
+      }
+    }
+
+    &>img {
+      margin-bottom: 10px;
+    }
+
+    div.scrollable {
+      // background-color: red;
+      height: 66%;
+
+      div.simple-attributes {
+        @extend .grid, .grid-3col, %simple-box;
+
+        div.form-group.cgd-custom {
+          margin-bottom: 0;
+
+          label {
+            width: 100%;
+            display: inline-block;
+            text-align: center;
+            margin-left: 0;
+          }
+
+          input {
+            text-align: center;
+          }
+        }
+      }
+
+      div.simple-derived {
+        @extend .grid;
+        gap: 5px;
+      }
+
+      div.simple-health {
+        @extend %simple-box;
+      }
+
+
+      div.simple-biography {
+        @extend %simple-box;
+
+        &>div {
+          @extend %border-description;
+          color: $c-brown;
+          padding: 10px;
+        }
+      }
+
+      div.simple-talents {
+        @extend %simple-box;
+
+        .talent-item {
+          &>div:nth-child(1) {
+            @extend .grid-span-12;
+          }
+
+          &>div:nth-child(2) {
+            @extend .grid-span-12;
+          }
+        }
+      }
+
+      div.simple-equipments {
+        @extend %simple-box;
+
+        .equipment-item,
+        .equipment-item-title {
+          &>*:nth-child(1) {
+            @extend .grid-span-7;
+          }
+
+          &>*:nth-child(2),
+          &>*:nth-child(4) {
+            text-align: center;
+          }
+
+          &>*:nth-child(3) {
+            @extend .grid-span-2;
+            text-align: center;
+          }
+
+          &>*:nth-child(5) {
+            @extend .grid-span-11;
+          }
+        }
+      }
+
+      div.simple-weapons {
+        @extend %simple-box;
+
+        div.weapon-item,
+        div.weapon-item-title {
+          &>*:nth-child(1) {
+            @extend .grid-span-8;
+          }
+
+          &>*:nth-child(n+2):nth-child(-n+3),
+          &>*:nth-child(n+5):nth-child(-n+6) {
+            @extend .grid-span-2;
+          }
+
+          &>*:nth-child(4) {
+            @extend .grid-span-8;
+          }
+        }
+      }
+    }
+  }
+
+}

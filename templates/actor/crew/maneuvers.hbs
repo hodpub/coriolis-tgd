@@ -1,0 +1,26 @@
+<section class='tab powers scrollable {{tab.cssClass}}' data-group='primary' data-tab='powers'>
+  <div class="maneuver-item-title">
+    <label>{{localize "CORIOLIS_TGD.Actor.Tabs.Maneuvers"}}
+      <a class='item-control item-create' data-tooltip='{{localize "DOCUMENT.Create" type=' Item'}}'
+        data-action='createDoc' data-document-class='Item' data-type='crewManeuver' data-filter="crewManeuver">
+        <i class='fas fa-plus'></i>
+      </a>
+    </label>
+    <label>{{localize "CORIOLIS_TGD.Item.CrewManeuver.FIELDS.role.label"}}</label>
+    <label>{{localize "CORIOLIS_TGD.Item.Tabs.Description"}}</label>
+  </div>
+  {{#each maneuvers as |item id|}}
+  <div class="maneuver-item" data-item-id='{{item._id}}' data-document-class='Item'>
+    <div>
+      <a {{#if (get @root (concat "is" item.system.role))}} class='rollable' data-roll-type='item' data-action='roll'{{else}} class="noRole disabled" {{/if}}>
+        <img src='{{item.img}}' data-tooltip='{{item.name}}' width='46' height='46' />
+      </a>
+      <label>{{item.name}}</label>
+    </div>
+    <label> {{localize (concat "CORIOLIS_TGD.Actor.Crew.FIELDS.roles." item.system.role ".label") }}</label>
+    <div class="expandable-field" data-action="expand">
+      {{{item.system.description}}}
+    </div>
+  </div>
+  {{/each}}
+</section>

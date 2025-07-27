@@ -1,0 +1,26 @@
+<section class='tab powers scrollable {{tab.cssClass}}' data-group='primary' data-tab='powers'>
+  <div class="bird-power-item-title">
+    <label>{{localize "CORIOLIS_TGD.Actor.Tabs.Powers"}}
+      <a class='item-control item-create' data-tooltip='{{localize "DOCUMENT.Create" type=' Item'}}'
+        data-action='createDoc' data-document-class='Item' data-type='birdPower' data-filter="birdPower">
+        <i class='fas fa-plus'></i>
+      </a>
+    </label>
+    <label>{{localize "CORIOLIS_TGD.Item.Tabs.Description"}}</label>
+    <label>{{localize "CORIOLIS_TGD.Item.BirdPower.FIELDS.range.label"}}</label>
+  </div>
+  {{#each powers as |item id|}}
+  <div class="bird-power-item" data-item-id='{{item._id}}' data-document-class='Item'>
+    <div>
+      <a class='rollable' data-roll-type='item' data-action='roll'>
+        <img src='{{item.img}}' data-tooltip='{{item.name}}' width='46' height='46' />
+      </a>
+      <label>{{item.name}}</label>
+    </div>
+    <div class="expandable-field" data-action="expand">
+      {{{item.system.description}}}
+    </div>
+    <label>{{localize (concat "CORIOLIS_TGD.Item.Weapon.FIELDS.range." item.system.range ".label")}}</label>
+  </div>
+  {{/each}}
+</section>

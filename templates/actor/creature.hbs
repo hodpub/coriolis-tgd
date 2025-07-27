@@ -1,0 +1,162 @@
+<div class="simple-sheet">
+  <header class='sheet-header'>
+    <img class='profile-img' src='{{actor.img}}' data-edit='img' data-action='onEditImage'
+      data-tooltip='{{item.name}}' />
+    <div class='header-fields'>
+      <div class='input-with-circle-title'>
+        <label>{{localize "Name"}}</label>
+        <input name='name' type='text' value='{{actor.name}}' placeholder='Name' />
+      </div>
+    </div>
+  </header>
+  <img src="systems/coriolis-tgd/assets/decorations/divider4.svg" />
+  <div class="scrollable">
+    <div class="simple-attributes">
+      <label>{{localize "CORIOLIS_TGD.Actor.base.FIELDS.attributes.label"}}</label>
+      {{formGroup systemFields.ferocity value=system.ferocity disabled=system.playMode type="number"
+      classes="cgd-custom"}}
+      {{formGroup systemFields.derivedAttributes.fields.health.fields.max value=system.derivedAttributes.health.max
+      disabled=system.playMode type="number" classes="cgd-custom"}}
+      <div class="form-group cgd-custom">
+        <label class="rollable" data-action="armor">{{localize
+          "CORIOLIS_TGD.Actor.Creature.FIELDS.armor.label"}}</label>
+        {{formInput systemFields.armor value=system.armor disabled=system.playMode type="number"
+        classes="cgd-custom" }}
+      </div>
+      {{formGroup systemFields.containmentProtocolBonus value=system.containmentProtocolBonus disabled=system.playMode
+      type="number"
+      classes="cgd-custom"}}
+      {{formGroup systemFields.size value=system.size disabled=system.playMode choices=config.Creature.sizeChoices
+      localize=true
+      classes="cgd-custom"}}
+    </div>
+    <div class="simple-attributes">
+      {{#each config.Attributes.list as | attribute |}}
+      {{#if (get ../system.showAttribute attribute)}}
+      <div class="form-group cgd-custom">
+        <label class="{{attribute}} rollable attribute-label" data-action="roll" data-roll-type="attribute"
+          data-value="{{attribute}}">{{localize (concat "CORIOLIS_TGD.Actor.base.FIELDS.attributes." attribute
+          ".label")}}</label>
+        <div class="form-field">
+          <input class="attribute-field" name="system.attributes.{{attribute}}" type="number" min="0" max="6"
+            data-value="{{attribute}}" value="{{get ../system.attributes attribute}}" onfocus="this.select();" {{disabled ../system.playMode}} />
+        </div>
+      </div>
+      {{/if}}
+      {{/each}}
+    </div>
+
+    <div class="simple-health">
+      <div class="label-with-circle-field">
+        <label>{{localize "CORIOLIS_TGD.Actor.base.FIELDS.health.value.label"}}</label>
+        <label>{{system.derivedAttributes.health.max}}</label>
+        <input name="system.derivedAttributes.health.value" type="number" min="0"
+          max="{{system.derivedAttributes.health.max}}" value="{{system.derivedAttributes.health.value}}"
+          onfocus="this.select();" {{disabled system.playMode}} />
+      </div>
+      {{dots system.derivedAttributes.health.value system.derivedAttributes.health.max
+      field="system.derivedAttributes.health.value" imgCss="health"}}
+    </div>
+    <div class="simple-biography">
+      <label>{{localize "CORIOLIS_TGD.Item.Tabs.Description"}}</label>
+      <div>
+        {{#if editable}}
+        <prose-mirror name="system.biography" data-document-uuid="{{actor.uuid}}" value="{{system.biography}}"
+          collaborate="true" toggled="true">
+          {{{enrichedBiography}}}
+        </prose-mirror>
+        {{else}} {{{enrichedBiography}}}
+        {{/if}}
+      </div>
+    </div>
+    <div class="simple-biography">
+      <label>{{localize "CORIOLIS_TGD.Actor.Creature.FIELDS.containmentProtocol.label"}}</label>
+      <div>
+        {{#if editable}}
+        <prose-mirror name="system.containmentProtocol" data-document-uuid="{{actor.uuid}}"
+          value="{{system.containmentProtocol}}" collaborate="true" toggled="true">
+          {{{enrichedcontainmentProtocol}}}
+        </prose-mirror>
+        {{else}} {{{enrichedBiography}}}
+        {{/if}}
+      </div>
+    </div>
+    <div class="creature-abilities">
+      <label>
+         {{#if (not system.playMode)}}
+        <a class="rollable"
+          data-tooltip='{{localize "DOCUMENT.Create" type=(localize "CORIOLIS_TGD.Actor.Creature.FIELDS.abilities.label")}}'
+          data-action='createDoc' data-document-class='Item' data-type='creatureAbility' data-filter="creatureAbility">
+          <i class='fas fa-plus'></i>
+        </a>
+        {{/if}}
+        {{localize "CORIOLIS_TGD.Actor.Creature.FIELDS.abilities.label"}}
+      </label>
+      {{#each abilities as |item id|}}
+      <div data-item-id='{{item._id}}' data-document-class='Item'>
+        <a class='rollable' data-roll-type='item' data-action='roll'>
+          <label>{{item.name}}</label>
+        </a>
+        {{{item.system.description}}}
+      </div>
+      {{/each}}
+    </div>
+    <div class="creature-behavior">
+      <label>
+        {{localize "CORIOLIS_TGD.Actor.Creature.FIELDS.behavior.label"}}
+        <a class="rollable" data-tooltip='{{localize "CORIOLIS_TGD.Item.CreatureAttack.FIELDS.actions.behavior"}}'
+          data-action='behavior'>
+          <i class='fas fa-dice'></i>
+        </a>
+      </label>
+      {{#if system.playMode}}
+      {{#each system.behaviourList as |item|}}
+      <div class="info">
+        <div>
+          <label>{{item.min}}</label>
+          {{#if (not (eq item.min item.max))}}
+          <label>-</label>
+          <label>{{item.max}}</label>
+          {{/if}}
+        </div>
+        <label>{{item.text}}</label>
+      </div>
+      {{/each}}
+      {{else}}
+      {{#each system.behaviourPattern as |item|}}
+      <div class="edit">
+        <label>{{inc @index}}</label>
+        <input type="text" name="system.behaviourPattern" value="{{item}}" />
+      </div>
+      {{/each}}
+      {{/if}}
+    </div>
+    <div class="creature-attacks">
+      <label>
+        {{#if (and (lt nextAttackNumber 7) (not system.playMode))}}
+        <a class="rollable"
+          data-tooltip='{{localize "DOCUMENT.Create" type=(localize "CORIOLIS_TGD.Actor.Creature.FIELDS.attacks.label")}}'
+          data-action='createDoc' data-document-class='Item' data-type='creatureAttack' data-filter="creatureAttack"
+          data-system.attack-number="{{nextAttackNumber}}">
+          <i class='fas fa-plus'></i>
+        </a>
+        {{/if}}
+        {{localize "CORIOLIS_TGD.Actor.Creature.FIELDS.attacks.label"}}
+        <a class="rollable" data-tooltip='{{localize "CORIOLIS_TGD.Item.CreatureAttack.FIELDS.actions.attack"}}'
+          data-action='attack'>
+          <i class='fas fa-dice'></i>
+        </a>
+      </label>
+      {{#each attacks as |item id|}}
+      <div data-item-id='{{item._id}}' data-document-class='Item'>
+        <a class='rollable' data-roll-type='item' data-action='roll'>
+          <label>{{item.system.attackNumber}}</label>
+          <label>{{item.name}}</label>
+          <label>{{item.system.info}}</label>
+        </a>
+        {{{item.system.description}}}
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</div>

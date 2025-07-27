@@ -1,0 +1,20 @@
+%button {
+  background: $c-gold;
+  color: $c-brown;
+  width: 100%;
+  font-weight: bold;
+  text-transform: uppercase;
+
+  &[disabled] {
+    filter: sepia(0.5) contrast(0.75) opacity(0.4);
+  }
+
+  &:not([disabled]):hover {
+    background: $c-brown;
+    color: $c-gold;
+  }
+}
+
+.sheet.journal-entry.application .journal-sidebar .toc .level2 .h2 .heading-link {
+  text-indent: calc(2.5*var(--level-indent));
+}

@@ -1,0 +1,55 @@
+<section class='tab powers scrollable {{tab.cssClass}}' data-group='primary' data-tab='upgrades'>
+  {{> "systems/coriolis-tgd/templates/actor/meter.hbs" label="CORIOLIS_TGD.Actor.Vehicle.FIELDS.slots.capacity" current=system.slotsUsed max=system.slots}}
+  <div class="upgrade-item-title">
+    <label>{{localize "CORIOLIS_TGD.Actor.Tabs.Upgrades"}} </label>
+    <label>{{localize "CORIOLIS_TGD.Item.VehicleUpgrade.FIELDS.bonus.label"}}</label>
+    <label>{{localize "CORIOLIS_TGD.Item.VehicleUpgrade.FIELDS.slot.label"}}</label>
+    <label>{{localize "CORIOLIS_TGD.Item.Tabs.Description"}}</label>
+  </div>
+  {{#each upgradesInstalled as |item id|}}
+  <div class="upgrade-item" data-item-id='{{item._id}}' data-document-class='Item'>
+    <div>
+      <a class='rollable' data-roll-type='item' data-action='roll'>
+        <img src='{{item.img}}' data-tooltip='{{item.name}}' width='46' height='46' />
+      </a>
+      <label>{{item.name}}</label>
+    </div>
+    <label>{{item.system.bonus}}</label>
+    <label>{{item.system.slotInfo}}</label>
+    <div class="expandable-field" data-action="expand">
+      {{{item.system.description}}}
+    </div>
+  </div>
+  {{/each}}
+  <div class="upgrade-item-title">
+    <label>{{localize "CORIOLIS_TGD.Item.VehicleUpgrade.FIELDS.upgradesNotInstalled"}}
+      <a class='item-control item-create' data-tooltip='{{localize "DOCUMENT.Create" type=' Item'}}'
+        data-action='createDoc' data-document-class='Item' data-type='roverUpgrade' data-filter="roverUpgrade"
+        data-system.installed="false">
+        <i class='fas fa-plus'></i>
+      </a>
+    </label>
+    <label>{{localize "CORIOLIS_TGD.Item.VehicleUpgrade.FIELDS.bonus.label"}}</label>
+    <label>{{localize "CORIOLIS_TGD.Item.VehicleUpgrade.FIELDS.slot.label"}}</label>
+    <label>{{localize "CORIOLIS_TGD.Item.Tabs.Description"}}</label>
+  </div>
+  {{#each upgrades as |item id|}}
+  <div class="upgrade-item" data-item-id='{{item._id}}' data-document-class='Item'>
+    <div>
+      <a>
+        <img src='{{item.img}}' data-tooltip='{{item.name}}' width='46' height='46' />
+      </a>
+      <label>{{item.name}}</label>
+    </div>
+    <label>{{item.system.bonus}}</label>
+    <label>{{item.system.slotInfo}}</label>
+    <div class="expandable-field" data-action="expand">
+      {{{item.system.description}}}
+    </div>
+  </div>
+  {{/each}}
+
+  {{#unless upgrades}}
+  <div>No items found.</div>
+  {{/unless}}
+</section>

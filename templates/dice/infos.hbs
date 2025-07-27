@@ -1,0 +1,54 @@
+<div class="dice-infos">
+  {{#if roll.successCount}}
+  {{#if (gt roll.attackDamage 0)}}
+  <div class="roll-damage">
+    <span class="label">{{localize "YZUR.CHAT.ROLL.ATTACK.DAMAGE"}}: </span>
+    <span class="result">{{roll.attackDamage}}</span>
+  </div>
+  {{#if (gte roll.attackDamage roll.options.critical)}}
+  <div class="roll-critical">
+    <span class="label">{{localize "YZUR.CHAT.ROLL.ATTACK.CRITICAL"}}: </span>
+    <span class="result">{{roll.options.critical}}</span>
+  </div>
+  {{/if}}
+  {{/if}}
+
+  {{#if roll.options.despair}}
+  <div class="roll-despair">
+    <span class="label">{{localize "YZUR.CHAT.ROLL.ATTACK.DESPAIR"}}: </span>
+    <span class="result">{{roll.options.despair}}</span>
+  </div>
+  {{/if}}
+
+  {{#if roll.options.blight}}
+  <div class="roll-blight">
+    <span class="label">{{localize "YZUR.CHAT.ROLL.ATTACK.BLIGHT"}}: </span>
+    <span class="result">{{roll.options.blight}}</span>
+  </div>
+  {{/if}}
+  {{/if}}
+
+  {{#if roll.pushed}}
+  {{#if roll.attributeTrauma}}
+  <div class="dice-info roll-trauma">
+    <span class="label">{{localize "YZUR.CHAT.ROLL.Trauma"}}: </span>
+    <span class="result">{{roll.attributeTrauma}}</span>
+  </div>
+  {{/if}}
+  {{#if roll.gearDamage}}
+  <div class="dice-info roll-gear-damage">
+    <span class="label">{{localize "YZUR.CHAT.ROLL.GearDamage"}}: </span>
+    <span class="result">{{roll.gearDamage}}</span>
+  </div>
+  {{/if}}
+  {{/if}}
+
+
+  {{#if roll.options.energyUsed}}
+  <div class="roll-energy">
+    <span class="label">{{localize "YZUR.CHAT.ROLL.EnergyUsed"}}: </span>
+    <span class="result">{{roll.options.energyUsed}}</span>
+  </div>
+  {{/if}}
+
+</div>

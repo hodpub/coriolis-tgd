@@ -1,0 +1,114 @@
+%weapon-item-style {
+  @extend .grid, .grid-12col;
+  margin: 0;
+  color: $c-brown;
+
+  &>*:nth-child(1) {
+    @extend .grid-span-3;
+  }
+
+  &>*:nth-child(6) {
+    @extend .grid-span-5;
+  }
+}
+
+.weapon-item {
+  @extend %weapon-item-style;
+
+  &>label,
+  div:not(.expandable-field):not([class]) {
+    @extend %border-description, %cursive;
+    align-content: center;
+    height: 41px;
+    padding: 0 10px;
+  }
+
+  div:not(.expandable-field):not([class]) {
+    padding: 0;
+    display: flex;
+    align-items: center;
+
+    label {
+      height: 35px;
+      display: flex;
+      align-items: center;
+      font-size: var(--font-size-16);
+    }
+  }
+
+  a img {
+    @extend %list-img;
+  }
+}
+
+.weapon-item-title {
+  @extend %weapon-item-style;
+
+  label {
+    &:first-child {
+      @extend %list-title-main;
+    }
+
+    &:not(:first-child) {
+      @extend %list-title;
+    }
+  }
+}
+
+// ARMOR
+
+%armor-item-style {
+  @extend .grid, .grid-12col;
+  margin: 0;
+  color: $c-brown;
+
+  &>*:nth-child(1) {
+    @extend .grid-span-5;
+  }
+  &>*:nth-child(4) {
+    @extend .grid-span-5;
+  }
+}
+
+.armor-item {
+  @extend %armor-item-style;
+
+  &>label,
+  div:not(.expandable-field):not([class]) {
+    @extend %border-description, %cursive;
+    align-content: center;
+    height: 41px;
+    padding: 0 10px;
+  }
+
+  div:not(.expandable-field):not([class]) {
+    padding: 0;
+    display: flex;
+    align-items: center;
+
+    label {
+      height: 35px;
+      display: flex;
+      align-items: center;
+      font-size: var(--font-size-16);
+    }
+  }
+
+  a img {
+    @extend %list-img;
+  }
+}
+
+.armor-item-title {
+  @extend %armor-item-style;
+
+  label {
+    &:first-child {
+      @extend %list-title-main;
+    }
+
+    &:not(:first-child) {
+      @extend %list-title;
+    }
+  }
+}

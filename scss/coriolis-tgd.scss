@@ -1,0 +1,32 @@
+// Add custom fonts by visiting and search https://fonts.google.com
+@import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Caveat:wght@400..700&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+// Import utilities.
+@import 'utils/typography';
+@import 'utils/colors';
+@import 'utils/mixins';
+@import 'utils/variables';
+
+/* Global styles */
+@import 'global/global-styles';
+@import 'global/window';
+@import 'global/chat';
+@import 'global/grid';
+@import 'global/flex';
+
+/* Styles limited to cgd sheets */
+.cgd {
+  @import 'components/forms';
+  @import 'components/resource';
+  @import 'components/items';
+  @import 'components/effects';
+  @import 'components/sheets/frames';
+  @import 'components/sheets/explorer';
+  @import 'components/sheets/automations';
+  @import 'components/sheets/simple';
+  @import 'components/sheets/creature';
+  @import 'components/sheets/bird';
+  @import 'components/sheets/crew';
+  @import 'components/sheets/vehicle';
+  @import 'components/roll-application';
+}

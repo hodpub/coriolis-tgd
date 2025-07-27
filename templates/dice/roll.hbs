@@ -1,0 +1,47 @@
+<div class="dice-roll flexcol" data-action="expandRoll">
+
+  {{#if roll.options.description}}
+  <div class="description">{{{roll.options.description}}}</div>
+  {{/if}}
+
+  {{#if flavor}}
+  <div class="dice-flavor">{{flavor}}</div>
+  {{/if}}
+  <div class="dice-result">
+    <div class="dice-formula">{{formula}}</div>
+    {{{tooltip}}}
+    
+    {{#if roll.isSimpleRoll}}
+    {{log roll}}
+    <h4 class="dice-total">{{total}}</h4>
+    {{/if}}
+    {{#unless roll.isSimpleRoll}}
+    {{#if (gt success 0)}}
+    <h4 class="dice-total success">{{localize "CORIOLIS_TGD.Chat.Success"}} : {{success}}</h4>
+    {{/if}}
+    {{#if (eq success 0)}}
+    <h4 class="dice-total failure"> {{localize "CORIOLIS_TGD.Chat.Success"}} : {{success}}</h4>
+    {{/if}}
+    {{/unless}}
+  </div>
+</div>
+{{!-- Push button --}}
+{{#if pushable}}
+<div class="dice-buttons" data-owner-id="{{roll.owner}}">
+  <button class="dice-button push" data-action="pushRoll">{{localize "YZUR.CHAT.ROLL.Push"}}</button>
+  <button class="dice-button accept" data-action="acceptRoll">{{localize "YZUR.CHAT.ROLL.Accept"}}</button>
+</div>
+{{/if}}
+{{!-- Extra info added for Year Zero rolls --}}
+{{#if showInfos}}
+{{{infos}}}
+{{/if}}
+
+{{!-- Apply Target damage button --}}
+{{#if (and (not pushable) roll.successCount (or (gt roll.attackDamage 0) roll.options.despair
+roll.options.blight))}}
+<div class="dice-buttons apply-damage">
+  <button class="dice-button applyTargetDamage" data-action="applyTargetDamage">{{localize
+    "YZUR.CHAT.ROLL.ATTACK.ApplyDamage"}}</button>
+</div>
+{{/if}}

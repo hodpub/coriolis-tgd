@@ -1,0 +1,13 @@
+export { default as BaseAutomation } from "./base-automation.mjs";
+export { default as RollAttributeAutomation } from "./roll-attribute-automation.mjs";
+export { default as RollAttackAutomation } from "./roll-attack-automation.mjs";
+export { default as ReloadWeaponAutomation } from "./reload-weapon-automation.mjs";
+export { default as RunMacroAutomation } from "./run-macro-automation.mjs";
+export { default as RunSequenceAutomation } from "./run-sequence-automation.mjs";
+export { default as ConsumeItemAutomation } from "./consume-item-automation.mjs";
+export { default as ConsumeSupplyAutomation } from "./consume-supply-automation.mjs";
+export { default as RollArmorBlightAutomation } from "./roll-armor-blight-automation.mjs";
+export { default as RollArmorDamageAutomation } from "./roll-armor-damage-automation.mjs";
+export { default as RollCreatureAttackAutomation } from "./roll-creature-attack.mjs";
+export { default as RollBirdPowerAutomation } from "./roll-bird-power-automation.mjs";
+export { default as RollUpgradeAutomation } from "./roll-upgrade-automation.mjs";
