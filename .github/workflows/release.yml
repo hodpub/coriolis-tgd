@@ -40,7 +40,7 @@ jobs:
     #     node scripts/convertJSONtoLDB.mjs
 
     # Create a zip file with all files required by the system to add to the release
-    - run: zip -r ${{ env.package_type }}.zip LICENSE.txt README.md system.json assets/ css/ lang/ packs/ system/ templates/
+    - run: zip -r ${{ env.package_type }}.zip LICENSE.txt README.md system.json assets/ css/ lang/ packs/ module/ templates/
 
     # Create a release for this specific version
     - name: Update Release with Files
