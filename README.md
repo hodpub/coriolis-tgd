@@ -3,7 +3,7 @@
 ![Foundry v13](https://img.shields.io/badge/foundry-v13-green)
 
 The OFFICIAL system for playing Coriolis: The Great Dark on Foundry VTT.
-This system provides character sheets and items for your play, if you would like to have tables and other pre-made official content check out the offical core ruleset Module - https://freeleaguepublishing.com/shop/vaesen-2/foundry-vtt-module-vaesen-rpg
+This system provides character sheets and items for your play, if you would like to have tables and other pre-made official content check out the offical core ruleset Module - https://freeleaguepublishing.com/shop/coriolis/
 
 
 
