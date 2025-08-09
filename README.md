@@ -11,9 +11,9 @@ This system provides character sheets and items for your play, if you would like
 <br>
 <!--
 <p align="center">
-  <img alt="Version" src="https://img.shields.io/badge/dynamic/json?color=blue&label=version&query=version&url=https%3A%2F%2Fraw.githubusercontent.com%2Fhodpub%2Fcoriolis-tgd-vtt%2Fmain%2Fstatic%2Fsystem.json"/>
+  <img alt="Version" src="https://img.shields.io/badge/dynamic/json?color=blue&label=version&query=version&url=https%3A%2F%2Fraw.githubusercontent.com%2Fhodpub%2Fcoriolis-tgd%2Fmain%2Fstatic%2Fsystem.json"/>
   <a href="https://foundryvtt.com" target="_blank">
-    <img alt="Foundry Version" src="https://img.shields.io/badge/dynamic/json?color=blue&label=Foundry&query=compatibility.minimum&url=https%3A%2F%2Fraw.githubusercontent.com%2Fhodpub%2Fcoriolis-tgd-vtt%2Fmain%2Fstatic%2Fsystem.json"/>
+    <img alt="Foundry Version" src="https://img.shields.io/badge/dynamic/json?color=blue&label=Foundry&query=compatibility.minimum&url=https%3A%2F%2Fraw.githubusercontent.com%2Fhodpub%2Fcoriolis-tgd%2Fmain%2Fstatic%2Fsystem.json"/>
   </a>
   <a href="https://foundryvtt.com/packages/blade-runner/" target="_blank">
     <img alt="Forge Installs" src="https://img.shields.io/badge/dynamic/json?label=Forge%20Installs&query=package.installs&suffix=%25&url=https%3A%2F%2Fforge-vtt.com%2Fapi%2Fbazaar%2Fpackage%2Fblade-runner&colorB=4aa94a"/>
@@ -61,7 +61,7 @@ The core system features no content. It only provides support for various mechan
 > **Note**: The game system is compatible with Foundry **V13**.
 
 1. Go to the setup page in Foundry and choose `Game Systems`
-2. Click the `Install System` and search for "Coriolis: The Great Dark", or paste in this [manifest link](https://github.com/hodpub/coriolis-tgd-vtt/releases/latest/download/system.json)
+2. Click the `Install System` and search for "Coriolis: The Great Dark", or paste in this [manifest link](https://github.com/hodpub/coriolis-tgd/releases/latest/download/system.json)
 3. Create a `Game World` using the Coriolis: The Great Dark system and start it
 4. Read the _Game System's Manual_ Journal Entry in the system's compedium
 5. _Enjoy!_
@@ -90,7 +90,7 @@ List of modules confirmed to be stable with the Coriolis: The Great Dark game sy
 
 <!-- # 🛠️ Contributing
 
-If you want to contribute to the project, download and build it for something else, or if you simply have an issue, please read [our contributing guide](https://github.com/hodpub/coriolis-tgd-vtt/blob/main/CONTRIBUTING.md) to learn more about how we accept contributions and how to set up the development version of the project. -->
+If you want to contribute to the project, download and build it for something else, or if you simply have an issue, please read [our contributing guide](https://github.com/hodpub/coriolis-tgd/blob/main/CONTRIBUTING.md) to learn more about how we accept contributions and how to set up the development version of the project. -->
 
 <!-- ## Translations
 
@@ -128,7 +128,7 @@ See the [changelog](https://github.com/hodpub/coriolis-tgd/blob/master/CHANGELOG
 - **Content & Logo:** [Blade Runner - The Roleplaying Game](https://freeleaguepublishing.com/en/games/blade-runner/) is © 2022 Alcon Entertainment, LLC. All rights reserved. The parts of this project protected under this copyright may not be distributed commercially or freely. This includes art, logo, and copyright text.
 
 -->
-- **Source Code:** All source code _(javascript, hbs, scss, as well as system templates and the like)_ are Copyright © 2025 [Hod Publishing](https://hodpub.com), and licenced under the [GNU General Public License v3.0](https://github.com/hodpub/coriolis-tgd-vtt/blob/master/LICENSE).
+- **Source Code:** All source code _(javascript, hbs, scss, as well as system templates and the like)_ are Copyright © 2025 [Hod Publishing](https://hodpub.com), and licenced under the [GNU General Public License v3.0](https://github.com/hodpub/coriolis-tgd/blob/master/LICENSE).
 - **Foundry VTT:** The project is created following the Foundry VTT [Limited License Agreement for module development](https://foundryvtt.com/article/license/).
 - **Icons:** Icons in the `.static/assets/icons/` folder are courtesy of [Game-icons.net](https://game-icons.net/) and licenced under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/).
 - **Fonts:** The fonts used in this project carry their own licences.
