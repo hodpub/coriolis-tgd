@@ -120,7 +120,7 @@ If you want to contribute to the project, download and build it for something el
 
 # 📜 List of Changes
 
-See the [changelog](https://github.com/hodpub/coriolis-tgd-fvtt/blob/master/CHANGELOG.md#changelog) for a complete list of changes applied to the system.
+See the [changelog](https://github.com/hodpub/coriolis-tgd/blob/master/CHANGELOG.md#changelog) for a complete list of changes applied to the system.
 
 # 📝 Licenses
 
