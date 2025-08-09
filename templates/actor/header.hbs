@@ -6,7 +6,7 @@
   <div class="basic">
     <div class="principal">
       <img class='profile-img' src='{{actor.img}}' data-edit='img' 
-        data-tooltip='{{actor.name}}' height='194' width='194' {{ifThen system.playMode "data-action='onEditImage'" ""}} />
+        data-tooltip='{{actor.name}}' height='194' width='194' {{#if system.playMode}} data-action='onEditImage'{{/if}} />
       <img class="frame no-popup" src="systems/coriolis-tgd/assets/frames/img-3fields.svg" width="442" />
 
       <label class="name">{{localize "Name"}}</label>
