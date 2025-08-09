@@ -5,7 +5,7 @@
   </div>
   <div class="principal">
     <img class='profile-img' src='{{actor.img}}' data-edit='img' data-tooltip='{{actor.name}}' height='194' width='194'
-      {{#if system.playMode}} data-action='onEditImage'{{/if}} />
+      {{#if (not system.playMode)}} data-action='onEditImage'{{/if}} />
     <div>
       <div class="name input-with-circle-title-small">
         <label>{{localize "Name"}}</label>

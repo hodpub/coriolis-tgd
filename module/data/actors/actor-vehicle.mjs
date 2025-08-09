@@ -153,7 +153,7 @@ export default class cgdVehicle extends cgdActorBase {
   }
 
   async _preCreate(data, options, user) {
-    if (!data.items.length) {
+    if (!data.items?.length) {
       const supplyAutomation = new ConsumeSupplyAutomation();
       const supply = {
         name: game.i18n.localize("CORIOLIS_TGD.Item.Equipment.FIELDS.supply.label"),
