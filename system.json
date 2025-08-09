@@ -121,10 +121,10 @@
       ]
     }
   },
-  "url": "Replace this with a link to your public repository",
+  "url": "https://github.com/hodpub/coriolis-tgd",
   "license": "LICENSE.txt",
   "readme": "README.md",
-  "bugs": "Replace this with a link to file issues or tickets",
+  "bugs": "https://github.com/hodpub/coriolis-tgd/issues",
   "changelog": "CHANGELOG.md",
   "media": [
     {
@@ -149,8 +149,8 @@
   "packs": [],
   "packFolders": [],
   "socket": false,
-  "manifest": "Replace this with a link to the /latest release system.json so people can receive updates after they've installed the system",
-  "download": "This must link to a .zip file of the current version",
+  "manifest": "https://github.com/hodpub/coriolis-tgd/releases/latest/download/system.json",
+  "download": "https://github.com/hodpub/coriolis-tgd/releases/latest/download/system.zip",
   "background": "systems/coriolis-tgd/assets/coriolis.webp",
   "grid": {
     "type": 1,
