@@ -255,7 +255,7 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
             config = this.constructor.TABS_CONFIGURATION[partId];
 
           tab.id = config.toLowerCase();
-          tab.label = `${config.charAt(0).toUpperCase()}${config.substring(1)}`;
+          tab.label += `${config.charAt(0).toUpperCase()}${config.substring(1)}`;
       }
       if (this.tabGroups[tabGroup] === tab.id) tab.cssClass = 'active';
       tabs[partId] = tab;

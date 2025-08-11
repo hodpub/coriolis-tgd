@@ -16,7 +16,7 @@
       "Tabs": {
         "Biography": "Bio",
         "Talents": "Talents",
-        "Equipments": "Equipments",
+        "Equipments": "Equipment",
         "Combat": "Combat",
         "Effects": "Effects",
         "Afflictions": "Afflictions",
@@ -24,7 +24,8 @@
         "Maneuvers": "Maneuvers",
         "Cargo": "Cargo",
         "Upgrades": "Upgrades",
-        "Stats": "Stats"
+        "Stats": "Stats",
+        "Automations": "Automations"
       },
       "base": {
         "FIELDS": {
