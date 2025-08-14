@@ -323,10 +323,10 @@
           },
           "quantity": {
             "label": "Quantity",
-            "abbr": "Qtd."
+            "abbr": "Qty."
           },
           "deleteWhenZero": {
-            "label": "Delete when 0 Qtd."
+            "label": "Delete when 0 Qty."
           },
           "weight": {
             "0": {
@@ -707,7 +707,7 @@
         },
         "cover": {
           "label": "Cover",
-          "Shubbery": "Shubbery",
+          "Shrubbery": "Shrubbery",
           "Furniture": "Furniture",
           "Door": "Door",
           "InnerBulkhead": "Inner bulkhead",
