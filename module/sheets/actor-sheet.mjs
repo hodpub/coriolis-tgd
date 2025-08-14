@@ -126,7 +126,7 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
       automations: this.actor.system.automations,
       // Adding a pointer to CONFIG.CORIOLIS_TGD
       config: CONFIG.CORIOLIS_TGD,
-      statusEffects: CONFIG.statusEffects,
+      statusEffects: CONFIG.statusEffects.filter(it => it.name.startsWith("CORIOLIS_TGD.")),
       tabs: this._getTabs(options.parts),
       // Necessary for formInput and formFields helpers
       fields: this.document.schema.fields,

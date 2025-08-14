@@ -6,9 +6,7 @@
     data-value="{{attribute}}" value="{{get ../system.attributes attribute}}" onfocus="this.select();" {{disabled ../system.playMode}} />
   {{/each}}
   {{#each statusEffects }}
-  {{#unless (eq this.id "dead") }}
   <img class="condition rollable" src="systems/coriolis-tgd/assets/frames/dot-{{ifThen (has ../actor.statuses this.id) "filled" "empty" }}.svg" data-action="toggleStatusEffect" data-value="{{this.id}}">
-  {{/unless}}
   {{/each}}
   <svg viewBox="0 0 310 310" style="width: 98%; height: 98%;">
     <g id="ELEMENTOS">
