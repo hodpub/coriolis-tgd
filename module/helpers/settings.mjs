@@ -17,7 +17,10 @@ export function registerSettings() {
 }
 
 export async function registerYearZeroCombatSettings(yzec) {
-  if (game.settings.get(CORIOLIS_TGD.ID, 'configuredYzeCombat')) return;
+  // TODO: remove this on the future
+  // This is a workaround to reconfigure the YZE Combat in existing worlds.
+  const needsReconfiguration = !foundry.utils.isNewerVersion(game.system.version, "1.0.6");
+  if (!game.user.isGM || (!needsReconfiguration && game.settings.get(CORIOLIS_TGD.ID, 'configuredYzeCombat'))) return;
   await yzec.register({
     actorSpeedAttribute: 'system.ferocity',
     duplicateCombatantOnCombatStart: true,
@@ -26,6 +29,6 @@ export async function registerYearZeroCombatSettings(yzec) {
     slowAndFastActions: false,
     singleAction: true,
     resetEachRound: true
-  });
+  }, false);
   game.settings.set(CORIOLIS_TGD.ID, 'configuredYzeCombat', true)
 } 
