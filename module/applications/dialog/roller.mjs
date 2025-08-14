@@ -91,7 +91,7 @@ export default class cgdRollDialog extends HandlebarsApplicationMixin(Applicatio
         this.canAddGearTalent = false;
         this.bonusGroups["cover"] = [
           {
-            label: game.i18n.localize(`CORIOLIS_TGD.Roller.Bonuses.cover.Shubbery`),
+            label: game.i18n.localize(`CORIOLIS_TGD.Roller.Bonuses.cover.Shrubbery`),
             selected: false,
             bonus: 2,
             type: "dg",
