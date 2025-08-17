@@ -183,7 +183,7 @@ div.label-with-circle-field {
   border-image-outset: 0px 0px 0px 0px;
   border-image-repeat: stretch space;
   border-image-source: url(../assets/frames/label-with-circle-field.webp);
-  height: 41px;
+  height: 42px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -234,7 +234,7 @@ div.label-with-circle-label-label {
   border-image-outset: 0px 0px 0px 0px;
   border-image-repeat: stretch space;
   border-image-source: url(../assets/frames/label-with-circle-label-label.webp);
-  height: 41px;
+  height: 42px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -269,7 +269,7 @@ div.simple-field {
   border-image-outset: 0px 0px 0px 0px;
   border-image-repeat: stretch stretch;
   border-image-source: url(../assets/frames/simple-field.webp);
-  height: 41px;
+  height: 42px;
 
   input {
     @extend %cursive;
@@ -307,7 +307,7 @@ div.form-group.cgd-custom {
     border-image-outset: 0px 0px 0px 0px;
     border-image-repeat: stretch stretch;
     border-image-source: url(../assets/frames/simple-field.webp);
-    height: 41px;
+    height: 42px;
     background: unset;
     color: $c-brown;
     padding: 0 10px;
@@ -321,7 +321,7 @@ div.form-group.cgd-custom {
     border-image-outset: 0px 0px 0px 0px;
     border-image-repeat: stretch space;
     border-image-source: url(../assets/frames/select.webp);
-    height: 41px;
+    height: 42px;
     background: unset;
     color: $c-brown;
     padding: 0 10px;
@@ -354,7 +354,7 @@ div.form-group.cgd-custom:has(input[type=checkbox]) {
   position: relative;
   display: flex;
   align-items: center;
-  height: 41px;
+  height: 42px;
 
   label {
     font-family: $font-sans;
@@ -381,8 +381,8 @@ div.form-group.cgd-custom:has(input[type=checkbox]) {
     &::before {
       content: '';
       display: inline-block;
-      width: 41px;
-      height: 41px;
+      width: 42px;
+      height: 42px;
       background-image: url(../assets/frames/checkbox-empty.webp);
       bottom: 0;
       position: absolute;
@@ -500,7 +500,7 @@ div.border {
 
 div.expandable-field {
   @extend .description-field, %cursive, %border-description;
-  height: 41px;
+  height: 42px;
   overflow: hidden;
   color: $c-brown;
   transition: height 1s 0.2s ease;
@@ -552,7 +552,7 @@ meter {
 }
 
 .meter {
-  height: 41px;
+  height: 42px;
   position: relative;
   padding-top: 10px;
   padding-right: 10px;
@@ -567,7 +567,7 @@ meter {
     border-style: solid;
     position: absolute;
     z-index: 2;
-    height: 41px;
+    height: 42px;
     width: 100%;
     top: 0;
   }
