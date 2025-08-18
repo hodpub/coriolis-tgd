@@ -28,6 +28,7 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
       expand: this.#onExpand,
       toggleStatusEffect: this._toggleStatusEffect,
       setValue: this.#setValue,
+      setSupply: this.#setSupply,
       togglePlayEditMode: this._togglePlayEditMode,
     },
     // Custom property that's merged into `this.options`
@@ -737,6 +738,14 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
     const value = dataset.value;
 
     return this.actor.update({ [field]: value });
+  }
+
+  static #setSupply(event, target) {
+    event.preventDefault();
+    const dataset = target.dataset;
+    const value = dataset.value;
+
+    return this.actor.getSupplyItem().update({ "system.quantity": value});
   }
 
   /** Helper Functions */
