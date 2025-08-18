@@ -23,13 +23,14 @@ export function dots(n, max, options) {
       accum += `<div class="${groupCss}">`
     }
     let action = "";
+    let actionMethod = field == "supply" ? "setSupply" : "setValue";
     let imgSource = i <= n ? "filled" : "empty";
     if (field) {
       const value = i == 1 && n == 1 ? 0 : i;
-      action = `data-action="setValue" data-field="${field}" data-value="${value}" data-tooltip="${game.i18n.format("CORIOLIS_TGD.Actor.base.FIELDS.setValue", { value })}"`
+      action = `data-action="${actionMethod}" data-field="${field}" data-value="${value}" data-tooltip="${game.i18n.format("CORIOLIS_TGD.Actor.base.FIELDS.setValue", { value })}"`
       imgCss += " rollable";
     }
-    accum += `<img class="${imgCss}" src="systems/coriolis-tgd/assets/frames/dot-${imgSource}.svg" data-action="setValue" ${action}>`;
+    accum += `<img class="${imgCss}" src="systems/coriolis-tgd/assets/frames/dot-${imgSource}.svg" data-action="${actionMethod}" ${action}>`;
     if (group && i % group == 0) {
       accum += `</div>`
     }
