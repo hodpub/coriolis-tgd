@@ -35,6 +35,21 @@ export default class cgdRollDialog extends HandlebarsApplicationMixin(Applicatio
           label: game.i18n.format(`CORIOLIS_TGD.Roller.Bonuses.manualBonus.name`, { dice: "+3" }),
           selected: false,
           bonus: 3
+        },
+        {
+          label: game.i18n.format(`CORIOLIS_TGD.Roller.Bonuses.manualBonus.name`, { dice: "-1" }),
+          selected: false,
+          bonus: -1
+        },
+        {
+          label: game.i18n.format(`CORIOLIS_TGD.Roller.Bonuses.manualBonus.name`, { dice: "-2" }),
+          selected: false,
+          bonus: -2
+        },
+        {
+          label: game.i18n.format(`CORIOLIS_TGD.Roller.Bonuses.manualBonus.name`, { dice: "-3" }),
+          selected: false,
+          bonus: -3
         }
       ]
     };
