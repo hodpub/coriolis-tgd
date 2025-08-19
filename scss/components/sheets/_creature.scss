@@ -109,4 +109,31 @@
     justify-content: flex-end;
     margin-right: 35px;
   }
+  
+  header.sheet-header {
+    flex-flow: row wrap !important;
+    justify-content: space-around;
+
+    img.profile-img {
+      margin: 0 10px !important;
+    }
+
+    div.header-rolls {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: end;
+      
+      label {
+        font-size: var(--font-size-14);
+	font-weight: bold;
+	color: #C2AD76;
+	text-transform: uppercase;
+      }
+    }
+
+    div.header-fields {
+      flex-basis: content;
+    }
+  }
 }
