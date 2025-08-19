@@ -2,6 +2,30 @@
   <header class='sheet-header'>
     <img class='profile-img' src='{{actor.img}}' data-edit='img' data-action='onEditImage'
       data-tooltip='{{item.name}}' />
+    <div class="header-rolls">
+      <label>
+        {{#if (and (lt nextAttackNumber 7) (not system.playMode))}}
+        <a class="rollable"
+          data-tooltip='{{localize "DOCUMENT.Create" type=(localize "CORIOLIS_TGD.Actor.Creature.FIELDS.attacks.label")}}'
+          data-action='createDoc' data-document-class='Item' data-type='creatureAttack' data-filter="creatureAttack"
+          data-system.attack-number="{{nextAttackNumber}}">
+          <i class='fas fa-plus'></i>
+        </a>
+        {{/if}}
+        {{localize "CORIOLIS_TGD.Actor.Creature.FIELDS.attacks.label"}}
+        <a class="rollable" data-tooltip='{{localize "CORIOLIS_TGD.Item.CreatureAttack.FIELDS.actions.attack"}}'
+          data-action='attack'>
+          <i class='fas fa-dice'></i>
+        </a>
+      </label>
+      <label>
+        {{localize "CORIOLIS_TGD.Actor.Creature.FIELDS.behavior.label"}}
+        <a class="rollable" data-tooltip='{{localize "CORIOLIS_TGD.Item.CreatureAttack.FIELDS.actions.behavior"}}'
+          data-action='behavior'>
+          <i class='fas fa-dice'></i>
+        </a>
+      </label>
+    </div>
     <div class='header-fields'>
       <div class='input-with-circle-title'>
         <label>{{localize "Name"}}</label>
@@ -45,41 +69,23 @@
       {{/if}}
       {{/each}}
     </div>
-
+   
     <div class="simple-health">
       <div class="label-with-circle-field">
         <label>{{localize "CORIOLIS_TGD.Actor.base.FIELDS.health.value.label"}}</label>
+        {{#if (lte system.derivedAttributes.health.max 15)}}
+          {{dots system.derivedAttributes.health.value system.derivedAttributes.health.max
+          field="system.derivedAttributes.health.value" imgCss="health"}}
+        {{/if}}
         <label>{{system.derivedAttributes.health.max}}</label>
         <input name="system.derivedAttributes.health.value" type="number" min="0"
           max="{{system.derivedAttributes.health.max}}" value="{{system.derivedAttributes.health.value}}"
           onfocus="this.select();" {{disabled system.playMode}} />
       </div>
-      {{dots system.derivedAttributes.health.value system.derivedAttributes.health.max
-      field="system.derivedAttributes.health.value" imgCss="health"}}
-    </div>
-    <div class="simple-biography">
-      <label>{{localize "CORIOLIS_TGD.Item.Tabs.Description"}}</label>
-      <div>
-        {{#if editable}}
-        <prose-mirror name="system.biography" data-document-uuid="{{actor.uuid}}" value="{{system.biography}}"
-          collaborate="true" toggled="true">
-          {{{enrichedBiography}}}
-        </prose-mirror>
-        {{else}} {{{enrichedBiography}}}
-        {{/if}}
-      </div>
-    </div>
-    <div class="simple-biography">
-      <label>{{localize "CORIOLIS_TGD.Actor.Creature.FIELDS.containmentProtocol.label"}}</label>
-      <div>
-        {{#if editable}}
-        <prose-mirror name="system.containmentProtocol" data-document-uuid="{{actor.uuid}}"
-          value="{{system.containmentProtocol}}" collaborate="true" toggled="true">
-          {{{enrichedcontainmentProtocol}}}
-        </prose-mirror>
-        {{else}} {{{enrichedBiography}}}
-        {{/if}}
-      </div>
+      {{#if (gt system.derivedAttributes.health.max 15)}}
+        {{dots system.derivedAttributes.health.value system.derivedAttributes.health.max
+        field="system.derivedAttributes.health.value" imgCss="health"}}
+      {{/if}}
     </div>
     <div class="creature-abilities">
       <label>
@@ -157,6 +163,30 @@
         {{{item.system.description}}}
       </div>
       {{/each}}
+    </div>
+    <div class="simple-biography">
+      <label>{{localize "CORIOLIS_TGD.Item.Tabs.Description"}}</label>
+      <div>
+        {{#if editable}}
+        <prose-mirror name="system.biography" data-document-uuid="{{actor.uuid}}" value="{{system.biography}}"
+          collaborate="true" toggled="true">
+          {{{enrichedBiography}}}
+        </prose-mirror>
+        {{else}} {{{enrichedBiography}}}
+        {{/if}}
+      </div>
+    </div>
+    <div class="simple-biography">
+      <label>{{localize "CORIOLIS_TGD.Actor.Creature.FIELDS.containmentProtocol.label"}}</label>
+      <div>
+        {{#if editable}}
+        <prose-mirror name="system.containmentProtocol" data-document-uuid="{{actor.uuid}}"
+          value="{{system.containmentProtocol}}" collaborate="true" toggled="true">
+          {{{enrichedcontainmentProtocol}}}
+        </prose-mirror>
+        {{else}} {{{enrichedBiography}}}
+        {{/if}}
+      </div>
     </div>
   </div>
 </div>
