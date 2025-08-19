@@ -18,6 +18,7 @@ import { registerDice3D } from './helpers/rolls.mjs';
 import { registerStatusEffects } from "./config/statusEffects.mjs";
 import cgdRollDialog from "./applications/dialog/roller.mjs";
 import { registerSettings, registerYearZeroCombatSettings } from "./helpers/settings.mjs";
+import { noteActivator } from "./helpers/notes.mjs";
 
 const collections = foundry.documents.collections;
 const foundrySheets = foundry.appv1.sheets;
@@ -162,6 +163,7 @@ Hooks.once('ready', function () {
 });
 
 Hooks.once('diceSoNiceReady', registerDice3D);
+noteActivator();
 
 /* -------------------------------------------- */
 /*  Hotbar Macros                               */
