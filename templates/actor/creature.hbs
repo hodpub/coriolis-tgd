@@ -2,30 +2,16 @@
   <header class='sheet-header'>
     <img class='profile-img' src='{{actor.img}}' data-edit='img' data-action='onEditImage'
       data-tooltip='{{item.name}}' />
-    <div class="header-rolls">
-      <label>
-        {{#if (and (lt nextAttackNumber 7) (not system.playMode))}}
-        <a class="rollable"
-          data-tooltip='{{localize "DOCUMENT.Create" type=(localize "CORIOLIS_TGD.Actor.Creature.FIELDS.attacks.label")}}'
-          data-action='createDoc' data-document-class='Item' data-type='creatureAttack' data-filter="creatureAttack"
-          data-system.attack-number="{{nextAttackNumber}}">
-          <i class='fas fa-plus'></i>
-        </a>
-        {{/if}}
-        {{localize "CORIOLIS_TGD.Actor.Creature.FIELDS.attacks.label"}}
-        <a class="rollable" data-tooltip='{{localize "CORIOLIS_TGD.Item.CreatureAttack.FIELDS.actions.attack"}}'
-          data-action='attack'>
-          <i class='fas fa-dice'></i>
-        </a>
-      </label>
-      <label>
-        {{localize "CORIOLIS_TGD.Actor.Creature.FIELDS.behavior.label"}}
-        <a class="rollable" data-tooltip='{{localize "CORIOLIS_TGD.Item.CreatureAttack.FIELDS.actions.behavior"}}'
-          data-action='behavior'>
-          <i class='fas fa-dice'></i>
-        </a>
-      </label>
-    </div>
+    <a class="rollable shortcut" data-tooltip='{{localize "CORIOLIS_TGD.Item.CreatureAttack.FIELDS.actions.behavior"}}'
+      data-action='behavior'>
+      <img src="systems/coriolis-tgd/assets/icons/creature-roll-normal.webp" />
+      {{localize "CORIOLIS_TGD.Actor.Creature.FIELDS.behavior.label"}}
+    </a>
+    <a class="rollable shortcut" data-tooltip='{{localize "CORIOLIS_TGD.Item.CreatureAttack.FIELDS.actions.attack"}}'
+      data-action='attack'>
+      <img src="systems/coriolis-tgd/assets/icons/creature-roll-normal.webp" />
+      {{localize "CORIOLIS_TGD.Actor.Creature.FIELDS.attacks.label"}}
+    </a>
     <div class='header-fields'>
       <div class='input-with-circle-title'>
         <label>{{localize "Name"}}</label>
@@ -63,33 +49,27 @@
           ".label")}}</label>
         <div class="form-field">
           <input class="attribute-field" name="system.attributes.{{attribute}}" type="number" min="0" max="6"
-            data-value="{{attribute}}" value="{{get ../system.attributes attribute}}" onfocus="this.select();" {{disabled ../system.playMode}} />
+            data-value="{{attribute}}" value="{{get ../system.attributes attribute}}" onfocus="this.select();"
+            {{disabled ../system.playMode}} />
         </div>
       </div>
       {{/if}}
       {{/each}}
     </div>
-   
     <div class="simple-health">
       <div class="label-with-circle-field">
         <label>{{localize "CORIOLIS_TGD.Actor.base.FIELDS.health.value.label"}}</label>
-        {{#if (lte system.derivedAttributes.health.max 15)}}
-          {{dots system.derivedAttributes.health.value system.derivedAttributes.health.max
-          field="system.derivedAttributes.health.value" imgCss="health"}}
-        {{/if}}
         <label>{{system.derivedAttributes.health.max}}</label>
         <input name="system.derivedAttributes.health.value" type="number" min="0"
           max="{{system.derivedAttributes.health.max}}" value="{{system.derivedAttributes.health.value}}"
           onfocus="this.select();" {{disabled system.playMode}} />
       </div>
-      {{#if (gt system.derivedAttributes.health.max 15)}}
-        {{dots system.derivedAttributes.health.value system.derivedAttributes.health.max
-        field="system.derivedAttributes.health.value" imgCss="health"}}
-      {{/if}}
+      {{dots system.derivedAttributes.health.value system.derivedAttributes.health.max
+      field="system.derivedAttributes.health.value" imgCss="health"}}
     </div>
     <div class="creature-abilities">
       <label>
-         {{#if (not system.playMode)}}
+        {{#if (not system.playMode)}}
         <a class="rollable"
           data-tooltip='{{localize "DOCUMENT.Create" type=(localize "CORIOLIS_TGD.Actor.Creature.FIELDS.abilities.label")}}'
           data-action='createDoc' data-document-class='Item' data-type='creatureAbility' data-filter="creatureAbility">
