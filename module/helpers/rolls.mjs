@@ -67,6 +67,11 @@ export async function roll(actor, { dice, flavor, gear, birdPower, breakdown, ma
   if (dice.gear)
     formula.push(`${dice.gear}dg`);
 
+  if (!formula.length) {
+    ui.notifications.warn("You must select at least one die to roll!");
+    return;
+  }
+
   let options = rollOptions;
   if (gear?.type == "weapon") {
     options.damage = gear.system.damage;
