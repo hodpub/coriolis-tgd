@@ -42,6 +42,7 @@ export default class cgdArmor extends cgdItemBase {
     schema.tech = new fields.SetField(new fields.StringField({ required: true, choices: CORIOLIS_TGD.Equipment.techChoices }), { initial: [CORIOLIS_TGD.Equipment.techConstants.ordinary] });
     schema.deleteWhenZero = new fields.BooleanField({ initial: true });
     schema.features = new fields.TypedObjectField(new fields.TypedSchemaField(EmbeddedFeature.TYPES));
+    schema.equipped = new fields.BooleanField({ initial: true});
     return schema;
   }
 

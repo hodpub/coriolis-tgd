@@ -457,6 +457,39 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
         },
       },
       {
+        name: "CORIOLIS_TGD.Item.Armor.equipped.equip",
+        icon: "<i class=\"fa-solid fa-hand-fist\"></i>",
+        condition: (target) => {
+          let item = this._getEmbeddedDocument(target);
+          return this.actor.isOwner && item.type == "armor" && !item.system.equipped;
+        },
+        callback: async (target) => {
+          const item = this._getEmbeddedDocument(target);
+          if (!item) {
+            console.error("Could not find item");
+            return;
+          }
+          await item.update({ "system.equipped": true });
+        },
+      },
+      {
+        name: "CORIOLIS_TGD.Item.Armor.equipped.unequip",
+        icon: "<i class=\"fa-solid fa-hand\"></i>",
+        condition: (target) => {
+          let item = this._getEmbeddedDocument(target);
+          return this.actor.isOwner && item.type == "armor" && item.system.equipped;
+        },
+        callback: async (target) => {
+          const item = this._getEmbeddedDocument(target);
+          if (!item) {
+            console.error("Could not find item");
+            return;
+          }
+          await item.update({ "system.equipped": false });
+        },
+      },
+
+      {
         name: "CORIOLIS_TGD.Item.VehicleUpgrade.install",
         icon: "<i class=\"fa-solid fa-wrench\"></i>",
         condition: (target) => {
