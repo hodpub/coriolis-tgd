@@ -14,6 +14,8 @@ export default class cgdActiveEffect extends foundry.documents.ActiveEffect {
     const superResult = super.active;
     if (["roverUpgrade", "shuttleUpgrade"].indexOf(this.parent.type) >= 0)
       return this.parent.system.installed && superResult;
+    if (["armor"].indexOf(this.parent.type) >= 0)
+      return this.parent.system.equipped && superResult;
     return superResult;
   }
 }

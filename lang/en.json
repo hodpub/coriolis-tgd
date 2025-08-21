@@ -500,6 +500,11 @@
       },
       "Armor": {
         "label": "Armor",
+        "equipped": {
+          "label": "(equipped)",
+          "equip": "Equip",
+          "unequip": "Unequip"
+        },
         "FIELDS": {
           "armorRating": {
             "label": "Armor Rating"

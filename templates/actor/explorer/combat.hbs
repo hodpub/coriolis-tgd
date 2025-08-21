@@ -20,7 +20,7 @@
           <img src='{{armor.img}}' data-tooltip='{{armor.name}}' width='46' height='46' />
         </a>
         {{/if}}
-        <label class="item-name" data-tooltip="{{armor.name}}">{{armor.name}}</label>
+        <label class="item-name{{ifThen armor.system.equipped "" " unequipped"}}" data-tooltip="{{armor.name}}">{{armor.name}}</label>
       </div>
       <label>{{armor.system.armorRating}}</label>
       <label>{{armor.system.blightProtection}}</label>

@@ -92,6 +92,10 @@
       align-items: center;
       font-size: var(--font-size-16);
     }
+    label.unequipped {
+      text-decoration: line-through;
+      color: color-mix(in srgb, currentColor 30%, transparent);
+    }
   }
 
   a img {
