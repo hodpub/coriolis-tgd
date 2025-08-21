@@ -65,6 +65,7 @@
   &>*:nth-child(1) {
     @extend .grid-span-5;
   }
+
   &>*:nth-child(4) {
     @extend .grid-span-5;
   }
@@ -72,6 +73,17 @@
 
 .armor-item {
   @extend %armor-item-style;
+
+  &.unequipped {
+    label {
+      text-decoration: line-through;
+      color: color-mix(in srgb, currentColor 30%, transparent);
+    }
+
+    img {
+      filter: brightness(0.4);
+    }
+  }
 
   &>label,
   div:not(.expandable-field):not([class]) {
@@ -91,10 +103,6 @@
       display: flex;
       align-items: center;
       font-size: var(--font-size-16);
-    }
-    label.unequipped {
-      text-decoration: line-through;
-      color: color-mix(in srgb, currentColor 30%, transparent);
     }
   }
 

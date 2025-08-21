@@ -13,14 +13,15 @@
       <label>{{localize "CORIOLIS_TGD.Item.Armor.FIELDS.blightProtection.label"}}</label>
       <label>{{localize "CORIOLIS_TGD.Item.Tabs.Description"}}</label>
     </div>
-    <div class="armor-item {{ifThen armor " draggable" "" }}" data-item-id='{{armor._id}}' data-document-class='Item'>
+    <div class="armor-item {{ifThen armor " draggable" "" }} {{ifThen armor.system.equipped "" "unequipped" }}"
+      data-item-id='{{armor._id}}' data-document-class='Item'>
       <div>
         {{#if armor}}
-        <a class='rollable' data-roll-type='item' data-action='roll'>
+        <a {{#if armor.system.equipped}} class='rollable' data-roll-type='item' data-action='roll' {{else}} disabled {{/if}}>
           <img src='{{armor.img}}' data-tooltip='{{armor.name}}' width='46' height='46' />
         </a>
         {{/if}}
-        <label class="item-name{{ifThen armor.system.equipped "" " unequipped"}}" data-tooltip="{{armor.name}}">{{armor.name}}</label>
+        <label class="item-name" data-tooltip="{{armor.name}}">{{armor.name}}</label>
       </div>
       <label>{{armor.system.armorRating}}</label>
       <label>{{armor.system.blightProtection}}</label>
