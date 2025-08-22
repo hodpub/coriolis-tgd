@@ -64,7 +64,7 @@ export class cgdActor extends foundry.documents.Actor {
               enabled: true
             },
             texture: {
-              src: "systems/coriolis-tgd/assets/icons/astronaut-helmet.svg"
+              src: this._replaceImgIfDefault("systems/coriolis-tgd/assets/icons/astronaut-helmet.svg")
             }
           }
         });
@@ -79,7 +79,7 @@ export class cgdActor extends foundry.documents.Actor {
               enabled: true
             },
             texture: {
-              src: "systems/coriolis-tgd/assets/icons/npc.svg"
+              src: this._replaceImgIfDefault("systems/coriolis-tgd/assets/icons/npc.svg")
             }
           }
         });
@@ -94,7 +94,7 @@ export class cgdActor extends foundry.documents.Actor {
               enabled: true
             },
             texture: {
-              src: "systems/coriolis-tgd/assets/icons/creature.svg"
+              src: this._replaceImgIfDefault("systems/coriolis-tgd/assets/icons/creature.svg")
             }
           }
         });
