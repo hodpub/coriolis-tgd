@@ -14,6 +14,8 @@
 &.actor.simple {
   background: url(../assets/decorations/npc-background.png);
   background-position: 27%;
+  background-size: 100% 100%;
+  min-width: 400px;
 
   div.simple-sheet {
     // display: flex;
@@ -51,7 +53,7 @@
 
     div.scrollable {
       // background-color: red;
-      height: 66%;
+      height: calc(100% - 260px);
 
       div.simple-attributes {
         @extend .grid, .grid-3col, %simple-box;

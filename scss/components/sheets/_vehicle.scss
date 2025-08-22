@@ -2,9 +2,12 @@
 
   &.rover {
     background: url(../assets/decorations/rover-background.png);
+    background-size: 100% 100%;
   }
+
   &.shuttle {
     background: url(../assets/decorations/shuttle-background.png);
+    background-size: 100% 100%;
   }
 
   header.header div.title label {

@@ -36,7 +36,10 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
     form: {
       submitOnChange: true,
     },
-    defaultTab: "automations"
+    defaultTab: "automations",
+    window: {
+      resizable: true
+    }
   };
 
   /** @override */
@@ -778,7 +781,7 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
     const dataset = target.dataset;
     const value = dataset.value;
 
-    return this.actor.getSupplyItem().update({ "system.quantity": value});
+    return this.actor.getSupplyItem().update({ "system.quantity": value });
   }
 
   /** Helper Functions */

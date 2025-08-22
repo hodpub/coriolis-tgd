@@ -1,6 +1,7 @@
 &.actor.creature {
   background: url(../assets/decorations/creature-background.jpg) bottom;
   background-position: 40%;
+  background-size: 100% 100%;
 
   div.creature-behavior {
     @extend %simple-box;
