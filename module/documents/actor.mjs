@@ -44,8 +44,11 @@ export class cgdActor extends foundry.documents.Actor {
     return { ...super.getRollData(), ...(this.system.getRollData?.() ?? null) };
   }
 
-  _replaceImgIfDefault(img){
+  _replaceImgIfDefault(img) {
     return this.img == "icons/svg/mystery-man.svg" ? img : this.img;
+  }
+  _replaceTokenImgIfDefault(img) {
+    return this.prototypeToken.texture.src == "icons/svg/mystery-man.svg" ? img : this.prototypeToken.texture.src;
   }
 
   async _preCreate(data, options, user) {
@@ -64,7 +67,7 @@ export class cgdActor extends foundry.documents.Actor {
               enabled: true
             },
             texture: {
-              src: this._replaceImgIfDefault("systems/coriolis-tgd/assets/icons/astronaut-helmet.svg")
+              src: this._replaceTokenImgIfDefault("systems/coriolis-tgd/assets/icons/astronaut-helmet.svg")
             }
           }
         });
@@ -79,7 +82,7 @@ export class cgdActor extends foundry.documents.Actor {
               enabled: true
             },
             texture: {
-              src: this._replaceImgIfDefault("systems/coriolis-tgd/assets/icons/npc.svg")
+              src: this._replaceTokenImgIfDefault("systems/coriolis-tgd/assets/icons/npc.svg")
             }
           }
         });
@@ -94,7 +97,7 @@ export class cgdActor extends foundry.documents.Actor {
               enabled: true
             },
             texture: {
-              src: this._replaceImgIfDefault("systems/coriolis-tgd/assets/icons/creature.svg")
+              src: this._replaceTokenImgIfDefault("systems/coriolis-tgd/assets/icons/creature.svg")
             }
           }
         });
@@ -110,7 +113,7 @@ export class cgdActor extends foundry.documents.Actor {
               enabled: true
             },
             texture: {
-              src: this._replaceImgIfDefault("systems/coriolis-tgd/assets/icons/egyptian-bird.svg"),
+              src: this._replaceTokenImgIfDefault("systems/coriolis-tgd/assets/icons/egyptian-bird.svg"),
             }
           }
         });
@@ -126,7 +129,7 @@ export class cgdActor extends foundry.documents.Actor {
               enabled: true
             },
             texture: {
-              src: this._replaceImgIfDefault("systems/coriolis-tgd/assets/icons/three-friends.svg"),
+              src: this._replaceTokenImgIfDefault("systems/coriolis-tgd/assets/icons/three-friends.svg"),
             }
           }
         });
@@ -142,7 +145,7 @@ export class cgdActor extends foundry.documents.Actor {
               enabled: true
             },
             texture: {
-              src: this._replaceImgIfDefault("systems/coriolis-tgd/assets/icons/apc.svg"),
+              src: this._replaceTokenImgIfDefault("systems/coriolis-tgd/assets/icons/apc.svg"),
             }
           }
         });
@@ -158,7 +161,7 @@ export class cgdActor extends foundry.documents.Actor {
               enabled: true
             },
             texture: {
-              src: this._replaceImgIfDefault("systems/coriolis-tgd/assets/icons/spaceship.svg"),
+              src: this._replaceTokenImgIfDefault("systems/coriolis-tgd/assets/icons/spaceship.svg"),
             }
           }
         });
