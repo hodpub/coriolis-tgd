@@ -1,7 +1,10 @@
 <section class='tab automations list scrollable {{tab.cssClass}}' data-group='primary' data-tab='automations'>
-  <div class="all">
-    {{#each automations as |automation id|}}
-    <button data-action="roll" data-roll-type="automation" data-item="{{automation.parent.parent.uuid}}" data-automation-id="{{automation._id}}"><span>{{automation.name}}</span><span>{{automation.parent.parent.name}}</span></button>
+    {{#each automationsCategorized as |category id|}}
+      <label>{{category.label}}</label>
+      <div class="all">
+      {{#each category.automations as |automation id|}}
+        <button data-action="roll" data-roll-type="automation" data-item="{{automation.parent.parent.uuid}}" data-automation-id="{{automation._id}}"><span>{{automation.name}}</span><span>{{automation.parent.parent.name}}</span></button>
+      {{/each}}
+      </div>
     {{/each}}
-  </div>
 </section>
