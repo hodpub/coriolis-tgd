@@ -636,6 +636,11 @@
         "rollBirdPower": "Roll Bird Power",
         "rollUpgrade": "Roll Upgrade"
       },
+      "Category": {
+        "Default": "Default",
+        "Talent": "Talent",
+	"Combat": "Combat"
+      },
       "FIELDS": {
         "showAsSelection": {
           "label": "Show as Selection"

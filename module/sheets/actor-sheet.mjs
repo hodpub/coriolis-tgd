@@ -1,5 +1,6 @@
 import cgdRollDialog from "../applications/dialog/roller.mjs";
 import { prepareActiveEffectCategories } from '../helpers/effects.mjs';
+import { prepareAutomationCategories } from '../helpers/automation.mjs';
 
 const { api, sheets } = foundry.applications;
 const TextEditor = foundry.applications.ux.TextEditor.implementation;
@@ -128,6 +129,7 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
       system: this.actor.system,
       flags: this.actor.flags,
       automations: this.actor.system.automations,
+      automationsCategorized: prepareAutomationCategories(this.actor.system.automations),
       // Adding a pointer to CONFIG.CORIOLIS_TGD
       config: CONFIG.CORIOLIS_TGD,
       statusEffects: CONFIG.statusEffects.filter(it => it.name.startsWith("CORIOLIS_TGD.")),
