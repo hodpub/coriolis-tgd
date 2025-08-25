@@ -72,47 +72,54 @@ export function prepareAutomationCategories(automations) {
   if (automations) {
     // Iterate over automations, classifying them into categories
     for (const a of automations) {
+      a.itemName = a.parent?.parent?.name;
       switch (a.parent?.constructor?.name) {
-	case undefined:
-	  categories.default.automations.push(a);
-        break;
+        case undefined:
+          categories.default.automations.push(a);
+          break;
         case "cgdWeapon":
         case "cgdVehicleWeapon":
-          categories.weapons.automations.push(a);
-        break;
-        case "cgdArmor": 
-          categories.armor.automations.push(a);
-        break;
-        case "cgdTalent": 
+          if (a.parent.atHand)
+            categories.weapons.automations.push(a);
+          break;
+        case "cgdArmor":
+          if (a.parent.equipped)
+            categories.armor.automations.push(a);
+          break;
+        case "cgdTalent":
           categories.talents.automations.push(a);
-        break;
-        case "cgdEquipment": 
-          categories.equipment.automations.push(a);
-        break;
-        case "cgdBirdPower": 
+          break;
+        case "cgdEquipment":
+          if (a.parent.quantity > 0)
+            categories.equipment.automations.push(a);
+          break;
+        case "cgdBirdPower":
           categories.bird.automations.push(a);
-        break;
-        case "cgdCrewManeuver": 
+          break;
+        case "cgdCrewManeuver":
           categories.crew.automations.push(a);
-        break;
-        case "cgdVehicleUpgrade": 
+          break;
+        case "cgdVehicleUpgrade":
         case "cgdRoverUpgrade":
-          categories.upgrades.automations.push(a);
-        break;
+          if (a.parent.installed)
+            categories.upgrades.automations.push(a);
+          break;
         default:
           categories.other.automations.push(a);
       }
     }
-  
+
     // Sort each category
     for (const [name, values] of Object.entries(categories)) {
       if (values.automations.length == 0) {
-	delete categories[name];
+        delete categories[name];
       } else {
-        values.automations.sort((a, b) => (a.sort || 0) - (b.sort || 0));
+        console.log(categories[name]);
+        values.automations.sort((a, b) => a.itemName?.localeCompare(b.itemName) || a.name.localeCompare(b.name));
+        console.log(categories[name]);
       }
     }
-    
+
   }
   return categories;
 }
