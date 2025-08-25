@@ -79,9 +79,8 @@ section.automations.list {
       }
     }
   }
+
   label {
-    color: #c2ad76;
-    text-transform: uppercase;
-    font-weight: bold;
+    @extend %title-main;
   }
 }
