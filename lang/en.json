@@ -638,8 +638,14 @@
       },
       "Category": {
         "Default": "Default",
+        "Weapons": "Weapons",
+	"Armor": "Armor",
         "Talent": "Talent",
-	"Combat": "Combat"
+	"Equipment": "Equipment",
+        "Bird": "Bird",
+	"Crew": "Crew",
+	"Upgrades": "Upgrades",
+	"Other": "Other"
       },
       "FIELDS": {
         "showAsSelection": {

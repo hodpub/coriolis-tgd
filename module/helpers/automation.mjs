@@ -36,36 +36,83 @@ export function prepareAutomationCategories(automations) {
       label: game.i18n.localize('CORIOLIS_TGD.Automation.Category.Default'),
       automations: [],
     },
+    weapons: {
+      label: game.i18n.localize('CORIOLIS_TGD.Automation.Category.Weapons'),
+      automations: [],
+    },
+    armor: {
+      label: game.i18n.localize('CORIOLIS_TGD.Automation.Category.Armor'),
+      automations: [],
+    },
     talents: {
       label: game.i18n.localize('CORIOLIS_TGD.Automation.Category.Talent'),
       automations: [],
     },
-    combat: {
-      label: game.i18n.localize('CORIOLIS_TGD.Automation.Category.Combat'),
+    equipment: {
+      label: game.i18n.localize('CORIOLIS_TGD.Automation.Category.Equipment'),
       automations: [],
     },
+    bird: {
+      label: game.i18n.localize('CORIOLIS_TGD.Automation.Category.Bird'),
+      automations: [],
+    },
+    crew: {
+      label: game.i18n.localize('CORIOLIS_TGD.Automation.Category.Crew'),
+      automations: [],
+    },
+    upgrades: {
+      label: game.i18n.localize('CORIOLIS_TGD.Automation.Category.Upgrades'),
+      automations: [],
+    },
+    other: {
+      label: game.i18n.localize('CORIOLIS_TGD.Automation.Category.Other'),
+      automations: [],
+    }
   };
   if (automations) {
     // Iterate over automations, classifying them into categories
     for (const a of automations) {
-      switch (a.type) {
-        case "rollArmorBlight":
-        case "rollArmorDamage":
-        case "rollAttack":
-          categories.combat.automations.push(a);
+      switch (a.parent?.constructor?.name) {
+	case undefined:
+	  categories.default.automations.push(a);
         break;
-        case "rollAttribute":
+        case "cgdWeapon":
+        case "cgdVehicleWeapon":
+          categories.weapons.automations.push(a);
+        break;
+        case "cgdArmor": 
+          categories.armor.automations.push(a);
+        break;
+        case "cgdTalent": 
           categories.talents.automations.push(a);
         break;
+        case "cgdEquipment": 
+          categories.equipment.automations.push(a);
+        break;
+        case "cgdBirdPower": 
+          categories.bird.automations.push(a);
+        break;
+        case "cgdCrewManeuver": 
+          categories.crew.automations.push(a);
+        break;
+        case "cgdVehicleUpgrade": 
+        case "cgdRoverUpgrade":
+          categories.upgrades.automations.push(a);
+        break;
         default:
-          categories.default.automations.push(a);
+          categories.other.automations.push(a);
       }
     }
   
     // Sort each category
-    for (const c of Object.values(categories)) {
-      c.automations.sort((a, b) => (a.sort || 0) - (b.sort || 0));
+    for (const [name, values] of Object.entries(categories)) {
+      if (values.automations.length == 0) {
+	delete categories[name];
+      } else {
+        values.automations.sort((a, b) => (a.sort || 0) - (b.sort || 0));
+      }
     }
+    
   }
   return categories;
 }
