@@ -1,0 +1,36 @@
+<section class='tab solo scrollable {{tab.cssClass}}' data-group='primary' data-tab='solo'>
+  <div class="solo-item-title">
+    <label>{{localize "CORIOLIS_TGD.Item.Solo.label"}}
+      <a class='item-control item-create' data-tooltip='{{localize "DOCUMENT.Create" type=' Item'}}'
+        data-action='createDoc' data-document-class='Item' data-type='solo' data-filter="solo">
+        <i class='fas fa-plus'></i>
+      </a>
+      <i class="fas fa-question-circle" data-tooltip='{{localize "CORIOLIS_TGD.Item.Solo.tooltip"}}'></i>
+    </label>
+    <label>{{localize "CORIOLIS_TGD.Item.Solo.FIELDS.delveClass.label"}}</label>
+    <label>{{localize "CORIOLIS_TGD.Item.Solo.FIELDS.depthClass.label"}}</label>
+    <label>{{localize "CORIOLIS_TGD.Item.Solo.FIELDS.deepScanBonus.label"}}</label>
+    <label>{{localize "CORIOLIS_TGD.Item.Solo.FIELDS.blightScanBonus.label"}}</label>
+    <label>{{localize "CORIOLIS_TGD.Item.Solo.FIELDS.distanceToExitBonus.label"}}</label>
+    <label>{{localize "CORIOLIS_TGD.Item.Solo.FIELDS.forayDistanceBonus.label"}}</label>
+  </div>
+  <div>
+    {{#each solo as |item id|}}
+    <div class="solo-item draggable" data-item-id='{{item._id}}' data-document-class='Item'>
+      <div>
+        <a disabled>
+          <img src='{{item.img}}' data-tooltip='{{item.name}}' width='46' height='46' />
+        </a>
+        <label class="item-name" data-tooltip="{{item.name}}">{{item.name}}</label>
+      </div>
+      <label>{{item.system.delveClass}}</label>
+      <label>{{item.system.depthClass}}</label>
+      <label>{{item.system.deepScanBonus}}</label>
+      <label>{{item.system.blightScanBonus}}</label>
+      <label>{{item.system.distanceToExitBonus}}</label>
+      <label>{{item.system.forayDistanceBonus}}</label>
+    </div>
+    {{/each}}
+  </div>
+
+</section>

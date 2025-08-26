@@ -77,7 +77,8 @@ Hooks.once('init', function () {
     roverUpgrade: models.cgdRoverUpgrade,
     shuttleUpgrade: models.cgdShuttleUpgrade,
     vehicleWeapon: models.cgdVehicleWeapon,
-    feature: models.cgdFeature
+    feature: models.cgdFeature,
+    solo: models.cgdSolo,
   };
 
   CONFIG.ActiveEffect.documentClass = cgdActiveEffect;

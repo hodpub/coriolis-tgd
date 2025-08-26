@@ -25,7 +25,8 @@
         "Cargo": "Cargo",
         "Upgrades": "Upgrades",
         "Stats": "Stats",
-        "Automations": "Automations"
+        "Automations": "Automations",
+        "Solo": "Solo"
       },
       "base": {
         "FIELDS": {
@@ -267,7 +268,8 @@
         "Description": "Info",
         "Effects": "Effects",
         "Automations": "Auto",
-        "Features": "Features"
+        "Features": "Features",
+        "DelveInfo": "Delve Info"
       },
       "Talent": {
         "FIELDS": {
@@ -603,6 +605,18 @@
             "armor.label": "Exo & Delving Suit Feature"
           }
         }
+      },
+      "Solo": {
+        "label": "Solo Delve Logs",
+        "tooltip": "This is a basic implementation of the Solo Delve Log sheet. Be aware that it does not have any automation and you will need to manually update the fields according to your Solo Delve adventures.",
+        "FIELDS": {
+          "delveClass.label": "Delve Class",
+          "depthClass.label": "Depth Class",
+          "deepScanBonus.label": "Deep Scan Bonus",
+          "blightScanBonus.label": "Blight Scan Bonus",
+          "distanceToExitBonus.label": "Distance to Exit Bonus",
+          "forayDistanceBonus.label": "Foray Distance Bonus"
+        }
       }
     },
     "Effect": {
@@ -639,13 +653,13 @@
       "Category": {
         "Default": "Default",
         "Weapons": "Weapons",
-	"Armor": "Armor",
+        "Armor": "Armor",
         "Talent": "Talent",
-	"Equipment": "Equipment",
+        "Equipment": "Equipment",
         "Bird": "Bird",
-	"Crew": "Crew",
-	"Upgrades": "Upgrades",
-	"Other": "Other"
+        "Crew": "Crew",
+        "Upgrades": "Upgrades",
+        "Other": "Other"
       },
       "FIELDS": {
         "showAsSelection": {
@@ -780,7 +794,8 @@
       "roverUpgrade": "Rover Upgrade",
       "shuttleUpgrade": "Shuttle Upgrade",
       "vehicleWeapon": "Vehicle Weapon",
-      "feature": "Feature"
+      "feature": "Feature",
+      "solo": "Solo Delve Log"
     }
   }
 }

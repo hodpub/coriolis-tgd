@@ -103,6 +103,11 @@
         "htmlFields": [
           "description"
         ]
+      },
+      "solo": {
+        "htmlFields": [
+          "description"
+        ]
       }
     }
   },

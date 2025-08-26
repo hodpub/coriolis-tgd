@@ -100,6 +100,10 @@ export class cgdItemSheet extends api.HandlebarsApplicationMixin(
       template: 'systems/coriolis-tgd/templates/item/configuration-parts/feature.hbs',
       scrollable: [""]
     },
+    configurationSolo: {
+      template: 'systems/coriolis-tgd/templates/item/configuration-parts/solo.hbs',
+      scrollable: [""]
+    },
     automations: {
       template: 'systems/coriolis-tgd/templates/item/automations.hbs',
       scrollable: [""],
@@ -158,6 +162,9 @@ export class cgdItemSheet extends api.HandlebarsApplicationMixin(
       case "feature":
         options.parts.push("configurationFeature");
         break;
+      case "solo":
+        options.parts.push("configurationSolo");
+        break;
     }
     options.parts.push('effects', 'automations');
   }
@@ -204,6 +211,7 @@ export class cgdItemSheet extends api.HandlebarsApplicationMixin(
       case "configurationVehicleUpgrade":
       case "configurationVehicleWeapon":
       case "configurationFeature":
+      case "configurationSolo":
       case "features":
         // Necessary for preserving active tab on re-render
         context.tab = context.tabs[partId];
@@ -276,6 +284,10 @@ export class cgdItemSheet extends api.HandlebarsApplicationMixin(
         case "configurationFeature":
           tab.id = 'configuration';
           tab.label += 'Configuration';
+          break;
+        case "configurationSolo":
+          tab.id = 'configuration';
+          tab.label += 'DelveInfo';
           break;
         case 'automations':
           tab.id = 'automations';

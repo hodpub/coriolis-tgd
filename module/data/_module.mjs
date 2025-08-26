@@ -23,5 +23,6 @@ export { default as cgdRoverUpgrade } from './items/item-rover-upgrade.mjs';
 export { default as cgdShuttleUpgrade } from './items/item-shuttle-upgrade.mjs';
 export { default as cgdVehicleWeapon } from './items/item-vehicle-weapon.mjs';
 export { default as cgdFeature } from './items/item-feature.mjs';
+export { default as cgdSolo } from './items/item-solo.mjs';
 
 export * as automations from "./automations/_module.mjs";

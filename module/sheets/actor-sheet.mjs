@@ -74,6 +74,10 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
       template: 'systems/coriolis-tgd/templates/actor/explorer/afflictions.hbs',
       scrollable: [""],
     },
+    solo: {
+      template: 'systems/coriolis-tgd/templates/actor/explorer/solo.hbs',
+      scrollable: [""],
+    },
     effects: {
       template: 'systems/coriolis-tgd/templates/actor/effects.hbs',
       scrollable: [""],
@@ -102,7 +106,7 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
     // Control which parts show based on document subtype
     switch (this.document.type) {
       case 'explorer':
-        options.parts.push('header', 'tabs', "automations", 'combat', 'talents', 'equipments', 'afflictions', 'effects', 'biography');
+        options.parts.push('header', 'tabs', "automations", 'combat', 'talents', 'equipments', 'afflictions', 'effects', 'biography', 'solo');
         break;
       case 'npc':
         options.parts.push('simple');
@@ -276,6 +280,7 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
    */
   _prepareItems(context) {
     // Initialize containers.
+    const solo = [];
     const talents = [];
     const equipments = [];
     const afflictions = [];
@@ -285,6 +290,10 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
 
     // Iterate through items, allocating to containers
     for (let i of this.document.items) {
+      if (i.type === 'solo') {
+        solo.push(i);
+        continue;
+      }
       if (i.type === 'talent') {
         talents.push(i);
         continue;
@@ -313,6 +322,7 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
     }
 
     // Sort then assign
+    context.solo = solo.sort((a, b) => (a.sort || 0) - (b.sort || 0));
     context.talents = talents.sort((a, b) => (a.sort || 0) - (b.sort || 0));
     context.equipments = equipments.sort((a, b) => (a.sort || 0) - (b.sort || 0));
     context.weapons = weapons.sort((a, b) => (a.sort || 0) - (b.sort || 0));

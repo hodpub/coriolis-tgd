@@ -142,3 +142,7 @@ h4.divider {
 body.isNotGM .dice-buttons.apply-damage{
   display: none;
 }
+
+select[name="type"] option[value="solo"] {
+  display: none;
+}
