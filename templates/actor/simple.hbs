@@ -92,6 +92,42 @@
     </div>
     <div class="simple-weapons">
       <label>{{localize "CORIOLIS_TGD.Actor.Tabs.Combat"}}</label>
+      <div>
+        <div class="armor-item-title">
+          <label>{{localize "CORIOLIS_TGD.Item.Armor.label"}}
+            {{#unless armor}}
+            <a class='item-control item-create' data-tooltip='{{localize "DOCUMENT.Create" type=' Item'}}'
+              data-action='createDoc' data-document-class='Item' data-type='armor' data-filter="armor">
+              <i class='fas fa-plus'></i>
+            </a>
+            {{/unless}}
+          </label>
+          <label>{{localize "CORIOLIS_TGD.Item.Armor.FIELDS.armorProtection.label"}}</label>
+          <label>{{localize "CORIOLIS_TGD.Item.Armor.FIELDS.blightProtection.label"}}</label>
+          <label>{{localize "CORIOLIS_TGD.Item.Tabs.Description"}}</label>
+        </div>
+        <div class="armor-item {{ifThen armor " draggable" "" }} {{ifThen armor.system.equipped "" "unequipped" }}"
+          data-item-id='{{armor._id}}' data-document-class='Item'>
+          <div>
+            {{#if armor}}
+            <a {{#if armor.system.equipped}} class='rollable' data-roll-type='item' data-action='roll' {{else}} disabled
+              {{/if}}>
+              <img src='{{armor.img}}' data-tooltip='{{armor.name}}' width='46' height='46' />
+            </a>
+            {{/if}}
+            <label class="item-name" data-tooltip="{{armor.name}}">{{armor.name}}</label>
+          </div>
+          <label>{{armor.system.armorRating}}</label>
+          <label>{{armor.system.blightProtection}}</label>
+          <div class="expandable-field" data-action="expand">
+            {{#if armor}}
+            {{{armor.system.description}}}
+            <p>{{localize "CORIOLIS_TGD.Item.Equipment.FIELDS.tech.label"}}: {{armor.system.techDescription}}</p>
+            {{{armor.system.featureTags}}}
+            {{/if}}
+          </div>
+        </div>
+      </div>
       <div class="weapon-item-title">
         <label>{{localize "CORIOLIS_TGD.Item.Weapon.label"}}</label>
         <label>{{localize "CORIOLIS_TGD.Item.Equipment.FIELDS.bonus.label"}}</label>
