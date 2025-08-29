@@ -201,6 +201,52 @@
       </div>
       {{/each}}
     </div>
+    {{#if (or (not system.playMode) (gt attacks.length 0))}}
+    <div class="creature-attacks">
+      <label>
+        {{localize "CORIOLIS_TGD.Actor.Creature.FIELDS.attacks.label"}}
+        {{#if (not system.playMode)}}
+        <a class="rollable"
+          data-tooltip='{{localize "DOCUMENT.Create" type=(localize "CORIOLIS_TGD.Actor.Creature.FIELDS.abilities.label")}}'
+          data-action='createDoc' data-document-class='Item' data-type='creatureAttack' data-filter="creatureAttack">
+          <i class='fas fa-plus'></i>
+        </a>
+        {{/if}}
+      </label>
+      {{#each attacks as |item id|}}
+      <div data-item-id='{{item._id}}' data-document-class='Item'>
+        <a class='rollable' data-roll-type='item' data-action='roll'>
+          <label>{{item.system.attackNumber}}</label>
+          <label>{{item.name}}</label>
+          <label>{{item.system.info}}</label>
+        </a>
+        {{{item.system.description}}}
+      </div>
+      {{/each}}
+    </div>
+    {{/if}}
+    {{#if (or (not system.playMode) (gt abilities.length 0))}}
+    <div class="creature-abilities">
+      <label>
+        {{localize "CORIOLIS_TGD.Actor.Creature.FIELDS.abilities.label"}}
+        {{#if (not system.playMode)}}
+        <a class="rollable"
+          data-tooltip='{{localize "DOCUMENT.Create" type=(localize "CORIOLIS_TGD.Actor.Creature.FIELDS.abilities.label")}}'
+          data-action='createDoc' data-document-class='Item' data-type='creatureAbility' data-filter="creatureAbility">
+          <i class='fas fa-plus'></i>
+        </a>
+        {{/if}}
+      </label>
+      {{#each abilities as |item id|}}
+      <div data-item-id='{{item._id}}' data-document-class='Item'>
+        <a class='rollable' data-roll-type='item' data-action='roll'>
+          <label>{{item.name}}</label>
+        </a>
+        {{{item.system.description}}}
+      </div>
+      {{/each}}
+    </div>
+    {{/if}}
     <div class="simple-biography">
       <label>{{localize "CORIOLIS_TGD.Actor.Tabs.Biography"}}</label>
       <div>

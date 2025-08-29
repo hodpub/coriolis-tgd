@@ -286,6 +286,8 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
     const afflictions = [];
     const weapons = [];
     const weaponsInventory = [];
+    const attacks = [];
+    const abilities = [];
     let armor;
 
     // Iterate through items, allocating to containers
@@ -319,6 +321,14 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
         afflictions.push(i);
         continue;
       }
+      if (i.type === 'creatureAttack') {
+        attacks.push(i);
+        continue;
+      }
+      if (i.type === "creatureAbility") {
+        abilities.push(i);
+        continue;
+      }
     }
 
     // Sort then assign
@@ -328,6 +338,8 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
     context.weapons = weapons.sort((a, b) => (a.sort || 0) - (b.sort || 0));
     context.weaponsInventory = weaponsInventory.sort((a, b) => (a.sort || 0) - (b.sort || 0));
     context.afflictions = afflictions.sort((a, b) => (a.sort || 0) - (b.sort || 0));
+    context.abilities = abilities.sort((a, b) => (a.sort || 0) - (b.sort || 0));
+    context.attacks = attacks.sort((a, b) => (a.system.attackNumber || 0) - (b.system.attackNumber || 0));
     context.armor = armor;
   }
 

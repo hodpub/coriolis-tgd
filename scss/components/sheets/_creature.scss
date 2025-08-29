@@ -53,64 +53,6 @@
     }
   }
 
-  div.creature-attacks {
-    @extend %simple-box;
-
-    &>div {
-      @extend %border-description;
-      color: $c-brown;
-      padding: 10px;
-
-      a {
-        label:first-child {
-          background: $c-brown;
-          color: $c-gold;
-          border: 1px solid $c-gold;
-          width: 20px;
-          height: 20px;
-          border-radius: 50%;
-          display: inline-block;
-          text-align: center;
-        }
-
-        label:nth-child(2) {
-          font-weight: bold;
-        }
-      }
-
-      .rollable:hover {
-        text-shadow: 0 0 10px $c-brown;
-        color: $c-brown;
-      }
-    }
-  }
-
-  div.creature-abilities {
-    @extend %simple-box;
-
-    &>div {
-      @extend %border-description;
-      color: $c-brown;
-      padding: 10px;
-
-      a {
-        label:first-child {
-          font-weight: bold;
-        }
-      }
-
-      .rollable:hover {
-        text-shadow: 0 0 10px $c-brown;
-        color: $c-brown;
-      }
-    }
-  }
-
-  div.simple-health .dots {
-    justify-content: flex-end;
-    margin-right: 35px;
-  }
-
   a.shortcut {
     color: $c-gold;
     text-transform: uppercase;
