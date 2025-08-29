@@ -57,7 +57,8 @@ body.theme-dark .application {
     text-transform: uppercase;
     justify-content: center;
 
-    &.scrollable {
+    &.scrollable,
+    &.vertical {
       justify-content: unset;
     }
 
@@ -139,7 +140,7 @@ h4.divider {
   max-width: 400px;
 }
 
-body.isNotGM .dice-buttons.apply-damage{
+body.isNotGM .dice-buttons.apply-damage {
   display: none;
 }
 
