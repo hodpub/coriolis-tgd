@@ -63,7 +63,7 @@ export default class cgdEquipment extends cgdItemBase {
   async _preCreate(data, options, user) {
     await super._preCreate(data, options, user);
 
-    if (Object.keys(this.automations).length)
+    if (Object.keys(this.automations).length || this.parent.isEmbedded)
       return;
 
     const automation = new RollAttributeAutomation({}, { parent: this });
