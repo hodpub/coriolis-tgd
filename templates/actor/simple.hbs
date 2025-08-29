@@ -50,6 +50,17 @@
         {{dots system.derivedAttributes.hope.value system.derivedAttributes.hope.max
         field="system.derivedAttributes.hope.value" imgCss="health"}}
       </div>
+      <div class="simple-health">
+        <div class="label-with-circle-field two-labels">
+          <label>{{localize "CORIOLIS_TGD.Actor.base.FIELDS.heart.value.label"}}</label>
+          <label>{{system.derivedAttributes.heart.max}}</label>
+          <input name="system.derivedAttributes.heart.value" type="number" min="0"
+            max="{{system.derivedAttributes.heart.max}}" value="{{system.derivedAttributes.heart.value}}"
+            onfocus="this.select();" {{disabled system.playMode}} />
+        </div>
+        {{dots system.derivedAttributes.heart.value system.derivedAttributes.heart.max
+        field="system.derivedAttributes.heart.value" imgCss="health"}}
+      </div>
     </div>
     <div class="simple-equipments">
       <label>{{localize "CORIOLIS_TGD.Actor.Tabs.Equipments"}}

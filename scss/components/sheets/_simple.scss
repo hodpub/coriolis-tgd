@@ -84,8 +84,16 @@
 
       div.simple-health {
         @extend %simple-box;
-      }
 
+        &:first-child {
+          @extend .grid-span-2;
+        }
+
+        .dots {
+          justify-content: flex-end;
+          margin-right: 35px;
+        }
+      }
 
       div.simple-biography {
         @extend %simple-box;
