@@ -17,7 +17,7 @@
       {{dots system.supplyCount 32 group=4 divCss="supply" field="supply"}}
     </div>
     <div class="keepsake input-with-circle-title">
-      <label>Keepsake</label>
+      <label>{{localize "CORIOLIS_TGD.Item.Equipment.FIELDS.keepsake.label"}}</label>
       {{!-- {{formInput systemFields.keepsake.fields.item value=system.keepsake.item}} --}}
       <input type="text" name="system.keepsake.item" value="{{system.keepsake.item}}"
         data-tooltip="{{system.keepsake.item}}" {{disabled system.playMode}} />

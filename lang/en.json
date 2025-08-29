@@ -415,6 +415,9 @@
               "label": "Guild (GM Choice)",
               "abbr": "G"
             }
+          },
+          "keepsake": {
+            "label": "Keepsake"
           }
         }
       },
