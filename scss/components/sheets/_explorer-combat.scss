@@ -30,9 +30,12 @@
 
     label {
       height: 35px;
-      display: flex;
       align-items: center;
       font-size: var(--font-size-16);
+      line-height: 35px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
   }
 
@@ -100,9 +103,12 @@
 
     label {
       height: 35px;
-      display: flex;
+      line-height: 35px;
       align-items: center;
       font-size: var(--font-size-16);
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
   }
 

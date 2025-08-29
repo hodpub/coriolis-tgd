@@ -179,7 +179,7 @@
           <a class='rollable' data-roll-type='item' data-action='roll'>
             <img src='{{item.img}}' data-tooltip='{{item.name}}' width='46' height='46' />
           </a>
-          <label>{{item.name}}</label>
+          <label data-tooltip-text="{{item.name}}">{{item.name}}</label>
           <label>{{item.system.bonus}}</label>
           <label>{{ifThen item.system.attribute (localize (concat "CORIOLIS_TGD.Actor.base.FIELDS.attributes."
             item.system.attribute ".abbr")) "-"}}</label>
