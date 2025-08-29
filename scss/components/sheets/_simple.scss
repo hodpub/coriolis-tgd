@@ -15,7 +15,10 @@
   background: url(../assets/decorations/npc-background.png);
   background-position: 27%;
   background-size: 100% 100%;
-  min-width: 400px;
+
+  &:not(.minimized, .minimizing, .maximizing) {
+    min-width: 400px;
+  }
 
   div.simple-sheet {
     // display: flex;
