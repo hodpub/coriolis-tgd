@@ -461,6 +461,10 @@
             "label": "Critical Threshold",
             "abbr": "CRIT"
           },
+          "blight": {
+            "label": "Blight",
+            "abbr": "BLIGHT"
+          },
           "minRange": {
             "label": "Minimum Range"
           },

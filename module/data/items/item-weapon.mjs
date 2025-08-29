@@ -33,6 +33,12 @@ export default class cgdWeapon extends cgdEquipment {
       min: 0,
       max: 10
     });
+    schema.blight = new fields.NumberField({
+      ...DataHelper.requiredInteger,
+      initial: 0,
+      min: 0,
+      max: 10
+    });
     schema.atHand = new fields.BooleanField();
 
     schema.minRange = new fields.StringField({ required: true, choices: CORIOLIS_TGD.Weapon.attackRanges, initial: CORIOLIS_TGD.Weapon.attackRangeConstants.engaged });

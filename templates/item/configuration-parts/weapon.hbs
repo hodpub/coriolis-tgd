@@ -5,7 +5,7 @@
   {{formGroup systemFields.bonus value=system.bonus type="number" classes="cgd-custom"}}
   {{formGroup systemFields.maxBonus value=system.maxBonus type="number" classes="cgd-custom"}}
   {{formGroup systemFields.damage value=system.damage type="number" classes="cgd-custom"}}
-  {{formGroup systemFields.critical value=system.critical type="number" classes="cgd-custom"}}
+  {{formGroup systemFields.critical value=system.critical type="number" classes="cgd-custom"}}{{formGroup systemFields.blight value=system.blight type="number" classes="cgd-custom"}}
   {{formGroup systemFields.loaded value=system.loaded classes="cgd-custom"}}
   {{#if (eq system.attackType config.Weapon.attackTypeConstants.ranged)}}
   {{formGroup systemFields.minRange value=system.minRange choices=config.Weapon.attackRangeChoices localize=true

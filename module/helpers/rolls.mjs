@@ -76,6 +76,7 @@ export async function roll(actor, { dice, flavor, gear, birdPower, breakdown, ma
   if (gear?.type == "weapon") {
     options.damage = gear.system.damage;
     options.critical = gear.system.critical;
+    options.blight = gear.system.blight;
   }
   if (birdPower && birdPower.system.isAttack) {
     options.damage = birdPower.system.damage;
