@@ -64,12 +64,12 @@ export default class cgdVehicle extends cgdActorBase {
   prepareDefaultAutomations() {
     var automationList = [
       new RollDialogWithConnectedActorAutomation({
-        name: "Stunt",
+        name: game.i18n.localize("CORIOLIS_TGD.Actor.Vehicle.Automation.Stunt.name"),
         connectedActor: this.parent,
         attribute: "agility",
         canChangeAttribute: false,
         item: {
-          name: "Maneuverability",
+          name: game.i18n.localize("CORIOLIS_TGD.Actor.Vehicle.Automation.Stunt.item.type.name"),
           type: "equipment",
           system: {
             bonus: this.maneuverability
@@ -100,12 +100,12 @@ export default class cgdVehicle extends cgdActorBase {
         }
       }),
       new RollDialogAutomation({
-        name: "Armor Roll",
+        name: game.i18n.localize("CORIOLIS_TGD.Actor.Vehicle.Automation.ArmorRoll.name"),
         actor: this.parent,
         hideAttribute: true,
         item: {
           name: "Armor",
-          label: "Armor",
+          label: game.i18n.localize("CORIOLIS_TGD.Actor.Vehicle.Automation.ArmorRoll.item.label"),
           type: "armor",
           system: {
             bonus: this.armor,
@@ -115,12 +115,12 @@ export default class cgdVehicle extends cgdActorBase {
         maxPush: 0,
       }),
       new RollDialogAutomation({
-        name: "Blight Protection Roll",
+        name: game.i18n.localize("CORIOLIS_TGD.Actor.Vehicle.Automation.BlightProtectionRoll.name"),
         actor: this.parent,
         hideAttribute: true,
         item: {
           name: "Blight Protection",
-          label: "Blight Protection",
+          label: game.i18n.localize("CORIOLIS_TGD.Actor.Vehicle.Automation.BlightProtectionRoll.item.label"),
           type: "armor",
           system: {
             bonus: this.blightProtection,
@@ -130,7 +130,7 @@ export default class cgdVehicle extends cgdActorBase {
         maxPush: 0,
       }),
       new RollDialogWithConnectedActorAutomation({
-        name: "Overload",
+        name: game.i18n.localize("CORIOLIS_TGD.Actor.Vehicle.Automation.Overload.name"),
         connectedActor: this.parent,
         attribute: "logic",
         canChangeAttribute: false,
@@ -142,7 +142,7 @@ export default class cgdVehicle extends cgdActorBase {
         }
       }),
       new RollDialogWithConnectedActorAutomation({
-        name: "Sensor Sweep",
+        name: game.i18n.localize("CORIOLIS_TGD.Actor.Vehicle.Automation.SensorSweep.name"),
         connectedActor: this.parent,
         attribute: "logic",
         canChangeAttribute: false,
