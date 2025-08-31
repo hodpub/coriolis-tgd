@@ -263,6 +263,14 @@
                 "name": "Maneuverability"
               }
             }
+          },
+          "Ramming":{
+            "name":"Ramming",
+            "item":{
+              "type":{
+                "name": "Ramming"
+              }
+            }
           }
         }
       },

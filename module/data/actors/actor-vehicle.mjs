@@ -81,12 +81,12 @@ export default class cgdVehicle extends cgdActorBase {
         }
       }),
       new RollDialogWithConnectedActorAutomation({
-        name: "Ramming",
+        name:  game.i18n.localize("CORIOLIS_TGD.Actor.Vehicle.Automation.Ramming.name"),
         connectedActor: this.parent,
         attribute: "agility",
         canChangeAttribute: false,
         item: {
-          name: "Ramming",
+          name:  game.i18n.localize("CORIOLIS_TGD.Actor.Vehicle.Automation.Ramming.item.type.name"),
           type: "weapon",
           system: {
             bonus: this.maneuverability,
