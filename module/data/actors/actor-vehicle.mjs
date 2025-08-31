@@ -104,7 +104,7 @@ export default class cgdVehicle extends cgdActorBase {
         actor: this.parent,
         hideAttribute: true,
         item: {
-          name: "Armor",
+          name: game.i18n.localize("CORIOLIS_TGD.Actor.Vehicle.Automation.ArmorRoll.item.name"),
           label: game.i18n.localize("CORIOLIS_TGD.Actor.Vehicle.Automation.ArmorRoll.item.label"),
           type: "armor",
           system: {
@@ -119,7 +119,7 @@ export default class cgdVehicle extends cgdActorBase {
         actor: this.parent,
         hideAttribute: true,
         item: {
-          name: "Blight Protection",
+          name: game.i18n.localize("CORIOLIS_TGD.Actor.Vehicle.Automation.BlightProtectionRoll.item.name"),
           label: game.i18n.localize("CORIOLIS_TGD.Actor.Vehicle.Automation.BlightProtectionRoll.item.label"),
           type: "armor",
           system: {

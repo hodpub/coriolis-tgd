@@ -247,13 +247,15 @@
           "ArmorRoll":{
             "name": "Armor roll",
             "item": {
-              "label": "Armor"
+              "label": "Armor",
+              "name": "Armor"
             }
           },
           "BlightProtectionRoll":{
             "name": "Blight Protection Roll",
             "item": {
-              "label": "Blight Protection"
+              "label": "Blight Protection",
+              "name": "Blight Protection"
             }
           },
           "Stunt":{
@@ -753,6 +755,12 @@
     },
     "Roller": {
       "Bonuses": {
+        "GearBonus":{
+          "label": "Add Equipment/Weapon"
+        },
+        "TalentBonus":{
+          "label": "Add Talent"
+        },
         "manualBonus": {
           "label": "Manual Bonus",
           "name": "{dice} Base Dice"
