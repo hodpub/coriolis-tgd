@@ -19,7 +19,7 @@ export default class cgdNPC extends cgdActorBase {
           ...DataHelper.requiredInteger,
           initial: 2,
           min: 2,
-          max: 6
+          max: 10
         });
         return obj;
       }, {})
