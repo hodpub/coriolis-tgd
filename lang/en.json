@@ -26,7 +26,8 @@
         "Upgrades": "Upgrades",
         "Stats": "Stats",
         "Automations": "Automations",
-        "Solo": "Solo"
+        "Solo": "Solo",
+	"Notes": "Notes"
       },
       "base": {
         "FIELDS": {
@@ -239,41 +240,8 @@
           },
           "weapon": {
             "capacity": "Weapon Turrets Capacity:"
-          }
-        },
-        "Automation":{
-          "SensorSweep.name": "Sensor Sweep",
-          "Overload.name": "Overload",
-          "ArmorRoll":{
-            "name": "Armor roll",
-            "item": {
-              "label": "Armor",
-              "name": "Armor"
-            }
           },
-          "BlightProtectionRoll":{
-            "name": "Blight Protection Roll",
-            "item": {
-              "label": "Blight Protection",
-              "name": "Blight Protection"
-            }
-          },
-          "Stunt":{
-            "name":"Stunt",
-            "item":{
-              "type":{
-                "name": "Maneuverability"
-              }
-            }
-          },
-          "Ramming":{
-            "name":"Ramming",
-            "item":{
-              "type":{
-                "name": "Ramming"
-              }
-            }
-          }
+	  "notes.label": "Notes"
         }
       },
       "Rover": {
@@ -494,10 +462,6 @@
           "critical": {
             "label": "Critical Threshold",
             "abbr": "CRIT"
-          },
-          "blight": {
-            "label": "Blight",
-            "abbr": "BLIGHT"
           },
           "minRange": {
             "label": "Minimum Range"
@@ -759,12 +723,6 @@
     },
     "Roller": {
       "Bonuses": {
-        "GearBonus":{
-          "label": "Add Equipment/Weapon"
-        },
-        "TalentBonus":{
-          "label": "Add Talent"
-        },
         "manualBonus": {
           "label": "Manual Bonus",
           "name": "{dice} Base Dice"

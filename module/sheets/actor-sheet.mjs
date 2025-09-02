@@ -223,6 +223,19 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
           }
         );
         break;
+        case 'notes':
+        context.enrichedNotes = await TextEditor.enrichHTML(
+          this.actor.system.notes,
+          {
+            // Whether to show secret blocks in the finished html
+            secrets: this.document.isOwner,
+            // Data to fill in for inline rolls
+            rollData: this.actor.getRollData(),
+            // Relative UUID resolution
+            relativeTo: this.actor,
+          }
+        );
+        break;
     }
     context.tab = context.tabs[partId];
     return context;

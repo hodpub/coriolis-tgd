@@ -34,6 +34,8 @@ export default class cgdVehicle extends cgdActorBase {
     schema.passengers = new fields.NumberField({ ...DataHelper.requiredInteger, initial: 0, min: 0 });
     schema.cargo = new fields.NumberField({ ...DataHelper.requiredInteger, initial: 0, min: 0 });
     schema.slots = new fields.NumberField({ ...DataHelper.requiredInteger, initial: 0, min: 0 });
+    schema.paint = new fields.StringField();
+    schema.notes = new fields.HTMLField();
 
     return schema;
   }

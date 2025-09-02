@@ -12,6 +12,10 @@
         <label>{{localize "Name"}}</label>
         <input type="text" name="name" value="{{actor.name}}" {{disabled system.playMode}} />
       </div>
+      <div class="paint input-with-circle-title-small">
+        <label>{{localize "Paint"}}</label>
+        <input type="text" name="system.paint" value="{{system.paint}}" {{disabled system.playMode}} />
+      </div>
     </div>
     <div>
       {{formGroup systemFields.maneuverability value=system.maneuverability disabled=system.playMode

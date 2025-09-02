@@ -51,6 +51,10 @@ export class cgdActorVehicleSheet extends cgdActorSheet {
       template: 'systems/coriolis-tgd/templates/actor/automations.hbs',
       scrollable: [""],
     },
+    notes: {
+      template: 'systems/coriolis-tgd/templates/actor/vehicle/notes.hbs',
+      scrollable: [""],
+    },
   }
 
   static TABS_CONFIGURATION = {
@@ -66,7 +70,7 @@ export class cgdActorVehicleSheet extends cgdActorSheet {
     // Don't show the other tabs if only limited view
     if (this.document.limited) return;
 
-    options.parts.push("header", 'tabs', "automations", `${this.document.type}Stats`, "combat", "cargo", "upgrades", "effects");
+    options.parts.push("header", 'tabs', "automations", `${this.document.type}Stats`, "combat", "cargo", "upgrades", "effects", "notes");
   }
 
   _prepareItems(context) {
