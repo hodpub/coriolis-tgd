@@ -241,7 +241,8 @@
           "weapon": {
             "capacity": "Weapon Turrets Capacity:"
           },
-          "notes.label": "Notes"
+          "notes.label": "Notes",
+          "paint.label": "Paint"
         },
         "Automation": {
           "SensorSweep.name": "Sensor Sweep",
