@@ -34,6 +34,7 @@ body.theme-dark,
 body .application,
 body.theme-dark .application {
   --color-text-accent: #{$c-gold};
+  --color-text-secondary: #{$c-cream};
   --color-shadow-primary: #{$c-brown};
   --color-border: #{$c-brown};
   --background: url(../systems/coriolis-tgd/assets/frames/texture-500px.jpg);
