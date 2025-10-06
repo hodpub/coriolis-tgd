@@ -67,7 +67,7 @@ export class cgdActor extends foundry.documents.Actor {
               enabled: true
             },
             texture: {
-              src: this._replaceTokenImgIfDefault("systems/coriolis-tgd/assets/icons/astronaut-helmet.svg")
+              src: this._replaceTokenImgIfDefault("systems/coriolis-tgd/assets/icons/tokens/astronaut-helmet.webp")
             }
           }
         });
@@ -82,7 +82,7 @@ export class cgdActor extends foundry.documents.Actor {
               enabled: true
             },
             texture: {
-              src: this._replaceTokenImgIfDefault("systems/coriolis-tgd/assets/icons/npc.svg")
+              src: this._replaceTokenImgIfDefault("systems/coriolis-tgd/assets/icons/tokens/npc.webp")
             }
           }
         });
@@ -97,7 +97,7 @@ export class cgdActor extends foundry.documents.Actor {
               enabled: true
             },
             texture: {
-              src: this._replaceTokenImgIfDefault("systems/coriolis-tgd/assets/icons/creature.svg")
+              src: this._replaceTokenImgIfDefault("systems/coriolis-tgd/assets/icons/tokens/creature.webp")
             }
           }
         });
@@ -113,7 +113,7 @@ export class cgdActor extends foundry.documents.Actor {
               enabled: true
             },
             texture: {
-              src: this._replaceTokenImgIfDefault("systems/coriolis-tgd/assets/icons/egyptian-bird.svg"),
+              src: this._replaceTokenImgIfDefault("systems/coriolis-tgd/assets/icons/tokens/egyptian-bird.webp"),
             }
           }
         });
@@ -129,7 +129,7 @@ export class cgdActor extends foundry.documents.Actor {
               enabled: true
             },
             texture: {
-              src: this._replaceTokenImgIfDefault("systems/coriolis-tgd/assets/icons/three-friends.svg"),
+              src: this._replaceTokenImgIfDefault("systems/coriolis-tgd/assets/icons/tokens/three-friends.webp"),
             }
           }
         });
@@ -145,7 +145,7 @@ export class cgdActor extends foundry.documents.Actor {
               enabled: true
             },
             texture: {
-              src: this._replaceTokenImgIfDefault("systems/coriolis-tgd/assets/icons/apc.svg"),
+              src: this._replaceTokenImgIfDefault("systems/coriolis-tgd/assets/icons/tokens/apc.webp"),
             }
           }
         });
@@ -161,7 +161,7 @@ export class cgdActor extends foundry.documents.Actor {
               enabled: true
             },
             texture: {
-              src: this._replaceTokenImgIfDefault("systems/coriolis-tgd/assets/icons/spaceship.svg"),
+              src: this._replaceTokenImgIfDefault("systems/coriolis-tgd/assets/icons/tokens/spaceship.webp"),
             }
           }
         });
