@@ -50,12 +50,14 @@ export class cgdActor extends foundry.documents.Actor {
   _replaceTokenImgIfDefault(img) {
     return this.prototypeToken.texture.src == "icons/svg/mystery-man.svg" ? img : this.prototypeToken.texture.src;
   }
+  _replaceActorLink(data, defaultValue) {
+    return data.prototypeToken?.actorLink ?? defaultValue;
+  }
 
   async _preCreate(data, options, user) {
     const allowed = await super._preCreate(data, options, user)
     if (allowed === false) return false;
 
-    console.log(this, data);
     switch (data.type) {
       case "explorer":
         this.updateSource({
@@ -76,7 +78,7 @@ export class cgdActor extends foundry.documents.Actor {
         this.updateSource({
           img: this._replaceImgIfDefault("systems/coriolis-tgd/assets/icons/npc.svg"),
           prototypeToken: {
-            actorLink: false,
+            actorLink: this._replaceActorLink(data, false),
             disposition: 0,
             sight: {
               enabled: true
