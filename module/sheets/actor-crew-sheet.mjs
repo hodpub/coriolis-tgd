@@ -41,6 +41,8 @@ export class cgdActorCrewSheet extends cgdActorSheet {
         context[`is${role}`] = true;
     }
 
+    this.document.system.recalculateSupplies();
+
     return context;
   }
 

@@ -31,4 +31,14 @@ export default class cgdCrew extends cgdActorBase {
     if (bird.length == 1)
       this.parent.updateSource({ ["system.bird"]: bird[0].uuid });
   }
+
+  recalculateSupplies() {
+    const crewExplorers = Object.values(this.roles);
+    this.totalSupply = game.actors.filter(e => e.type == "explorer")
+      .reduce((p, v) => {
+        if (crewExplorers.includes(v.uuid))
+          return p + v.system.supplyCount;
+        return p;
+      }, 0);
+  }
 }

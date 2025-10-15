@@ -818,7 +818,15 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
     const dataset = target.dataset;
     const value = dataset.value;
 
-    return this.actor.getSupplyItem().update({ "system.quantity": value });
+    const result = this.actor.getSupplyItem().update({ "system.quantity": value });
+
+    return result.then(_ => {
+      game.actors.filter(a => a.type == "crew")
+        .forEach(crew => {
+          crew.system.recalculateSupplies();
+          crew.render();
+        })
+    });
   }
 
   /** Helper Functions */
