@@ -608,7 +608,10 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
       {
         name: "Edit",
         icon: "<i class=\"fa-solid fa-fw fa-edit\"></i>",
-        // condition: () => this.isEditMode,
+        condition: (target) => {
+          let item = this._getEmbeddedDocument(target);
+          return this.actor.type == "explorer" ? !item.flags["coriolis-tgd"]?.isSupply : true;
+        },
         callback: async (target) => {
           const item = this._getEmbeddedDocument(target);
           if (!item) {
@@ -813,20 +816,18 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
     return this.actor.update({ [field]: value });
   }
 
-  static #setSupply(event, target) {
+  static async #setSupply(event, target) {
     event.preventDefault();
     const dataset = target.dataset;
     const value = dataset.value;
 
-    const result = this.actor.getSupplyItem().update({ "system.quantity": value });
+    await this.actor.getSupplyItem().update({ "system.quantity": value });
 
-    return result.then(_ => {
-      game.actors.filter(a => a.type == "crew")
-        .forEach(crew => {
-          crew.system.recalculateSupplies();
-          crew.render();
-        })
-    });
+    return game.actors.filter(a => a.type == "crew")
+      .forEach(crew => {
+        crew.system.recalculateSupplies();
+        crew.render();
+      });
   }
 
   /** Helper Functions */

@@ -33,12 +33,9 @@ export default class cgdCrew extends cgdActorBase {
   }
 
   recalculateSupplies() {
-    const crewExplorers = Object.values(this.roles);
-    this.totalSupply = game.actors.filter(e => e.type == "explorer")
-      .reduce((p, v) => {
-        if (crewExplorers.includes(v.uuid))
-          return p + v.system.supplyCount;
-        return p;
-      }, 0);
+    const crewExplorers = Object.values(this.roles).filter(x => x);
+     this.totalSupply = game.actors
+      .filter(e => crewExplorers.includes(e.uuid))
+      .reduce((p, v) => p + v.system.supplyCount, 0);
   }
 }
