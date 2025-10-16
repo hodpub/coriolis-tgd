@@ -14,6 +14,11 @@
     </div>
     <div>
       <div class="label-with-circle-field">
+        <label>{{localize "CORIOLIS_TGD.Actor.Crew.FIELDS.totalSupply.label"}}</label>
+
+        <label>{{system.totalSupply}}</label>
+      </div>
+      <div class="label-with-circle-field">
         <label>{{localize "CORIOLIS_TGD.Actor.Crew.FIELDS.crewPoints.label"}}</label>
 
         <input name="system.crewPoints" type="number" min="0" value="{{system.crewPoints}}" onfocus="this.select();"

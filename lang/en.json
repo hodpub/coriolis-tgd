@@ -220,6 +220,7 @@
             "burrower.label": "Burrower",
             "archaeologist.label": "Archaeologist"
           },
+          "totalSupply.label": "Total Supplies",
           "crewPoints.label": "Crew Points"
         }
       },
