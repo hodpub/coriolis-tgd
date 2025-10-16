@@ -14,7 +14,7 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
 ) {
   /** @override */
   static DEFAULT_OPTIONS = {
-    classes: ['cgd', 'actor', 'explorer'],
+    classes: ['cgd', 'actor'],
     position: {
       width: 900,
       height: 800,
@@ -98,6 +98,10 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
 
   /** @override */
   _configureRenderOptions(options) {
+    // Add the current documents' actor type to the css classes.
+    if (!this.options.classes.includes(this.document.type))
+      this.options.classes.push(this.document.type);
+
     super._configureRenderOptions(options);
     // Not all parts always render
     options.parts = [];

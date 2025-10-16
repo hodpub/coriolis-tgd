@@ -3,7 +3,6 @@ import { cgdActorSheet } from "./actor-sheet.mjs";
 
 export class cgdActorBirdSheet extends cgdActorSheet {
   static DEFAULT_OPTIONS = {
-    classes: ['cgd', 'actor', 'bird'],
     defaultTab: "powers"
   };
 

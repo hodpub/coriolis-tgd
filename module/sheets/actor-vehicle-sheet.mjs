@@ -3,7 +3,7 @@ import { cgdActorSheet } from "./actor-sheet.mjs";
 
 export class cgdActorVehicleSheet extends cgdActorSheet {
   static DEFAULT_OPTIONS = {
-    classes: ['cgd', 'actor', 'vehicle'],
+    classes: ['vehicle'],
     defaultTab: "automations",
     position: {
       width: 700,
@@ -63,7 +63,6 @@ export class cgdActorVehicleSheet extends cgdActorSheet {
   }
 
   _configureRenderOptions(options) {
-    this.options.classes.push(this.document.type);
     super._configureRenderOptions(options);
     // Not all parts always render
     options.parts = [];
