@@ -14,7 +14,7 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
 ) {
   /** @override */
   static DEFAULT_OPTIONS = {
-    classes: ['cgd', 'actor'],
+    classes: ['cgd', 'actor', 'explorer'],
     position: {
       width: 900,
       height: 800,
