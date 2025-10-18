@@ -3,7 +3,6 @@ import { cgdActorSheet } from "./actor-sheet.mjs";
 
 export class cgdActorCrewSheet extends cgdActorSheet {
   static DEFAULT_OPTIONS = {
-    classes: ['cgd', 'actor', 'crew'],
     defaultTab: "maneuvers"
   };
 

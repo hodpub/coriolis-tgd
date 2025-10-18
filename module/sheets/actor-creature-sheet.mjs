@@ -4,7 +4,7 @@ import { cgdActorNpcSheet } from "./actor-npc-sheet.mjs";
 
 export class cgdActorCreatureSheet extends cgdActorNpcSheet {
   static DEFAULT_OPTIONS = {
-    classes: ['cgd', 'actor', 'simple', 'creature'],
+    classes: ['simple'],
     actions: {
       attack: this._attack,
       behavior: this._behavior,
