@@ -24,6 +24,7 @@
       },
       "bird": {},
       "crew": {},
+      "kite": {},
       "rover": {},
       "shuttle": {},
       "npc": {
@@ -83,6 +84,11 @@
         "htmlFields": [
           "description"
         ]
+      },
+      "kiteUpgrade": {
+          "htmlFields": [
+              "description"
+          ]
       },
       "roverUpgrade": {
         "htmlFields": [

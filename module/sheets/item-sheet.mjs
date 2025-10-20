@@ -152,6 +152,7 @@ export class cgdItemSheet extends api.HandlebarsApplicationMixin(
       case "crewManeuver":
         options.parts.push("configurationCrewManeuver");
         break;
+      case "kiteUpgrade":
       case "roverUpgrade":
       case "shuttleUpgrade":
         options.parts.push("configurationVehicleUpgrade");

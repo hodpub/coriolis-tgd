@@ -41,7 +41,7 @@ export default class cgdVehicle extends cgdActorBase {
   }
 
   prepareDerivedData() {
-    this.prepareAutomations(["roverUpgrade", "shuttleUpgrade", "vehicleWeapon"]);
+    this.prepareAutomations(["kiteUpgrade", "roverUpgrade", "shuttleUpgrade", "vehicleWeapon"]);
     const items = this.parent.items;
     let cargoUsed = 0;
     let supplyCount = 0;

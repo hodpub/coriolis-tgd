@@ -19,6 +19,9 @@ export class cgdActorVehicleSheet extends cgdActorSheet {
       // Foundry-provided generic template
       template: 'templates/generic/tab-navigation.hbs',
     },
+    kiteStats: {
+      template: 'systems/coriolis-tgd/templates/actor/vehicle/kite-stats.hbs',
+    },
     roverStats: {
       template: 'systems/coriolis-tgd/templates/actor/vehicle/rover-stats.hbs',
     },
@@ -58,6 +61,7 @@ export class cgdActorVehicleSheet extends cgdActorSheet {
   }
 
   static TABS_CONFIGURATION = {
+    kiteStats: "stats",
     roverStats: "stats",
     shuttleStats: "stats"
   }
@@ -70,6 +74,12 @@ export class cgdActorVehicleSheet extends cgdActorSheet {
     if (this.document.limited) return;
 
     options.parts.push("header", 'tabs', "automations", `${this.document.type}Stats`, "combat", "cargo", "upgrades", "effects", "notes");
+
+    // Kites do not carry cargo; remove the part.
+    if (this.document.type == "kite") {
+      const cargoIdx = options.parts.indexOf("cargo");
+      options.parts.splice(cargoIdx, 1);
+    }
   }
 
   _prepareItems(context) {
@@ -80,7 +90,7 @@ export class cgdActorVehicleSheet extends cgdActorSheet {
     const weaponsInventory = [];
 
     for (let i of this.document.items) {
-      if (i.type === "roverUpgrade" || i.type === "shuttleUpgrade") {
+      if (i.type === "kiteUpgrade" || i.type === "roverUpgrade" || i.type === "shuttleUpgrade") {
         if (i.system.installed)
           upgradesInstalled.push(i);
         else

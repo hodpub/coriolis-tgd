@@ -1,5 +1,10 @@
 &.actor.vehicle {
 
+  &.kite {
+    background: url(../assets/decorations/shuttle-background.png);
+    background-size: 100% 100%;
+  }
+
   &.rover {
     background: url(../assets/decorations/rover-background.png);
     background-size: 100% 100%;

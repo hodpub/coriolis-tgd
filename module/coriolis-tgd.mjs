@@ -60,6 +60,7 @@ Hooks.once('init', function () {
     creature: models.cgdCreature,
     bird: models.cgdBird,
     crew: models.cgdCrew,
+    kite: models.cgdKite,
     rover: models.cgdRover,
     shuttle: models.cgdShuttle,
   };
@@ -74,6 +75,7 @@ Hooks.once('init', function () {
     creatureAbility: models.cgdCreatureAbility,
     birdPower: models.cgdBirdPower,
     crewManeuver: models.cgdCrewManeuver,
+    kiteUpgrade: models.cgdKiteUpgrade,
     roverUpgrade: models.cgdRoverUpgrade,
     shuttleUpgrade: models.cgdShuttleUpgrade,
     vehicleWeapon: models.cgdVehicleWeapon,
@@ -114,7 +116,7 @@ Hooks.once('init', function () {
     label: 'CORIOLIS_TGD.SheetLabels.Actor.Crew',
   });
   collections.Actors.registerSheet('coriolis-tgd', sheets.cgdActorVehicleSheet, {
-    types: ["rover", "shuttle"],
+    types: ["kite", "rover", "shuttle"],
     makeDefault: true,
     label: 'CORIOLIS_TGD.SheetLabels.Actor.Vehicle',
   });

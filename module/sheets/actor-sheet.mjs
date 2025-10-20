@@ -570,7 +570,7 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
         icon: "<i class=\"fa-solid fa-wrench\"></i>",
         condition: (target) => {
           let item = this._getEmbeddedDocument(target);
-          return this.actor.isOwner && ((this.actor.type == "rover" && item.type == "roverUpgrade") || (this.actor.type == "shuttle" && item.type == "shuttleUpgrade")) && !item.system.partOfFrame && !item.system.installed && this.actor.system.slotsUsed + item.system.slot <= this.actor.system.slots;
+          return this.actor.isOwner && ((this.actor.type == "kite" && item.type == "kiteUpgrade") || (this.actor.type == "rover" && item.type == "roverUpgrade") || (this.actor.type == "shuttle" && item.type == "shuttleUpgrade")) && !item.system.partOfFrame && !item.system.installed && this.actor.system.slotsUsed + item.system.slot <= this.actor.system.slots;
         },
         callback: async (target) => {
           const item = this._getEmbeddedDocument(target);
@@ -586,7 +586,7 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
         icon: "<i class=\"fa-solid fa-remove\"></i>",
         condition: (target) => {
           let item = this._getEmbeddedDocument(target);
-          return this.actor.isOwner && ((this.actor.type == "rover" && item.type == "roverUpgrade") || (this.actor.type == "shuttle" && item.type == "shuttleUpgrade")) && !item.system.partOfFrame && item.system.installed;
+          return this.actor.isOwner && ((this.actor.type == "kite" && item.type == "kiteUpgrade") || (this.actor.type == "rover" && item.type == "roverUpgrade") || (this.actor.type == "shuttle" && item.type == "shuttleUpgrade")) && !item.system.partOfFrame && item.system.installed;
         },
         callback: async (target) => {
           const item = this._getEmbeddedDocument(target);
@@ -1013,7 +1013,7 @@ new coriolistgd.applications.cgdRollDialog({actor, requireAttribute: true, canCh
     if (!this.actor.isOwner) return;
     if (this.actor.uuid === item.parent?.uuid) return this._onSortItem(event, item);
 
-    if (item.type == "shuttleUpgrade" || item.type == "roverUpgrade")
+    if (item.type == "kiteUpgrade" || item.type == "shuttleUpgrade" || item.type == "roverUpgrade")
       return super._onDropItem(event, item);
 
     if (item.type == "armor" && this.actor.items.filter(it => it.type == "armor").length) {

@@ -5,6 +5,7 @@ export { default as cgdNPC } from './actors/actor-npc.mjs';
 export { default as cgdCreature } from './actors/actor-creature.mjs';
 export { default as cgdBird } from "./actors/actor-bird.mjs";
 export { default as cgdCrew } from "./actors/actor-crew.mjs";
+export { default as cgdKite } from "./actors/actor-kite.mjs";
 export { default as cgdRover } from "./actors/actor-rover.mjs";
 export { default as cgdShuttle } from "./actors/actor-shuttle.mjs";
 
@@ -19,6 +20,7 @@ export { default as cgdCreatureAttack } from './items/item-creature-attack.mjs';
 export { default as cgdCreatureAbility } from './items/item-creature-ability.mjs';
 export { default as cgdBirdPower } from './items/item-bird-power.mjs';
 export { default as cgdCrewManeuver } from './items/item-crew-maneuver.mjs';
+export { default as cgdKiteUpgrade } from './items/item-kite-upgrade.mjs';
 export { default as cgdRoverUpgrade } from './items/item-rover-upgrade.mjs';
 export { default as cgdShuttleUpgrade } from './items/item-shuttle-upgrade.mjs';
 export { default as cgdVehicleWeapon } from './items/item-vehicle-weapon.mjs';
