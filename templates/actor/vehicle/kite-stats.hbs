@@ -1,0 +1,16 @@
+<section class='tab powers scrollable {{tab.cssClass}}' data-group='primary' data-tab='stats'>
+  <div class="grid">
+    {{formGroup systemFields.maxManeuverability value=system.maxManeuverability disabled=system.playMode
+    classes="cgd-custom"}}
+    {{formGroup systemFields.armor value=system.armor disabled=system.playMode
+    classes="cgd-custom"}}
+    {{formGroup systemFields.range value=system.range choices=config.Vehicle.kiteRangeChoices localize=true
+    classes="cgd-custom"}}
+    {{formGroup systemFields.cost value=system.cost disabled=system.playMode
+    classes="cgd-custom"}}
+    {{formGroup systemFields.slots value=system.slots disabled=system.playMode
+    classes="cgd-custom"}}
+    {{formGroup systemFields.tech value=system.tech disabled=system.playMode localize=true
+    classes="cgd-custom"}}
+  </div>
+</section>

@@ -72,7 +72,7 @@ export default class cgdRollDialog extends HandlebarsApplicationMixin(Applicatio
         this.format = `{bird}: {birdPower} + {attribute}`;
         this.canRemoveGear = false;
       }
-      else if (item.type == "roverUpgrade" || item.type == "shuttleUpgrade") {
+      else if (item.type == "kiteUpgrade" || item.type == "roverUpgrade" || item.type == "shuttleUpgrade") {
         // this.options.window.title = `${actor.name} - ${item.actor.name}: ${item.name} `;
         this.format = `${item.actor.name}: {gear} + {attribute}`;
         this.gear = item;

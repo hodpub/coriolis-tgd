@@ -25,7 +25,8 @@ export default class RollDialogWithConnectedActorAutomation {
     }
     const roller = new cgdRollDialog({ actor: explorer, connectedActor: this.connectedActor, attribute: this.attribute, item: this.item, canChangeAttribute: this.canChangeAttribute, requireAttribute: this.requireAttribute, hideAttribute: this.hideAttribute, maxPush: this.maxPush, formatLabel: this.formatLabel });
     const message = await roller.wait(event);
-    if (this.postExecution) {
+    // When the automation dialogue box is closed, the message can be nonexistent.
+    if (this.postExecution && message != null) {
       this.postExecution(message);
     }
     return message;

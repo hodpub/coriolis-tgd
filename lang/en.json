@@ -7,7 +7,7 @@
         "Creature": "Coriolis: The Great Dark Creature Actor Sheet",
         "Bird": "Coriolis: The Great Dark Bird Actor Sheet",
         "Crew": "Coriolis: The Great Dark Crew Actor Sheet",
-        "Vehicle": "Coriolis: The Great Dark Vehicle (Rover/Shuttle) Actor Sheet"
+        "Vehicle": "Coriolis: The Great Dark Vehicle (Kite/Rover/Shuttle) Actor Sheet"
       },
       "Item": "Coriolis: The Great Dark Item Sheet",
       "Sheet": "Sheet"
@@ -275,6 +275,21 @@
             "item": {
               "type": {
                 "name": "Ramming"
+              }
+            }
+          }
+        }
+      },
+      "Kite": {
+        "FIELDS": {
+          "cost.label": "Cost"
+        },
+        "Automation": {
+          "UseKite": {
+            "name": "Use Kite",
+            "item": {
+              "type": {
+                "name": "Bonus"
               }
             }
           }
@@ -829,6 +844,7 @@
       "creature": "Creature",
       "bird": "Bird",
       "crew": "Crew",
+      "kite": "Kite",
       "rover": "Rover",
       "shuttle": "Shuttle"
     },
@@ -842,6 +858,7 @@
       "creatureAbility": "Creature's Ability",
       "birdPower": "Bird Power",
       "crewManeuver": "Crew Maneuver",
+      "kiteUpgrade": "Kite Upgrade",
       "roverUpgrade": "Rover Upgrade",
       "shuttleUpgrade": "Shuttle Upgrade",
       "vehicleWeapon": "Vehicle Weapon",

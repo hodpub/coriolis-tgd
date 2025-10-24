@@ -44,6 +44,7 @@ The core system features no content. It only provides support for various mechan
   - Explorer
   - Crew
     - Bird
+    - Kite
     - Rover
     - Shuttle
   - NPC

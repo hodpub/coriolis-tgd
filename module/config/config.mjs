@@ -6,6 +6,7 @@ import { Weapon } from "./weapon.mjs";
 import { Creature } from "./creature.mjs";
 import { Bird } from "./bird.mjs";
 import { Crew } from "./crew.mjs";
+import { Vehicle } from "./vehicle.mjs"
 
 export const CORIOLIS_TGD = {
   ID: "coriolis-tgd",
@@ -17,4 +18,5 @@ export const CORIOLIS_TGD = {
   Creature,
   Bird,
   Crew,
+  Vehicle,
 };

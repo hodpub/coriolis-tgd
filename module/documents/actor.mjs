@@ -136,6 +136,22 @@ export class cgdActor extends foundry.documents.Actor {
           }
         });
         break;
+      case "kite":
+        this.updateSource({
+          img: this._replaceImgIfDefault("systems/coriolis-tgd/assets/icons/kite.svg"),
+          ownership: { default: CONST.DOCUMENT_OWNERSHIP_LEVELS.OWNER },
+          prototypeToken: {
+            actorLink: true,
+            disposition: 0,
+            sight: {
+              enabled: true
+            },
+            texture: {
+              src: this._replaceTokenImgIfDefault("systems/coriolis-tgd/assets/icons/tokens/kite.webp"),
+            }
+          }
+        });
+        break;
       case "rover":
         this.updateSource({
           img: this._replaceImgIfDefault("systems/coriolis-tgd/assets/icons/apc.svg"),
