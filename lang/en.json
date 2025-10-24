@@ -282,7 +282,7 @@
       },
       "Kite": {
         "FIELDS": {
-          "range.label": "Range"
+          "cost.label": "Cost"
         },
         "Automation": {
           "UseKite": {

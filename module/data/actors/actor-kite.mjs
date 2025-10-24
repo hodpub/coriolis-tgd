@@ -9,15 +9,17 @@ export default class cgdKite extends cgdVehicle {
     ...super.LOCALIZATION_PREFIXES,
     'CORIOLIS_TGD.Actor.Kite',
     'CORIOLIS_TGD.Item.Equipment',
+    'CORIOLIS_TGD.Item.Weapon',
   ];
 
   static defineSchema() {
     const fields = foundry.data.fields;
     const schema = super.defineSchema();
 
-    schema.bonus = new fields.NumberField({ ...DataHelper.requiredInteger, initial: 0, min: 0 });
-    schema.maxBonus = new fields.NumberField({ ...DataHelper.requiredInteger, initial: 0, min: 0 });
-    schema.range = new fields.NumberField({ ...DataHelper.requiredInteger, initial: 0, min: 0 });
+    delete schema.passengers;
+
+    schema.cost = new fields.NumberField({...DataHelper.requiredInteger, initial: 1, min: 0 });
+    schema.range = new fields.StringField({ required: true, choices: CORIOLIS_TGD.Vehicle.kiteRanges, initial: CORIOLIS_TGD.Vehicle.kiteRangeConstants.medium });
     schema.tech = new fields.SetField(new fields.StringField({ required: true, choices: CORIOLIS_TGD.Equipment.techChoices }), { initial: [CORIOLIS_TGD.Equipment.techConstants.ordinary] });
     
     return schema;
@@ -33,12 +35,12 @@ export default class cgdKite extends cgdVehicle {
           name: game.i18n.localize("CORIOLIS_TGD.Actor.Kite.Automation.UseKite.item.type.name"),
           type: "equipment",
           system: {
-            bonus: this.bonus
+            bonus: this.maneuverability
           },
         },
         postExecution: async (message) => {
           message.setFlag(CORIOLIS_TGD.ID, "gearUuid", this.parent.uuid);
-          message.setFlag(CORIOLIS_TGD.ID, "gearField", "bonus");
+          message.setFlag(CORIOLIS_TGD.ID, "gearField", "maneuverability");
         }
       }),
       new RollDialogWithConnectedActorAutomation({
