@@ -34,12 +34,26 @@ body.theme-dark,
 body .application,
 body.theme-dark .application {
   --color-text-accent: #{$c-gold};
+  --color-text-primary: #{$c-gold};
   --color-text-secondary: #{$c-cream};
   --color-shadow-primary: #{$c-brown};
   --color-border: #{$c-brown};
   --background: url(../systems/coriolis-tgd/assets/frames/texture-500px.jpg);
   --color-header-background: none;
+  --color-form-label: #{$c-gold};
+  --color-form-hint: #{$c-cream};
+  --color-form-label-hover: #{$c-gold};
+  --color-form-hint-hover: #{$c-cream};
+  --color-fieldset-border: #{$c-brown};
 
+  button {
+    --button-text-color: #{$c-gold};
+  }
+
+  input,
+  select {
+    --input-text-color: #{$c-cream};
+  }
 
   .window-header {
     border-bottom: 0;
