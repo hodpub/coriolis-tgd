@@ -42,6 +42,8 @@ export default class cgdBird extends cgdActorBase {
 
     schema.appearance = new fields.StringField();
 
+    schema.companion = new fields.DocumentUUIDField({ required: false, nullable: true });
+
     return schema;
   }
 }

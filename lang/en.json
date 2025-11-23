@@ -207,7 +207,8 @@
             "label": "Energy"
           },
           "powers.label": "Powers",
-          "appearance.label": "Appearance"
+          "appearance.label": "Appearance",
+          "companion.label": "Companion"
         }
       },
       "Crew": {

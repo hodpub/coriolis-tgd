@@ -71,6 +71,16 @@ export default class cgdRollDialog extends HandlebarsApplicationMixin(Applicatio
         this.birdPower = item;
         this.format = `{bird}: {birdPower} + {attribute}`;
         this.canRemoveGear = false;
+
+        if (this.birdPower.parent.system.companion == actor.uuid) {
+          this.bonusGroups["companion"] = [
+            {
+              label: game.i18n.localize(`CORIOLIS_TGD.Actor.Bird.FIELDS.companion.label`),
+              selected: true,
+              bonus: 1
+            }
+          ];
+        }
       }
       else if (item.type == "kiteUpgrade" || item.type == "roverUpgrade" || item.type == "shuttleUpgrade") {
         // this.options.window.title = `${actor.name} - ${item.actor.name}: ${item.name} `;

@@ -56,8 +56,20 @@
         field="system.energy.value"}}
       </div>
     </div>
-    {{formGroup systemFields.appearance value=system.appearance disabled=system.playMode
-    elementType="textarea" rows=5 classes="input-with-circle-title"}}
+    <div>
+      {{formGroup systemFields.appearance value=system.appearance disabled=system.playMode
+      elementType="textarea" rows=4 classes="input-with-circle-title"}}
+      <div>
+        <div class="form-group cgd-custom">
+          <label>{{localize "CORIOLIS_TGD.Actor.Bird.FIELDS.companion.label"}}</label>
+          <div class="form-fields">
+            <select name="system.companion">
+              {{selectOptions explorers selected=system.companion blank=""}}
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <img src="systems/coriolis-tgd/assets/decorations/divider2.svg" />
 </header>

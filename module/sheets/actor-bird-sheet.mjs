@@ -41,6 +41,16 @@ export class cgdActorBirdSheet extends cgdActorSheet {
     return super._processSubmitData(event, form, submitData);
   }
 
+  async _prepareContext(options) {
+    const context = await super._prepareContext(options);
+
+    context.explorers = game.actors.filter(e => e.type == "explorer").reduce((p, v) => {
+      p[v.uuid] = v.name;
+      return p;
+    }, {});
+    return context;
+  }
+
   _prepareItems(context) {
     const powers = [];
 
