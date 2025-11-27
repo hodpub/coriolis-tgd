@@ -3,9 +3,10 @@ import { CORIOLIS_TGD } from "../../config/config.mjs";
 import { DataHelper } from "../../helpers/data.mjs";
 import { createFeatureTagsAndCheckBulky } from "../../helpers/feature.mjs";
 import EmbeddedFeature from "../embedded/embedded-feature.mjs";
-import cgdItemBase from './base-item.mjs';
+import cgdEquipment from "./item-equipment.mjs";
 
-export default class cgdArmor extends cgdItemBase {
+
+export default class cgdArmor extends cgdEquipment {
   static LOCALIZATION_PREFIXES = [
     'CORIOLIS_TGD.Item.base',
     'CORIOLIS_TGD.Item.Armor',
