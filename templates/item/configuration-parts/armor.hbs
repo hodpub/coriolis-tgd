@@ -3,6 +3,9 @@
     classes="cgd-custom"}}
     {{formGroup systemFields.blightProtection value=system.blightProtection type="number"
     classes="cgd-custom"}}
+    {{formGroup systemFields.quantity value=system.quantity classes="cgd-custom" hidden=(not isEmbedded)}}
+    {{formGroup systemFields.weight choices=config.Equipment.weightChoices value=system.weight localize=true
+  valueAttr="value" labelAttr="label" classes="cgd-custom"}}
     {{formGroup systemFields.cost value=system.cost classes="cgd-custom"}}
     {{formGroup systemFields.extras value=system.extras classes="cgd-custom"}}
     {{formGroup systemFields.tech value=system.tech localize=true
