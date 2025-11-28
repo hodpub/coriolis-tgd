@@ -98,8 +98,10 @@ export class cgdActorVehicleSheet extends cgdActorSheet {
         continue;
       }
       if (i.type === 'vehicleWeapon') {
-        if (i.system.atHand)
+        if (i.system.atHand) {
+          cargo.push(i);
           weapons.push(i);
+        }
         else
           weaponsInventory.push(i);
         continue;
