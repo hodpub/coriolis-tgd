@@ -5,11 +5,9 @@ import { createFeatureTagsAndCheckBulky } from "../../helpers/feature.mjs";
 import EmbeddedFeature from "../embedded/embedded-feature.mjs";
 import cgdEquipment from "./item-equipment.mjs";
 
-
 export default class cgdArmor extends cgdEquipment {
   static LOCALIZATION_PREFIXES = [
     ...super.LOCALIZATION_PREFIXES,
-    'CORIOLIS_TGD.Item.base',
     'CORIOLIS_TGD.Item.Armor',
   ];
 
