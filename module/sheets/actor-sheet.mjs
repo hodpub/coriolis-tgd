@@ -473,6 +473,7 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
         icon: "<i class=\"fa-solid fa-hand-fist\"></i>",
         condition: (target) => {
           let item = this._getEmbeddedDocument(target);
+          if (["rover", "shuttle"].includes(this.actor.type)) return false;
           return this.actor.isOwner && this.actor.system.hasOwnProperty("atHandMax") && item.type == "weapon" && !item.system.atHand && this.actor.system.atHandCount < this.actor.system.atHandMax;
         },
         callback: async (target) => {
@@ -489,6 +490,7 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
         icon: "<i class=\"fa-solid fa-hand\"></i>",
         condition: (target) => {
           let item = this._getEmbeddedDocument(target);
+          if (["rover", "shuttle"].includes(this.actor.type)) return false;
           return this.actor.isOwner && item.type == "weapon" && item.system.atHand;
         },
         callback: async (target) => {
@@ -505,6 +507,7 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
         icon: "<i class=\"fa-solid fa-hand-fist\"></i>",
         condition: (target) => {
           let item = this._getEmbeddedDocument(target);
+          if (["rover", "shuttle"].includes(this.actor.type)) return false;
           return this.actor.isOwner && item.type == "armor" && !item.system.equipped;
         },
         callback: async (target) => {
@@ -521,6 +524,7 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
         icon: "<i class=\"fa-solid fa-hand\"></i>",
         condition: (target) => {
           let item = this._getEmbeddedDocument(target);
+          if (["rover", "shuttle"].includes(this.actor.type)) return false;
           return this.actor.isOwner && item.type == "armor" && item.system.equipped;
         },
         callback: async (target) => {
