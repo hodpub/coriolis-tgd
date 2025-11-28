@@ -578,48 +578,6 @@
           "blightProtection": {
             "label": "Blight Protection"
           },
-          "quantity": {
-            "label": "Quantity",
-            "abbr": "Qty."
-          },
-          "weight": {
-            "0": {
-              "25label": "¼",
-              "5label": "½"
-            },
-            "label": "Weight",
-            "abbr": "Wgh.",
-            "tiny": {
-              "label": "0: Tiny"
-            },
-            "veryLight": {
-              "label": "¼: Very Light"
-            },
-            "light": {
-              "label": "½: Light"
-            },
-            "regular": {
-              "label": "1: Regular"
-            },
-            "heavy": {
-              "label": "2: Heavy"
-            },
-            "veryHeavy": {
-              "label": "3: Very Heavy"
-            },
-            "superHeavy": {
-              "label": "4: Super Heavy"
-            },
-            "extreme": {
-              "label": "5: Extreme"
-            },
-            "0label": "Tiny",
-            "1label": "1",
-            "2label": "2",
-            "3label": "3",
-            "4label": "4",
-            "5label": "5"
-          },
           "cost": {
             "label": "Cost"
           },

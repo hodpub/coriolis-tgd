@@ -1016,7 +1016,6 @@ new coriolistgd.applications.cgdRollDialog({actor, requireAttribute: true, canCh
     if (item.type == "kiteUpgrade" || item.type == "shuttleUpgrade" || item.type == "roverUpgrade")
       return super._onDropItem(event, item);
 
-    // return if actor is not a vehicle
     if (!["rover", "shuttle"].includes(this.actor.type) && item.type == "armor" && this.actor.items.filter(it => it.type == "armor").length) {
       ui.notifications.error("This actor already has an armor. Remove it before trying to equip another.");
       return;
