@@ -77,16 +77,27 @@ export default class cgdExplorer extends cgdActorBase {
       this.atHandMax = 3;
     }
 
+    const isSolo = this.parent.items.some(it => it.type == "solo");
+    let supplyWeight = CONFIG.Equipment.weightConstants.veryLight;
+    if (isSolo) {
+      this.derivedAttributes.encumbrance.max += 2;
+      supplyWeight = 0.1;
+    }
+
     const items = this.parent.items;
     let encumbrance = 0;
     let supplyCount = 0;
     for (const item of items) {
-      if (item.system.hasOwnProperty("weight"))
-        encumbrance += item.system.weight * item.system.quantity;
-      if (item.flags["coriolis-tgd"]?.isSupply)
+      if (item.flags["coriolis-tgd"]?.isSupply) {
         supplyCount += item.system.quantity;
+        encumbrance += supplyWeight * item.system.quantity;
+        item.system.weight = supplyWeight; // For display purposes
+        continue;
+      }
+      if (item.system.hasOwnProperty("weight") && !item.system.equipped && !item.system.atHand)
+        encumbrance += item.system.weight * item.system.quantity;
     }
-    this.derivedAttributes.encumbrance.value = encumbrance;
+    this.derivedAttributes.encumbrance.value = encumbrance.toFixed(2);
     this.derivedAttributes.encumbrance.percentage = Math.min(100, Math.round(encumbrance / this.derivedAttributes.encumbrance.max * 10) * 10);
     this.supplyCount = supplyCount;
     this.atHandCount = this.parent.items.filter(it => it.type == "weapon" && it.system.atHand).length;
