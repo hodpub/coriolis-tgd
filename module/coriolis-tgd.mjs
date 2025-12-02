@@ -19,6 +19,7 @@ import { registerStatusEffects } from "./config/statusEffects.mjs";
 import cgdRollDialog from "./applications/dialog/roller.mjs";
 import { registerSettings, registerYearZeroCombatSettings } from "./helpers/settings.mjs";
 import { noteActivator } from "./helpers/notes.mjs";
+import { migrate, registerMigrationSettings } from "./migrations/_base-migration.mjs";
 
 const collections = foundry.documents.collections;
 const foundrySheets = foundry.appv1.sheets;
@@ -134,6 +135,7 @@ Hooks.once('init', function () {
   });
 
   registerSettings();
+  registerMigrationSettings();
 });
 
 Hooks.once('yzeCombatReady', registerYearZeroCombatSettings);
@@ -153,6 +155,7 @@ Handlebars.registerHelper('toLowerCase', function (str) {
 /* -------------------------------------------- */
 
 Hooks.once('ready', function () {
+  migrate();
   const roleClass = game.user.isGM ? "isGM" : "isNotGM";
   document.body.classList.add(roleClass);
   console.log(document.body.classList);
