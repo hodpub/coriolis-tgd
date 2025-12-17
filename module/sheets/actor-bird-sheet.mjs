@@ -30,7 +30,7 @@ export class cgdActorBirdSheet extends cgdActorSheet {
   }
 
   async _processSubmitData(event, form, submitData) {
-    if (submitData.system.type && submitData.type != this.actor.system.type) {
+    if (submitData.system.type && submitData.system.type != this.actor.system.type) {
       const defaultValues = CORIOLIS_TGD.Bird.defaultValues[submitData.system.type];
       submitData.system.energy.max = defaultValues.energy;
       submitData.system.energy.value = defaultValues.energy;
