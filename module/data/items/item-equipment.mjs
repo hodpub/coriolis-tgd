@@ -58,6 +58,14 @@ export default class cgdEquipment extends cgdItemBase {
   prepareDerivedData() {
     const t = this.tech.map(tech => game.i18n.localize(`CORIOLIS_TGD.Item.Equipment.FIELDS.tech.${tech}.label`));
     this.techDescription = Array.from(t).join(", ");
+    this.state = "";
+    if (this.maxBonus == 0 || this.bonus == this.maxBonus)
+      return;
+
+    if (this.bonus == 0)
+      this.state = "<i class='fas fa-circle-xmark' style='font-size: 24px' data-tooltip='" + game.i18n.localize("CORIOLIS_TGD.Item.Equipment.FIELDS.bonus.broken") + "'></i>";
+    else
+      this.state = "<i class='fas fa-triangle-exclamation' style='font-size: 24px' data-tooltip='" + game.i18n.localize("CORIOLIS_TGD.Item.Equipment.FIELDS.bonus.damaged") + "'></i>";
   }
 
   async _preCreate(data, options, user) {

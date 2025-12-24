@@ -372,7 +372,9 @@
           },
           "bonus": {
             "label": "Bonus",
-            "error": "The Bonus should not be higher than the Maximum Bonus."
+            "error": "The Bonus should not be higher than the Maximum Bonus.",
+            "damaged": "Damaged",
+            "broken": "Broken"
           },
           "maxBonus": {
             "label": "Maximum Bonus"
