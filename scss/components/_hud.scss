@@ -1,0 +1,64 @@
+.coriolis-hud {
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 12px;
+}
+
+.coriolis-hud .character-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+}
+
+.coriolis-hud {
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 12px;
+  width: fit-content;
+  max-width: 100%;
+  align-self: center;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.7);
+}
+
+.coriolis-hud .avatar-container {
+  margin-bottom: 12px;
+}
+
+.coriolis-hud .character-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.coriolis-hud .character-avatar:hover {
+  transform: scale(1.1);
+  border-color: var(--color-shadow-primary, gold);
+  box-shadow: 0 8px 24px rgba(255, 215, 0, 0.3);
+}
+
+.coriolis-hud .attribute-item,
+.coriolis-hud .adjustable-item {
+  font-size: 15px;
+  font-weight: bold;
+  color: var(--color);
+  text-shadow: 1px 1px 3px #000;
+  text-align: center;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.coriolis-hud .attribute-item:hover,
+.coriolis-hud .adjustable-item:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: scale(1.1);
+}
