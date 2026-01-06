@@ -80,14 +80,28 @@
   }
 
   .form-footer {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    padding: 0.5rem;
 
     button {
       @extend %button;
-      flex-grow: 1;
-      flex-basis: 45%;
+      flex: initial;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &[data-action="gmroll"],
+      &[data-action="blindroll"],
+      &[data-action="selfroll"] {
+        order: 0;
+      }
+
+      &[data-action="publicroll"] {
+        order: 1;
+        grid-column: 2;
+      }
     }
   }
 
