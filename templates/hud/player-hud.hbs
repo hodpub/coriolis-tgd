@@ -1,0 +1,21 @@
+<div class="hud-content flexcol" style="gap: 16px; align-items: center;">
+  <img class="character-avatar" data-action="openSheet" src="{{avatar.img}}" alt="Portrait" title="Click to open sheet">
+
+  <!-- Attributes -->
+  {{#each attributes}}
+  <div class="attribute-item" data-action="rollAttribute" data-key="{{this.key}}" title="Click to roll {{this.label}}">
+    {{this.abbr}}: {{this.value}}
+  </div>
+  {{/each}}
+
+  <!-- Resources & Supply -->
+  {{#each resources}}
+  <div class="adjustable-item" data-action="adjustValue" data-type="{{this.type}}" title="Click to decrease, Shift+Click to increase">
+    {{this.label}}: {{this.value}} / {{this.max}}
+  </div>
+  {{/each}}
+
+  <div class="adjustable-item" data-action="adjustValue" data-type="supply" title="Click to decrease, Shift+Click to increase">
+    Supply: {{supply.value}}
+  </div>
+</div>

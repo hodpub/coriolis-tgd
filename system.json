@@ -145,7 +145,8 @@
     }
   ],
   "esmodules": [
-    "module/coriolis-tgd.mjs"
+    "module/coriolis-tgd.mjs",
+    "module/hud.mjs"
   ],
   "styles": [
     "css/coriolis-tgd.css"
