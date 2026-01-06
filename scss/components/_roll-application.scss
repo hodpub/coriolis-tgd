@@ -87,20 +87,9 @@
 
     button {
       @extend %button;
-      flex: initial;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      &[data-action="gmroll"],
-      &[data-action="blindroll"],
-      &[data-action="selfroll"] {
-        order: 0;
-      }
 
       &[data-action="publicroll"] {
-        order: 1;
-        grid-column: 2;
+        grid-column: 1 / 4;
       }
     }
   }
