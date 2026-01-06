@@ -873,6 +873,13 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
    */
   async _onDragStart(event) {
     const target = event.currentTarget;
+   
+    if (target.dataset.type === "Automation") {
+      target.dataset.type = 'Item';
+      target.dataset.itemId = target.dataset.item.split(".").pop();
+      target.dataset.documentClass = "Item";
+    }
+    
     if (target.dataset.rollType != "attribute")
 
       return super._onDragStart(event);
