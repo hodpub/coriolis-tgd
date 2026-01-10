@@ -161,7 +161,7 @@ Hooks.once('ready', function () {
   console.log(document.body.classList);
   // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
   Hooks.on('hotbarDrop', (bar, data, slot) => {
-    if (["Item", "Attribute"].indexOf(data.type) > -1) {
+    if (["Item", "Attribute", "Automation"].indexOf(data.type) > -1) {
       createDocMacro(data, slot); return false;
     }
   });
@@ -184,6 +184,7 @@ noteActivator();
  */
 async function createDocMacro(data, slot) {
   if (data.type === "Attribute") return createAttributeMacro(data, slot);
+  if (data.type === "Automation") return createAutomationMacro(data, slot); 
   // First, determine if this is a valid owned item.
   if (data.type !== 'Item') return;
   if (!data.uuid.includes('Actor.') && !data.uuid.includes('Token.')) {
@@ -236,4 +237,27 @@ async function createAttributeMacro(data, slot) {
     });
   }
   game.user.assignHotbarMacro(macro, slot);
+}
+
+async function createAutomationMacro(data, slot) {
+  const macroName = game.i18n.format("CORIOLIS_TGD.Automation.automate",
+    {
+      name: `${data.automationName} - ${data.itemName}`,
+      actor: data.actorName
+    });
+  let macro = game.macros.find(
+    (m) => m.name === macroName && m.command === data.command
+  );
+
+  if (!macro) {
+    macro = await Macro.create({
+      name: macroName,
+      type: 'script',
+      img: data.img || 'systems/coriolis-tgd/assets/icons/gears.svg',
+      command: data.command,
+      flags: { 'coriolis-tgd.attributeMacro': true },
+    });
+  }
+  game.user.assignHotbarMacro(macro, slot);
+
 }
