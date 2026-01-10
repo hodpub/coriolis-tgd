@@ -872,7 +872,7 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
    * @protected
    */
 
-    async _onDragStart(event) {
+  async _onDragStart(event) {
     const target = event.currentTarget;
     let dragData = {};
     switch (target.dataset.rollType) {
