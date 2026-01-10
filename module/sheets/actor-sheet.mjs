@@ -871,20 +871,40 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
    * @returns {Promise<void>}
    * @protected
    */
-  async _onDragStart(event) {
+
+    async _onDragStart(event) {
     const target = event.currentTarget;
-    if (target.dataset.rollType != "attribute")
+    let dragData = {};
+    switch (target.dataset.rollType) {
+      case "attribute":
+        dragData = {
+          type: "Attribute",
+          target: target.dataset.value,
+          command: `
+            const actor = await fromUuid("${this.actor.uuid}");
+            new coriolistgd.applications.cgdRollDialog({actor, requireAttribute: true, canChangeAttribute: false, attribute: "${target.dataset.value}"}).wait();`,
+          actorName: this.actor.name
+        };
+        break;
+      case "automation":
+        let item = await fromUuid(target.dataset.item);
+        let automation = item.system.automations[target.dataset.automationId];
+        dragData = {
+          type: "Automation",
+          target: target.dataset.item,
+          command: `
+            const item = await fromUuid("${target.dataset.item}");
+            item?.system.automations["${target.dataset.automationId}"]?.execute();`,
+          actorName: this.actor.name,
+          itemName: item.name,
+          automationName: automation.name,
+          img: item.img
+        };
+        break;
+      default:
+        return super._onDragStart(event);
+    }
 
-      return super._onDragStart(event);
-
-    const dragData = {
-      type: "Attribute",
-      target: target.dataset.value,
-      command: `
-const actor = await fromUuid("${this.actor.uuid}");
-new coriolistgd.applications.cgdRollDialog({actor, requireAttribute: true, canChangeAttribute: false, attribute: "${target.dataset.value}"}).wait();`,
-      actorName: this.actor.name
-    };
     event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
     return event;
   }

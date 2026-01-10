@@ -3,7 +3,7 @@
       <label>{{category.label}}</label>
       <div class="all">
       {{#each category.automations as |automation id|}}
-        <button data-action="roll" data-roll-type="automation" data-item="{{automation.parent.parent.uuid}}" data-automation-id="{{automation._id}}"><span>{{automation.name}}</span><span>{{automation.parent.parent.name}}</span></button>
+        <button data-action="roll" data-roll-type="automation" data-item="{{automation.parent.parent.uuid}}" data-automation-id="{{automation._id}}" class="draggable"><span>{{automation.name}}</span><span>{{automation.parent.parent.name}}</span></button>
       {{/each}}
       </div>
     {{/each}}
