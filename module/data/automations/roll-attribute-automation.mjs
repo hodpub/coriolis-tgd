@@ -19,8 +19,9 @@ export default class RollAttributeAutomation extends BaseAutomation {
   }
 
   async execute(event) {
+    const { gear, talent } = await this.getDefaults();
     const { item, actor } = this.getParents();
-    const roller = new cgdRollDialog({ actor, attribute: this.attribute, item, canChangeAttribute: this.canChangeAttribute, requireAttribute: this.requireAttribute });
+    const roller = new cgdRollDialog({ actor, attribute: this.attribute, item, canChangeAttribute: this.canChangeAttribute, requireAttribute: this.requireAttribute, defaultGear: gear, defaultTalent: talent, usedAutomation: this._id });
     const result = await roller.wait(event);
     return result;
   }
