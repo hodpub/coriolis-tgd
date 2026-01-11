@@ -36,7 +36,9 @@ export default class BaseAutomation extends foundry.abstract.DataModel {
       showAsSelection: new fields.BooleanField({
         initial: true
       }),
-      origin: new fields.StringField()
+      origin: new fields.StringField(),
+      defaultGear: new fields.DocumentUUIDField(),
+      defaultTalent: new fields.DocumentUUIDField()
     };
   }
 
@@ -100,5 +102,12 @@ export default class BaseAutomation extends foundry.abstract.DataModel {
 
   get actor() {
     return this.parent.parent.actor;
+  }
+
+  async getDefaults() {
+    return {
+      gear: fromUuidSync(this.defaultGear),
+      talent: fromUuidSync(this.defaultTalent)
+    }
   }
 }

@@ -4,15 +4,17 @@ import { roll } from "../../helpers/rolls.mjs";
 const { HandlebarsApplicationMixin, ApplicationV2, DialogV2 } = foundry.applications.api;
 
 export default class cgdRollDialog extends HandlebarsApplicationMixin(ApplicationV2) {
-  constructor({ actor, attribute, item, requireAttribute = true, canChangeAttribute = true, hideAttribute = false, maxPush = undefined, birdEnergy = 0, connectedActor = undefined, rollOptions = {}, formatLabel = undefined }, options) {
+  constructor({ actor, attribute, item, requireAttribute = true, canChangeAttribute = true, hideAttribute = false, maxPush = undefined, birdEnergy = 0, connectedActor = undefined, rollOptions = {}, formatLabel = undefined, defaultGear = undefined, defaultTalent = undefined, usedAutomation = undefined }, options) {
     super(options);
     this.actor = actor;
     this.attribute = attribute;
+    this.baseItem = item;
     this.requireAttribute = requireAttribute;
     this.hideAttribute = hideAttribute;
     this.canAddGearTalent = true;
-    this.talent = null;
-    this.gear = null;
+    this.talent = defaultTalent;
+    this.gear = defaultGear;
+    this.automation = usedAutomation;
     this.birdPower = null;
     this.birdEnergy = birdEnergy;
     this.format = "";
@@ -162,6 +164,12 @@ export default class cgdRollDialog extends HandlebarsApplicationMixin(Applicatio
       else
         ui.notifications.warn("This item type is not configured for rolls.");
     }
+    
+    if (defaultGear)
+      this.canRemoveGear = true;
+
+    if (defaultTalent)
+      this.canRemoveTalent = true
 
     if (formatLabel)
       this.format += formatLabel;
@@ -514,11 +522,15 @@ export default class cgdRollDialog extends HandlebarsApplicationMixin(Applicatio
       this.talent = result;
       this.format = `${this.format} + {talent}`;
       this.canRemoveTalent = true;
+      if (this.automation)
+        await this.updateAutomationDefaults('defaultTalent', result.uuid);
     }
     else {
       this.gear = result;
       this.format = `${this.format} + {gear}`;
       this.canRemoveGear = true;
+      if (this.automation)
+        await this.updateAutomationDefaults('defaultGear', result.uuid);
     }
 
     this.render(true);
@@ -529,13 +541,22 @@ export default class cgdRollDialog extends HandlebarsApplicationMixin(Applicatio
     if (isTalent) {
       this.talent = undefined;
       this.format = this.format.replace(" + {talent}", "");
+      if (this.automation)
+        await this.updateAutomationDefaults('defaultTalent', null);
+        
     }
     else {
       this.gear = undefined;
       this.format = this.format.replace(" + {gear}", "");
+      if (this.automation)
+        await this.updateAutomationDefaults('defaultGear', null);
     }
 
     this.render(true);
+  }
+
+  async updateAutomationDefaults(type, value) {
+    this.baseItem.update({[`system.automations.${this.automation}.${type}`]: value});
   }
 
   static async change(event, target) {
