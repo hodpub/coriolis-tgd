@@ -309,6 +309,18 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
 
     // Iterate through items, allocating to containers
     for (let i of this.document.items) {
+      i.enrichedDescription = await TextEditor.enrichHTML(
+        i.system.description,
+        {
+          // Whether to show secret blocks in the finished html
+          secrets: i.isOwner,
+          // Data to fill in for inline rolls
+          rollData: i.getRollData(),
+          // Relative UUID resolution
+          relativeTo: i,
+        }
+      );
+
       if (i.type === 'solo') {
         solo.push(i);
         continue;
@@ -331,17 +343,6 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
         continue;
       }
       if (i.type === 'equipment') {
-        i.enrichedDescription = await TextEditor.enrichHTML(
-          i.system.description,
-          {
-            // Whether to show secret blocks in the finished html
-            secrets: i.isOwner,
-            // Data to fill in for inline rolls
-            rollData: i.getRollData(),
-            // Relative UUID resolution
-            relativeTo: i,
-          }
-        );
         equipments.push(i);
         continue;
       }
