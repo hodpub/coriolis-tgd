@@ -148,7 +148,7 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
     };
 
     // Offloading context prep to a helper function
-    this._prepareItems(context);
+    await this._prepareItems(context);
 
     return context;
   }
@@ -295,7 +295,7 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
    *
    * @param {object} context The context object to mutate
    */
-  _prepareItems(context) {
+  async _prepareItems(context) {
     // Initialize containers.
     const solo = [];
     const talents = [];
@@ -331,6 +331,17 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
         continue;
       }
       if (i.type === 'equipment') {
+        i.enrichedDescription = await TextEditor.enrichHTML(
+          i.system.description,
+          {
+            // Whether to show secret blocks in the finished html
+            secrets: i.isOwner,
+            // Data to fill in for inline rolls
+            rollData: i.getRollData(),
+            // Relative UUID resolution
+            relativeTo: i,
+          }
+        );
         equipments.push(i);
         continue;
       }
