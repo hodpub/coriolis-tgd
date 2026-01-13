@@ -87,7 +87,7 @@
         <label>{{localize (concat "CORIOLIS_TGD.Item.Equipment.FIELDS.weight." item.system.weight "label")}}</label>
         <label>{{item.system.quantity}}</label>
         <div class="expandable-field" data-action="expand">
-          {{{item.system.description}}}
+          {{{item.enrichedDescription}}}
           <p>{{localize "CORIOLIS_TGD.Item.Equipment.FIELDS.tech.label"}}: {{system.techDescription}}</p>
           {{#if item.system.consumable}}
           <p><strong>{{localize "CORIOLIS_TGD.Item.Equipment.FIELDS.consumable.label"}}</strong></p>
