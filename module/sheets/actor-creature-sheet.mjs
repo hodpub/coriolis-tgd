@@ -53,9 +53,10 @@ export class cgdActorCreatureSheet extends cgdActorNpcSheet {
 
   static async _attack(event, target) {
     const attacks = this.actor.items.filter(it => it.type == "creatureAttack");
-    if (!(attacks?.length > 0))
+    if (!(attacks?.length > 0)) {
       console.log("The creature does not have any attacks!");
       return this.actor;
+    }
     const roll = await new Roll(`1d${attacks.length}`).roll();
     let attackNumber = roll.total;
     console.log(attackNumber, this.actor.system.lastAttack);
