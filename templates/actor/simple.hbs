@@ -76,7 +76,7 @@
         <label>{{localize "CORIOLIS_TGD.Item.Equipment.FIELDS.quantity.abbr"}}</label>
       </div>
       {{#each equipments as |item id|}}
-      <div class="equipment-item" data-item-id='{{item._id}}' data-document-class='Item'>
+      <div class="equipment-item draggable" data-item-id='{{item._id}}' data-document-class='Item'>
         <div>
           <a class='rollable' data-roll-type='item' data-action='roll'>
             <img src='{{item.img}}' data-tooltip='{{item.name}}' width='46' height='46' />
@@ -149,7 +149,7 @@
       </div>
       <div>
         {{#each weapons as |item id|}}
-        <div class="weapon-item" data-item-id='{{item._id}}' data-document-class='Item'>
+        <div class="weapon-item draggable" data-item-id='{{item._id}}' data-document-class='Item'>
           <div>
             <a class='rollable' data-roll-type='item' data-action='roll'>
               <img src='{{item.img}}' data-tooltip='{{item.name}}' width='46' height='46' />
