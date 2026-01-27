@@ -781,6 +781,9 @@
       }
     },
     "Roller": {
+      "SelectAttribute": {
+        "label": "Select the Attribute"
+      },
       "Bonuses": {
         "GearBonus": {
           "label": "Add Equipment/Weapon"

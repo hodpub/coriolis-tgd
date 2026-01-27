@@ -17,7 +17,7 @@
     <div>
       {{#if (and (not attributeInfo) (not hideAttribute))}}
       <div class="selectAttribute">
-        <label>Select the Attribute</label>
+        <label>{{localize 'CORIOLIS_TGD.Roller.SelectAttribute.label'}}</label>
         {{#each config.Attributes.choices as |label att|}}
         <button type="button" data-action="selectAttribute" data-choice="{{att}}">
           <label>
