@@ -427,7 +427,7 @@
           },
           "cost": {
             "label": "Cost",
-            "abbr": "Wgh."
+            "abbr": "Cost"
           },
           "consumable": {
             "label": "Consumable",
