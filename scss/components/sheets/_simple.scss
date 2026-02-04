@@ -18,6 +18,7 @@
 
   &:not(.minimized, .minimizing, .maximizing) {
     min-width: 400px;
+    max-width: 715px;
   }
 
   div.simple-sheet {
