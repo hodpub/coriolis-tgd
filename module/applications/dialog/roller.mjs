@@ -424,6 +424,15 @@ export default class cgdRollDialog extends HandlebarsApplicationMixin(Applicatio
       let value = 0;
       let changes = [...condition.changes];
 
+      if (condition.changes.length == 0) {
+        for (const statusId of condition.statuses) {
+          const statusConfig = CONFIG.statusEffects.find(it => it.id == statusId);
+          if (!statusConfig)
+            continue;
+          changes.push(...statusConfig.changes);
+        }
+      }
+
       if (condition.origin) {
         let item = await fromUuid(condition.origin);
         conditionName = item?.name ?? `${condition.parent.name} (${condition.name})`;
@@ -443,8 +452,10 @@ export default class cgdRollDialog extends HandlebarsApplicationMixin(Applicatio
       if (value != 0) {
         context.conditions.push({
           name: conditionName,
+          description: condition.parent?.system?.description,
           system: { bonus: value }
         });
+        console.log("Added condition", condition, context.conditions);
       }
     }
   }

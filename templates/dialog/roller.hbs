@@ -55,7 +55,7 @@
         {{/if}}
         {{#each conditions as |condition|}}
         <div>
-          <label data-tooltip-text="{{condition.name}}">{{condition.name}}</label>
+          <label data-tooltip-html="<p><strong>{{condition.name}}</strong></p>{{condition.description}}">{{condition.name}}</label>
           <label>{{condition.system.bonus}}</label>
         </div>
         {{/each}}
