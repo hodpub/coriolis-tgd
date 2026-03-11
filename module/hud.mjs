@@ -17,7 +17,7 @@ class CoriolisTGDPlayerHUD extends foundry.applications.api.HandlebarsApplicatio
 
   get title() { return game.user.character?.name || "Player HUD"; }
 
-async _prepareContext(options) {
+  async _prepareContext(options) {
     const character = game.user?.character;
     if (!character) return { noCharacter: true };
 
@@ -123,6 +123,21 @@ Hooks.once("init", () => {
     config: true,
     type: Boolean,
     default: true
+  });
+
+
+  game.keybindings.register("coriolis-tgd", "showHUD", {
+    name: "Show Player HUD",
+    hint: "Opens the Player HUD if closed.",
+    editable: [
+      {
+        key: "H"
+      }
+    ],
+    onDown: () => { renderHUD(); },
+    onUp: () => { },
+    restricted: false,
+    precedence: CONST.KEYBINDING_PRECEDENCE.NORMAL
   });
 });
 
