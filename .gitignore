@@ -7,7 +7,6 @@ css/
 .foundry-token
 
 # Foundry
-*.lock
 foundry
 
 .linkedToFoundry
