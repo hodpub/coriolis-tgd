@@ -139,10 +139,15 @@
         </div>
       </div>
       <div class="weapon-item-title">
-        <label>{{localize "CORIOLIS_TGD.Item.Weapon.label"}}</label>
+        <label style="margin-bottom: -17px">{{localize "CORIOLIS_TGD.Item.Weapon.label"}}
+          <a class='item-control item-create' data-tooltip='{{localize "DOCUMENT.Create" type=' Item'}}'
+            data-action='createDoc' data-document-class='Item' data-type='weapon' data-filter="weapon">
+            <i class='fas fa-plus'></i>
+          </a>
+        </label>
         <label>{{localize "CORIOLIS_TGD.Item.Equipment.FIELDS.bonus.label"}}</label>
         <label>{{localize "CORIOLIS_TGD.Item.Weapon.FIELDS.damage.label"}}</label>
-        <label>{{localize "CORIOLIS_TGD.Item.Tabs.Description"}}</label>
+        <label></label>
         <label>{{localize "CORIOLIS_TGD.Item.Weapon.FIELDS.critical.abbr"}}</label>
         <label>{{localize "CORIOLIS_TGD.Item.Weapon.FIELDS.range.label"}}</label>
       </div>
