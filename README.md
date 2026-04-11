@@ -2,7 +2,7 @@
 
 <p align="center" style="text-wrap: balance">
   <img src="https://img.shields.io/badge/Min._Foundry_VTT-v13.346-green?style=for-the-badge" alt="Foundry Mininmum Version" />
-  <img src="https://img.shields.io/badge/Verified._Foundry_VTT-v14.359-green?style=for-the-badge" alt="Foundry Verified Version" />
+  <img src="https://img.shields.io/badge/Verified_Foundry_VTT-v14.359-green?style=for-the-badge" alt="Foundry Verified Version" />
   <br>
   <img src="https://img.shields.io/github/downloads/hodpub/coriolis-tgd/system.zip?style=for-the-badge" alt="System Downloads" />
   <img src="https://img.shields.io/github/v/release/hodpub/coriolis-tgd?display_name=release&amp;style=for-the-badge" alt="Latest Release" />
