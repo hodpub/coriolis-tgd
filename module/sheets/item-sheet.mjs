@@ -126,7 +126,6 @@ export class cgdItemSheet extends api.HandlebarsApplicationMixin(
     // Don't show the other tabs if only limited view
     if (this.document.limited) return;
     // Control which parts show based on document subtype
-    console.log(this.document.type);
     switch (this.document.type) {
       case 'talent':
         options.parts.push('configurationTalent');
@@ -479,14 +478,12 @@ export class cgdItemSheet extends api.HandlebarsApplicationMixin(
     const warning = game.i18n.format("SIDEBAR.DeleteWarning", { type });
     const content = `<p><strong>${question}</strong> ${warning}</p>`;
 
-    console.log(this.item);
     const effects = this.item.effects.filter(it => it.origin == featureId);
     const automations = [];
     for (const [automationId, automation] of Object.entries(this.item.system.automations)) {
       if (automation.origin == featureId)
         automations.push(automationId);
     }
-    console.log(effects, automations);
 
     return foundry.applications.api.DialogV2.confirm(
       {
@@ -745,7 +742,6 @@ export class cgdItemSheet extends api.HandlebarsApplicationMixin(
       // const newAutomation = foundry.utils.deepClone(automation);
       // newAutomation.updateSource({ "origin": feature._id });
       // foundry.utils.setProperty(newAutomation, "origin", feature._id);
-      console.log(newAutomation);
 
       await this.item.update({ [`system.automations.${newAutomation._id}`]: newAutomation });
       if (newAutomation.type == "runMacro" && newAutomation.name == "Configure Feature") {
@@ -753,7 +749,5 @@ export class cgdItemSheet extends api.HandlebarsApplicationMixin(
         configureAutomation.execute({});
       }
     }
-
-    console.log(itemDropped, feature, this.item);
   }
 }

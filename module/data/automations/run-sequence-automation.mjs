@@ -19,13 +19,11 @@ export default class RunSequenceAutomation extends BaseAutomation {
     const select = target.parentElement.parentElement.parentElement.previousElementSibling;
     this.sequence.push(select.value);
     await this.parent.parent.update({ [`system.automations.${this._id}.sequence`]: this.sequence });
-    console.log(this);
   }
 
   async deleteSequence(event, target) {
     this.sequence.splice(parseInt(target.dataset.index), 1);
     await this.parent.parent.update({ [`system.automations.${this._id}.sequence`]: this.sequence });
-    console.log(this);
   }
 
   async execute(event) {

@@ -2,7 +2,6 @@ export async function sendToChat(actor, flavor, content, event) {
   const speaker = ChatMessage.getSpeaker({ actor: actor });
   let rollModeChoice = { blind: false, whisper: [] };
 
-  console.log(event);
   if (!event?.shiftKey) {
     const buttons = [
       {

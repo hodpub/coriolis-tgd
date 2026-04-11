@@ -114,9 +114,7 @@ export function prepareAutomationCategories(automations) {
       if (values.automations.length == 0) {
         delete categories[name];
       } else {
-        console.log(categories[name]);
         values.automations.sort((a, b) => a.itemName?.localeCompare(b.itemName) || a.name.localeCompare(b.name));
-        console.log(categories[name]);
       }
     }
 

@@ -208,7 +208,6 @@ async function applyBirdPowerLosingControl(message, roll) {
   if (!birdPowerUuid)
     return;
   const birdPower = await fromUuid(birdPowerUuid);
-  console.log(birdPower);
 
   //TODO: roll LOSING CONTROL pg 84
 }

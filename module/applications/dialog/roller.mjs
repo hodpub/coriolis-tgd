@@ -64,7 +64,6 @@ export default class cgdRollDialog extends HandlebarsApplicationMixin(Applicatio
 
     if (item) {
       this.options.window.title = `${this.options.window.title}: ${item.name} `;
-      console.log(item);
 
       if (item.type == "birdPower") {
         this.options.window.title = `${actor.name} - ${item.actor.name}: ${item.name} `;
@@ -268,7 +267,6 @@ export default class cgdRollDialog extends HandlebarsApplicationMixin(Applicatio
   }
 
   async _handleRoll(event, form, formData) {
-    console.log(event, form, formData);
     if (!event.submitter) {
       const formValues = formData.object;
       for (const [groupName, values] of Object.entries(formValues)) {
@@ -455,7 +453,6 @@ export default class cgdRollDialog extends HandlebarsApplicationMixin(Applicatio
           description: condition.parent?.system?.description,
           system: { bonus: value }
         });
-        console.log("Added condition", condition, context.conditions);
       }
     }
   }

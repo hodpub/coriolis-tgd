@@ -15,7 +15,6 @@ export default class RollDialogAutomation {
   }
 
   async execute(event) {
-    console.log(this);
     const roller = new cgdRollDialog({ actor: this.actor, attribute: this.attribute, item: this.item, canChangeAttribute: this.canChangeAttribute, requireAttribute: this.requireAttribute, hideAttribute: this.hideAttribute, maxPush: this.maxPush, formatLabel: this.formatLabel });
     const message = await roller.wait(event);
     // When the automation dialogue box is closed, the message can be nonexistent.
