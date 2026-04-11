@@ -20,6 +20,7 @@ import cgdRollDialog from "./applications/dialog/roller.mjs";
 import { registerSettings, registerYearZeroCombatSettings } from "./helpers/settings.mjs";
 import { noteActivator } from "./helpers/notes.mjs";
 import { migrate, registerMigrationSettings } from "./migrations/_base-migration.mjs";
+import * as migrations from "./migrations/_migrations.mjs";
 
 const collections = foundry.documents.collections;
 const foundrySheets = foundry.appv1.sheets;
@@ -40,6 +41,7 @@ globalThis.coriolistgd = {
   },
   sheets,
   models,
+  migrations,
 };
 
 Hooks.once('init', function () {
@@ -158,7 +160,6 @@ Hooks.once('ready', function () {
   migrate();
   const roleClass = game.user.isGM ? "isGM" : "isNotGM";
   document.body.classList.add(roleClass);
-  console.log(document.body.classList);
   // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
   Hooks.on('hotbarDrop', (bar, data, slot) => {
     if (["Item", "Attribute", "Automation"].indexOf(data.type) > -1) {
