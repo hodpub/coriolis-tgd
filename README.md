@@ -1,6 +1,7 @@
 # Coriolis: The Great Dark System
 
-![Foundry v14](https://img.shields.io/badge/foundry-v14-green)
+<p align="center"> <img src="https://img.shields.io/badge/Min._Foundry_VTT-v13.346-green?style=for-the-badge" alt="Foundry Mininmum Version" /> <img src="https://img.shields.io/badge/Verified._Foundry_VTT-v14.359-green?style=for-the-badge" alt="Foundry Verified Version" /> <img src="https://img.shields.io/github/downloads/hodpub/coriolis-tgd/system.zip?style=for-the-badge" alt="System Downloads" /> <img src="https://img.shields.io/github/v/release/hodpub/coriolis-tgd?display_name=release&amp;style=for-the-badge" alt="Latest Release" />
+ </p>
 
 The OFFICIAL system for playing Coriolis: The Great Dark on Foundry VTT.
 This system provides character sheets and items for your play, if you would like to have tables and other pre-made official content check out the offical core ruleset Module - https://freeleaguepublishing.com/shop/coriolis/
