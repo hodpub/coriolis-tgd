@@ -2,6 +2,7 @@ import * as migrations from "./_migrations.mjs";
 
 const migrationList = {
   "1.12.0": migrations.migrateTo_1_12_0,
+  "1.18.0": migrations.migrateTo_1_18_0,
 }
 
 export function registerMigrationSettings() {
