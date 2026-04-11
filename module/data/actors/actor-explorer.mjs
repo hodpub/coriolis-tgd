@@ -68,14 +68,8 @@ export default class cgdExplorer extends cgdActorBase {
 
   prepareDerivedData() {
     this.prepareAutomations();
-    for (const key in this.derivedAttributes) {
-      let value = this.derivedAttributes[key].max.bonus ?? 0;
-      for (const att of CONFIG.Explorer.derivedAttributes[key]) {
-        value += typeof att == "string" ? this.attributes[att] : att;
-      }
-      this.derivedAttributes[key].max = value;
-      this.atHandMax = 3;
-    }
+    super.prepareDerivedData();
+    this.atHandMax = 3;
 
     const isSolo = this.parent.items.some(it => it.type == "solo");
     let supplyWeight = CONFIG.Equipment.weightConstants.veryLight;

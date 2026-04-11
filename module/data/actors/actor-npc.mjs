@@ -48,12 +48,6 @@ export default class cgdNPC extends cgdActorBase {
   }
 
   prepareDerivedData() {
-    for (const key in this.derivedAttributes) {
-      let value = this.derivedAttributes[key].max.bonus ?? 0;
-      for (const att of CORIOLIS_TGD.Explorer.derivedAttributes[key]) {
-        value += typeof att == "string" ? this.attributes[att] : att;
-      }
-      this.derivedAttributes[key].max = value;
-    }
+    super.prepareDerivedData();
   }
 }

@@ -1,3 +1,5 @@
+import { CORIOLIS_TGD } from "../../config/config.mjs";
+
 export default class cgdActorBase extends foundry.abstract
   .TypeDataModel {
   static LOCALIZATION_PREFIXES = ["CORIOLIS_TGD.Actor.base"];
@@ -28,4 +30,14 @@ export default class cgdActorBase extends foundry.abstract
   }
 
   prepareDefaultAutomations() { return []; }
+
+  prepareDerivedData() {
+    for (const key in this.derivedAttributes) {
+      let value = this.derivedAttributes[key].bonus ?? 0;
+      for (const att of CORIOLIS_TGD.Explorer.derivedAttributes[key]) {
+        value += typeof att == "string" ? this.attributes[att] : att;
+      }
+      this.derivedAttributes[key].max = value;
+    }
+  }
 }
