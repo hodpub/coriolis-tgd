@@ -165,7 +165,7 @@ async function applyHopeDamage(message, roll) {
     return;
 
   const actor = game.actors.get(message.speaker.actor);
-  if (actor.type != "explorer")
+  if (actor?.type != "explorer")
     return;
 
   actor.update({ "system.derivedAttributes.hope.value": actor.system.derivedAttributes.hope.value - roll.attributeTrauma });
