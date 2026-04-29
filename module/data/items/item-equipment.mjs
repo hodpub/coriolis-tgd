@@ -18,8 +18,6 @@ export default class cgdEquipment extends cgdItemBase {
       initial: 1,
       min: 0,
       max: 5,
-      validate: (v, o) => v <= o.partial || o.source.maxBonus,
-      validationError: game.i18n.localize("CORIOLIS_TGD.Item.Equipment.FIELDS.bonus.error")
     });
     schema.maxBonus = new fields.NumberField({
       ...DataHelper.requiredInteger,
@@ -54,6 +52,12 @@ export default class cgdEquipment extends cgdItemBase {
     return schema;
   }
 
+  static validateJoint(data) {
+    if (data.bonus > data.maxBonus)
+      ui.notifications.error("CORIOLIS_TGD.Item.Equipment.FIELDS.bonus.error")
+      //TODO: check with Foudnry why this is having issues
+      // throw new foundry.data.validation.DataModelValidationError("CORIOLIS_TGD.Item.Equipment.FIELDS.bonus.error");
+  }
 
   prepareDerivedData() {
     const t = this.tech.map(tech => game.i18n.localize(`CORIOLIS_TGD.Item.Equipment.FIELDS.tech.${tech}.label`));

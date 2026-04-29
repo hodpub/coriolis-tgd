@@ -30,13 +30,16 @@ export default class cgdTalent extends cgdItemBase {
       initial: 1,
       min: 1,
       max: 3,
-      validate: (v, o) => v <= o.partial || o.source.maxLevel,
-      validationError: game.i18n.localize("CORIOLIS_TGD.Item.Talent.FIELDS.currentLevel.error")
     });
 
-    // schema.tags = new fields.SetField(fields.StringField)
-
     return schema;
+  }
+
+  static validateJoint(data) {
+    if (data.currentLevel > data.maxLevel)
+      ui.notifications.error("CORIOLIS_TGD.Item.Talent.FIELDS.currentLevel.error");
+      //TODO: check with Foundry why this is not working
+      // throw Error(game.i18n.localize("CORIOLIS_TGD.Item.Talent.FIELDS.currentLevel.error"));
   }
 
   prepareDerivedData() {
