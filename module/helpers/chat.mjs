@@ -47,11 +47,10 @@ export async function sendToChat(actor, flavor, content, event) {
     ];
 
     rollModeChoice = await foundry.applications.api.DialogV2.wait({
-      undefined,
       buttons,
       rejectClose: false,
       modal: true,
-      classes: ["cgd", 'roll-application'],
+      classes: ["cgd", "choice-dialog"],
       position: {
         width: 350
       },
