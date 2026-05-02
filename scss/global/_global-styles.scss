@@ -4,6 +4,7 @@
   width: 100%;
   font-weight: bold;
   text-transform: uppercase;
+  --button-size: calc(1.25 * var(--input-height));
 
   &[disabled] {
     filter: sepia(0.5) contrast(0.75) opacity(0.4);
