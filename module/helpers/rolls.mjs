@@ -43,8 +43,8 @@ export function registerDice3D(dice3d) {
       `systems/${ID}/assets/dice/base-6.webp`,
     ],
     colorset: 'CTGDBase',
-    system: ID,
-  });
+    system: ID
+  }, "d6");
   dice3d.addDicePreset({
     type: 'dg',
     labels: [
@@ -56,8 +56,8 @@ export function registerDice3D(dice3d) {
       `systems/${ID}/assets/dice/gear-6.webp`,
     ],
     colorset: 'CTGDGear',
-    system: ID,
-  });
+    system: ID
+  }, "d6");
 }
 
 export async function roll(actor, { dice, flavor, gear, birdPower, breakdown, maxPush, rollMode, rollOptions }) {
