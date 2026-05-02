@@ -352,22 +352,22 @@ export default class cgdRollDialog extends HandlebarsApplicationMixin(Applicatio
     const context = {
       buttons: [
         {
-          type: "submit", icon: "fa-solid fa-globe", label: "CHAT.RollPublic",
+          type: "submit", icon: "fa-solid fa-globe", label: "CHAT.MODES.public",
           disabled: !this.hideAttribute && this.requireAttribute && !this.attribute,
           action: CONST.DICE_ROLL_MODES.PUBLIC
         },
         {
-          type: "submit", icon: "fa-solid fa-user-secret", label: "CHAT.RollPrivate",
+          type: "submit", icon: "fa-solid fa-user-secret", label: "CHAT.MODES.gm",
           disabled: !this.hideAttribute && this.requireAttribute && !this.attribute,
           action: CONST.DICE_ROLL_MODES.PRIVATE
         },
         {
-          type: "submit", icon: "fa-solid fa-eye-slash", label: "CHAT.RollBlind",
+          type: "submit", icon: "fa-solid fa-eye-slash", label: "CHAT.MODES.blind",
           disabled: !this.hideAttribute && this.requireAttribute && !this.attribute,
           action: CONST.DICE_ROLL_MODES.BLIND
         },
         {
-          type: "submit", icon: "fa-solid fa-user", label: "CHAT.RollSelf",
+          type: "submit", icon: "fa-solid fa-user", label: "CHAT.MODES.self",
           disabled: !this.hideAttribute && this.requireAttribute && !this.attribute,
           action: CONST.DICE_ROLL_MODES.SELF
         },

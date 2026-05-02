@@ -5,7 +5,7 @@ export async function sendToChat(actor, flavor, content, event) {
   if (!event?.shiftKey) {
     const buttons = [
       {
-        type: "submit", icon: "fa-solid fa-globe", label: "CHAT.RollPublic",
+        type: "submit", icon: "fa-solid fa-globe", label: "CHAT.MODES.public",
         action: CONST.DICE_ROLL_MODES.PUBLIC,
         callback: () => {
           return {
@@ -15,7 +15,7 @@ export async function sendToChat(actor, flavor, content, event) {
         }
       },
       {
-        type: "submit", icon: "fa-solid fa-user-secret", label: "CHAT.RollPrivate",
+        type: "submit", icon: "fa-solid fa-user-secret", label: "CHAT.MODES.gm",
         action: CONST.DICE_ROLL_MODES.PRIVATE,
         callback: () => {
           return {
@@ -25,7 +25,7 @@ export async function sendToChat(actor, flavor, content, event) {
         }
       },
       {
-        type: "submit", icon: "fa-solid fa-eye-slash", label: "CHAT.RollBlind",
+        type: "submit", icon: "fa-solid fa-eye-slash", label: "CHAT.MODES.blind",
         action: CONST.DICE_ROLL_MODES.BLIND,
         callback: () => {
           return {
@@ -35,7 +35,7 @@ export async function sendToChat(actor, flavor, content, event) {
         }
       },
       {
-        type: "submit", icon: "fa-solid fa-user", label: "CHAT.RollSelf",
+        type: "submit", icon: "fa-solid fa-user", label: "CHAT.MODES.self",
         action: CONST.DICE_ROLL_MODES.SELF,
         callback: () => {
           return {
