@@ -16,6 +16,8 @@ export default class RollUpgradeAutomation extends BaseAutomation {
     schema.requireAttribute = new BooleanField({ initial: true });
     schema.canChangeAttribute = new BooleanField({ initial: true });
     schema.postExecution = new DocumentUUIDField({ required: false, nullable: true });
+    schema.defaultTalent = new StringField({ required: false });
+    schema.defaultGear = new StringField({ required: false });
 
     return schema;
   }
@@ -33,7 +35,9 @@ export default class RollUpgradeAutomation extends BaseAutomation {
       return;
     }
 
-    const roller = new cgdRollDialog({ actor: explorer, attribute: this.attribute, item, canChangeAttribute: this.canChangeAttribute, requireAttribute: this.requireAttribute });
+    const defaultTalent = this.defaultTalent ? explorer.items.get(this.defaultTalent) : null;
+    const defaultGear = this.defaultGear ? explorer.items.get(this.defaultGear) : null;
+    const roller = new cgdRollDialog({ actor: explorer, attribute: this.attribute, item, canChangeAttribute: this.canChangeAttribute, requireAttribute: this.requireAttribute, defaultTalent, defaultGear });
     const message = await roller.wait(event);
 
     if (message && this.postExecution) {
