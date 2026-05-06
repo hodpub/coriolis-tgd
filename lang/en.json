@@ -27,7 +27,8 @@
         "Stats": "Stats",
         "Automations": "Automations",
         "Solo": "Solo",
-        "Notes": "Notes"
+        "Notes": "Notes",
+        "NotCarried": "Not Carried"
       },
       "base": {
         "FIELDS": {
@@ -475,6 +476,13 @@
           },
           "keepsake": {
             "label": "Keepsake"
+          },
+          "carried": {
+            "label": "Carried",
+            "markCarried": "Mark as Carried",
+            "markNotCarried": "Mark as Not Carried",
+            "notCarried": "Not Carried",
+            "automationError": "You can't run automation for items that are not carried."
           }
         }
       },

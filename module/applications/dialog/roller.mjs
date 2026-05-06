@@ -484,7 +484,7 @@ export default class cgdRollDialog extends HandlebarsApplicationMixin(Applicatio
   static async add(event, target) {
     const isTalent = target.dataset.type == "talent";
     const types = isTalent ? ["talent"] : ["equipment", "weapon"];
-    const items = this.actor.items.filter(it => types.indexOf(it.type) >= 0)
+    const items = this.actor.items.filter(it => types.indexOf(it.type) >= 0 && it.system.carried !== false)
       .sort((a, b) => (a.name.localeCompare(b.name)));
     let btnIndex = 0;
     const buttons = [
