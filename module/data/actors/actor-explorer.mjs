@@ -88,7 +88,7 @@ export default class cgdExplorer extends cgdActorBase {
         item.system.weight = supplyWeight; // For display purposes
         continue;
       }
-      if (item.system.hasOwnProperty("weight") && !item.system.equipped && !item.system.atHand)
+      if (item.system.hasOwnProperty("weight") && item.system.carried !== false && !item.system.equipped && !item.system.atHand)
         encumbrance += item.system.weight * item.system.quantity;
     }
     this.derivedAttributes.encumbrance.value = encumbrance.toFixed(2);

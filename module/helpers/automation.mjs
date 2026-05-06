@@ -79,18 +79,18 @@ export function prepareAutomationCategories(automations) {
           break;
         case "cgdWeapon":
         case "cgdVehicleWeapon":
-          if (a.parent.atHand)
+          if (a.parent.carried !== false && a.parent.atHand)
             categories.weapons.automations.push(a);
           break;
         case "cgdArmor":
-          if (a.parent.equipped)
+          if (a.parent.carried !== false && a.parent.equipped)
             categories.armor.automations.push(a);
           break;
         case "cgdTalent":
           categories.talents.automations.push(a);
           break;
         case "cgdEquipment":
-          if (a.parent.quantity > 0)
+          if (a.parent.carried !== false && a.parent.quantity > 0)
             categories.equipment.automations.push(a);
           break;
         case "cgdBirdPower":
