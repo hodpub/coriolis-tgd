@@ -19,6 +19,8 @@ export default class cgdRollDialog extends HandlebarsApplicationMixin(Applicatio
     this.maxPush = maxPush;
     this.rollOptions = rollOptions;
     this.connectedActor = connectedActor;
+    this.blightLevel = 0;
+    this.isBlightProtection = false;
     this.bonusGroups = {
       "manualBonus": [
         {
@@ -105,6 +107,7 @@ export default class cgdRollDialog extends HandlebarsApplicationMixin(Applicatio
       }
       else if (["armor"].indexOf(item.type) >= 0) {
         this.armor = item;
+        this.isBlightProtection = item.system.rollType === "blightProtection";
         if (!item.label) {
           const key = `CORIOLIS_TGD.Automation.FIELDS.armorRoll.${item.system.rollType}Title`;
           const flavor = `${item.name}: ${game.i18n.localize(key)} `;
@@ -266,9 +269,24 @@ export default class cgdRollDialog extends HandlebarsApplicationMixin(Applicatio
     return this._handleRoll(event, form, formData);
   }
 
+  _onRender(context, options) {
+    super._onRender(context, options);
+    const blightInput = this.element.querySelector('[name="blightLevel"]');
+    if (!blightInput) return;
+    blightInput.addEventListener("wheel", (event) => {
+      event.preventDefault();
+      const current = parseInt(blightInput.value) || 0;
+      blightInput.value = Math.max(0, current + (event.deltaY < 0 ? 1 : -1));
+      this.element.requestSubmit();
+    });
+  }
+
   async _handleRoll(event, form, formData) {
     if (!event.submitter) {
       const formValues = formData.object;
+      if (this.isBlightProtection && formValues.blightLevel !== undefined) {
+        this.blightLevel = parseInt(formValues.blightLevel) || 0;
+      }
       for (const [groupName, values] of Object.entries(formValues)) {
         if (Array.isArray(values)) {
           let newSelection = -1;
@@ -308,6 +326,10 @@ export default class cgdRollDialog extends HandlebarsApplicationMixin(Applicatio
     flavor = flavor.replace("{armor}", this.armor?.name);
     flavor = flavor.replace("{talent}", this.talent?.name);
     flavor = flavor.replace("+ undefined", "");
+    if (this.isBlightProtection && formData) {
+      const bl = parseInt(formData.object.blightLevel) || 0;
+      if (bl > 0) this.rollOptions.blightLevel = bl;
+    }
     this.close();
     this.result = roll(
       this.actor,
@@ -393,6 +415,8 @@ export default class cgdRollDialog extends HandlebarsApplicationMixin(Applicatio
       armor: this.armor,
       creatureAttack: this.creatureAttack,
       bonusGroups: this.bonusGroups,
+      blightLevel: this.blightLevel,
+      isBlightProtection: this.isBlightProtection,
     };
 
     if (this.attribute) {

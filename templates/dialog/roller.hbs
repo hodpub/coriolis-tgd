@@ -86,6 +86,13 @@
           <label>{{armor.label}}</label>
           <label>{{armor.system.bonus}}</label>
         </div>
+        {{#if isBlightProtection}}
+        <div>
+          <label>{{localize "CORIOLIS_TGD.Automation.FIELDS.armorRoll.blightLevel.label"}}</label>
+          <label></label>
+          <input type="number" name="blightLevel" value="{{blightLevel}}" min="0" step="1" />
+        </div>
+        {{/if}}
         {{/if}}
         {{#if creatureAttack}}
         <div>
