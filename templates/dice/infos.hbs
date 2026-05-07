@@ -28,6 +28,13 @@
   {{/if}}
   {{/if}}
 
+  {{#if roll.options.blightLevel}}
+  <div class="roll-blight-calc">
+    <span class="label">{{localize "YZUR.CHAT.ROLL.ATTACK.BLIGHT"}}: </span>
+    <span class="result">{{roll.options.blightLevel}} - {{roll.options.blightSuccesses}} = {{roll.options.blightDamage}}</span>
+  </div>
+  {{/if}}
+
   {{#if roll.pushed}}
   {{#if roll.attributeTrauma}}
   <div class="dice-info roll-trauma">
