@@ -4,7 +4,7 @@ import { roll } from "../../helpers/rolls.mjs";
 const { HandlebarsApplicationMixin, ApplicationV2, DialogV2 } = foundry.applications.api;
 
 export default class cgdRollDialog extends HandlebarsApplicationMixin(ApplicationV2) {
-  constructor({ actor, attribute, item, requireAttribute = true, canChangeAttribute = true, hideAttribute = false, maxPush = undefined, birdEnergy = 0, connectedActor = undefined, rollOptions = {}, formatLabel = undefined }, options) {
+  constructor({ actor, attribute, item, requireAttribute = true, canChangeAttribute = true, hideAttribute = false, maxPush = undefined, birdEnergy = 0, connectedActor = undefined, rollOptions = {}, formatLabel = undefined, defaultTalent = null, defaultGear = null }, options) {
     super(options);
     this.actor = actor;
     this.attribute = attribute;
@@ -160,6 +160,17 @@ export default class cgdRollDialog extends HandlebarsApplicationMixin(Applicatio
       }
       else
         ui.notifications.warn("This item type is not configured for rolls.");
+    }
+
+    if (defaultTalent && !this.talent) {
+      this.talent = defaultTalent;
+      this.format += " + {talent}";
+      this.canRemoveTalent = true;
+    }
+    if (defaultGear && !this.gear) {
+      this.gear = defaultGear;
+      this.format += " + {gear}";
+      this.canRemoveGear = true;
     }
 
     if (formatLabel)

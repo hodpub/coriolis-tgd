@@ -106,6 +106,7 @@ export class cgdItemSheet extends api.HandlebarsApplicationMixin(
     },
     automations: {
       template: 'systems/coriolis-tgd/templates/item/automations.hbs',
+      templates: ['systems/coriolis-tgd/templates/item/automation-parts/default-item-talent-helper.hbs'],
       scrollable: [""],
     },
     effects: {
@@ -200,6 +201,20 @@ export class cgdItemSheet extends api.HandlebarsApplicationMixin(
   async _preparePartContext(partId, context) {
     switch (partId) {
       case 'automations':
+        context.tab = context.tabs[partId];
+        if (this.item.actor) {
+          context.showDefaultTalent = this.item.type !== "talent";
+          context.showDefaultGear = !["equipment", "weapon"].includes(this.item.type);
+          context.talentChoices = this.item.actor.items
+            .filter(i => i.type === "talent")
+            .sort((a, b) => a.name.localeCompare(b.name))
+            .reduce((map, i) => { map[i.id] = `${i.name} (+${i.system.bonus})`; return map; }, {});
+          context.gearChoices = this.item.actor.items
+            .filter(i => ["equipment", "weapon"].includes(i.type) && !i.flags?.["coriolis-tgd"]?.isSupply)
+            .sort((a, b) => a.name.localeCompare(b.name))
+            .reduce((map, i) => { map[i.id] = `${i.name} (+${i.system.bonus})`; return map; }, {});
+        }
+        break;
       case 'configurationTalent':
       case 'configurationEquipment':
       case 'configurationWeapon':

@@ -777,6 +777,14 @@
         },
         "upgrade": {
           "noExplorer": "Select an explorer to use the vehicle upgrade."
+        },
+        "defaultTalent": {
+          "label": "Default Talent",
+          "blank": "None"
+        },
+        "defaultGear": {
+          "label": "Default Gear",
+          "blank": "None"
         }
       }
     },
