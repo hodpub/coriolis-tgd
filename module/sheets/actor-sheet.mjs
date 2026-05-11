@@ -63,6 +63,7 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
     },
     equipments: {
       template: 'systems/coriolis-tgd/templates/actor/explorer/equipments.hbs',
+      templates: ['systems/coriolis-tgd/templates/actor/explorer/equipment-row.hbs'],
       scrollable: [".scrollable"],
     },
     combat: {
