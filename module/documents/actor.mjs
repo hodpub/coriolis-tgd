@@ -194,7 +194,6 @@ export class cgdActor extends foundry.documents.Actor {
         if (!updatedEffect.system.changes.length && updatedEffect.statuses.size) {
           for (const status of updatedEffect.statuses) {
             const statusConfig = CONFIG.statusEffects.find(it => it.id == status);
-            console.log("CUSSA", statusConfig);
             if (!statusConfig)
               continue;
 
@@ -207,7 +206,6 @@ export class cgdActor extends foundry.documents.Actor {
             }))
           }
         }
-        console.log("CUSSA", updatedEffect);
         yield updatedEffect;
       }
     }
