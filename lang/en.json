@@ -769,7 +769,10 @@
           "armorRatingTitle": "Damage Protection",
           "blightProtectionTitle": "Blight Protection",
           "armorRatingZero": "The armor rating is configured as zero. Check the item configuration.",
-          "blightProtectionZero": "The armor rating is configured as zero. Check the item configuration."
+          "blightProtectionZero": "The armor rating is configured as zero. Check the item configuration.",
+          "blightLevel": {
+            "label": "Blight Level"
+          }
         },
         "birdPower": {
           "noExplorer": "Select an explorer to command the bird.",
