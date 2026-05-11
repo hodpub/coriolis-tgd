@@ -85,6 +85,12 @@ export async function roll(actor, { dice, flavor, gear, birdPower, breakdown, ma
   options.breakdown = breakdown;
 
   let roll = await new YearZeroRoll(formula.join(" + "), { maxPush }, options).roll();
+
+  if (options.blightLevel) {
+    options.blightSuccesses = roll.successCount;
+    options.blightDamage = Math.max(0, options.blightLevel - roll.successCount);
+  }
+
   const speaker = ChatMessage.getSpeaker({ actor });
   const message = await roll.toMessage({
     speaker,

@@ -12,7 +12,7 @@ export default class RollArmorBaseAutomation extends BaseAutomation {
     blightProtection: "blightProtection"
   }
 
-  async execute(event, rollType) {
+  async execute(event, rollType, rollOptions = {}) {
     const { system, item, actor } = this.getParents();
     if (item.type != "armor") {
       ui.notifications.error(game.i18n.localize("CORIOLIS_TGD.Automation.FIELDS.armorRoll.notArmor"));
@@ -31,7 +31,7 @@ export default class RollArmorBaseAutomation extends BaseAutomation {
     const armor = foundry.utils.deepClone(item);
     armor.system.bonus = value + helmetBonus;
     armor.system.rollType = rollType;
-    const roller = new cgdRollDialog({ actor, item: armor, hideAttribute: true, maxPush: 0 });
+    const roller = new cgdRollDialog({ actor, item: armor, hideAttribute: true, maxPush: 0, rollOptions });
     const result = await roller.wait(event);
     return result;
   }
