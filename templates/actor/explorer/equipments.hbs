@@ -63,5 +63,43 @@
       </div>
       {{/each}}
     </div>
+    {{#if notCarried}}
+    <div>
+      <div class="equipment-item-title">
+        <label>{{localize "CORIOLIS_TGD.Actor.Tabs.NotCarried"}}</label>
+        <label>{{localize "CORIOLIS_TGD.Item.Equipment.FIELDS.bonus.label"}}</label>
+        <label>{{localize "CORIOLIS_TGD.Item.Equipment.FIELDS.weight.label"}}</label>
+        <label>{{localize "CORIOLIS_TGD.Item.Equipment.FIELDS.quantity.abbr"}}</label>
+        <label>{{localize "CORIOLIS_TGD.Item.Tabs.Description"}}</label>
+      </div>
+      <div class="scrollable">
+        {{#each notCarried as |item id|}}
+        <div class="equipment-item draggable" data-item-id='{{item._id}}' data-document-class='Item'>
+          <div>
+            <a disabled>
+              <img src='{{item.img}}' data-tooltip='{{item.name}}' width='46' height='46' />
+            </a>
+            <label class="item-name" data-tooltip="{{item.name}}">{{item.name}}</label>
+          </div>
+          <label>{{item.system.bonus}} {{{item.system.state}}}</label>
+          <label>{{localize (concat "CORIOLIS_TGD.Item.Equipment.FIELDS.weight." item.system.weight "label")}}</label>
+          <label>{{item.system.quantity}}</label>
+          <div class="expandable-field" data-action="expand">
+            {{{item.enrichedDescription}}}
+            <p>{{localize "CORIOLIS_TGD.Item.Equipment.FIELDS.tech.label"}}: {{system.techDescription}}</p>
+            {{#if item.system.consumable}}
+            <p><strong>{{localize "CORIOLIS_TGD.Item.Equipment.FIELDS.consumable.label"}}</strong></p>
+            {{/if}}
+            {{#if item.system.supplyConsumed}}
+            <p><strong>{{localize "CORIOLIS_TGD.Item.Equipment.FIELDS.supplyConsumed.description"
+                supplyConsumed=system.supplyConsumed}}</strong>
+            </p>
+            {{/if}}
+          </div>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+    {{/if}}
   </div>
 </section>

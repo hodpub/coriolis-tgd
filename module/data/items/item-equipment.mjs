@@ -48,6 +48,7 @@ export default class cgdEquipment extends cgdItemBase {
       min: 0,
     });
     schema.deleteWhenZero = new fields.BooleanField({ initial: true });
+    schema.carried = new fields.BooleanField({ initial: true });
     schema.tech = new fields.SetField(new fields.StringField({ required: true, choices: CORIOLIS_TGD.Equipment.techChoices }), { initial: [CORIOLIS_TGD.Equipment.techConstants.ordinary] });
     return schema;
   }
@@ -87,6 +88,11 @@ export default class cgdEquipment extends cgdItemBase {
   }
 
   canRunAutomation() {
+    if (!this.carried) {
+      return new foundry.data.validation.DataModelValidationFailure({
+        message: game.i18n.localize("CORIOLIS_TGD.Item.Equipment.FIELDS.carried.automationError")
+      });
+    }
     return this.maxBonus == 0 || this.bonus > 0 ? undefined :
       new foundry.data.validation.DataModelValidationFailure({ message: "You can't run automation for equipments that are broken." });
   }
