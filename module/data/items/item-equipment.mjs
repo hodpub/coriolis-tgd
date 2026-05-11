@@ -67,9 +67,9 @@ export default class cgdEquipment extends cgdItemBase {
       return;
 
     if (this.bonus == 0)
-      this.state = "<i class='fas fa-circle-xmark' style='font-size: 24px' data-tooltip='" + game.i18n.localize("CORIOLIS_TGD.Item.Equipment.FIELDS.bonus.broken") + "'></i>";
+      this.state = "<i class='fas fa-circle-xmark' style='font-size: 24px; width: 20px' data-tooltip='" + game.i18n.localize("CORIOLIS_TGD.Item.Equipment.FIELDS.bonus.broken") + "'></i>";
     else
-      this.state = "<i class='fas fa-triangle-exclamation' style='font-size: 24px' data-tooltip='" + game.i18n.localize("CORIOLIS_TGD.Item.Equipment.FIELDS.bonus.damaged") + "'></i>";
+      this.state = "<i class='fas fa-triangle-exclamation' style='font-size: 24px; width: 20px' data-tooltip='" + game.i18n.localize("CORIOLIS_TGD.Item.Equipment.FIELDS.bonus.damaged") + "'></i>";
   }
 
   async _preCreate(data, options, user) {
