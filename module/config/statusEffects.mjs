@@ -13,7 +13,8 @@ export function registerStatusEffects() {
       changes: [
         {
           key: "system.attributesBonus.strength",
-          mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+          mode: CONST.ACTIVE_EFFECT_CHANGE_TYPES.add,
+          type: "add",
           value: -2
         }
       ]
@@ -25,7 +26,8 @@ export function registerStatusEffects() {
       changes: [
         {
           key: "system.attributesBonus.agility",
-          mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+          mode: CONST.ACTIVE_EFFECT_CHANGE_TYPES.add,
+          type: "add",
           value: -2
         }
       ]
@@ -37,7 +39,8 @@ export function registerStatusEffects() {
       changes: [
         {
           key: "system.attributesBonus.logic",
-          mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+          mode: CONST.ACTIVE_EFFECT_CHANGE_TYPES.add,
+          type: "add",
           value: -2
         }
       ]
@@ -49,7 +52,8 @@ export function registerStatusEffects() {
       changes: [
         {
           key: "system.attributesBonus.perception",
-          mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+          mode: CONST.ACTIVE_EFFECT_CHANGE_TYPES.add,
+          type: "add",
           value: -2
         }
       ]
@@ -61,7 +65,8 @@ export function registerStatusEffects() {
       changes: [
         {
           key: "system.attributesBonus.insight",
-          mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+          mode: CONST.ACTIVE_EFFECT_CHANGE_TYPES.add,
+          type: "add",
           value: -2
         }
       ]
@@ -73,7 +78,8 @@ export function registerStatusEffects() {
       changes: [
         {
           key: "system.attributesBonus.empathy",
-          mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+          mode: CONST.ACTIVE_EFFECT_CHANGE_TYPES.add,
+          type: "add",
           value: -2
         }
       ]

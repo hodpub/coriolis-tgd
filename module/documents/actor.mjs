@@ -3,21 +3,6 @@
  * @extends {Actor}
  */
 export class cgdActor extends foundry.documents.Actor {
-  /** @override */
-  prepareData() {
-    // Prepare data for the actor. Calling the super version of this executes
-    // the following, in order: data reset (to clear active effects),
-    // prepareBaseData(), prepareEmbeddedDocuments() (including active effects),
-    // prepareDerivedData().
-    super.prepareData();
-  }
-
-  /** @override */
-  prepareBaseData() {
-    // Data modifications in this step occur before processing embedded
-    // documents or derived data.
-  }
-
   /**
    * @override
    * Augment the actor source data with additional dynamic data that isn't
@@ -189,46 +174,43 @@ export class cgdActor extends foundry.documents.Actor {
     }
   }
 
-  applyActiveEffects() {
 
-    const overrides = {};
-    this.statuses.clear();
+  /**
+   * Get all ActiveEffects that may apply to this Actor. This will also return all the transferred ActiveEffects on any
+   * of the Actor's owned Items.
+   * @yields {ActiveEffect}
+   * @returns {Generator<ActiveEffect, void, void>}
+   */
+  *allApplicableEffects() {
+    for (const effect of this.effects) {
+      yield effect;
+    }
+    for (const item of this.items) {
+      for (const effect of item.effects) {
+        if (!effect.transfer) continue;
 
-    // Organize non-disabled effects by their application priority
-    const changes = [];
-    for (const effect of this.allApplicableEffects()) {
-      if (!effect.active) continue;
-      changes.push(...effect.changes.map(change => {
-        const c = foundry.utils.deepClone(change);
-        c.effect = effect;
-        c.priority = c.priority ?? (c.mode * 10);
-        return c;
-      }));
-      for (const statusId of effect.statuses) {
-        this.statuses.add(statusId);
-        const statusConfig = CONFIG.statusEffects.find(it => it.id == statusId);
-        if (!statusConfig || !effect.origin)
-          continue;
+        const updatedEffect = foundry.utils.deepClone(effect);
 
-        changes.push(...statusConfig.changes.map(change => {
-          const c = foundry.utils.deepClone(change);
-          c.effect = effect;
-          c.priority = c.priority ?? (c.mode * 10);
-          return c;
-        }))
+        if (!updatedEffect.system.changes.length && updatedEffect.statuses.size) {
+          for (const status of updatedEffect.statuses) {
+            const statusConfig = CONFIG.statusEffects.find(it => it.id == status);
+            console.log("CUSSA", statusConfig);
+            if (!statusConfig)
+              continue;
+
+            updatedEffect.system.changes.push(...statusConfig.changes.map(change => {
+              const c = foundry.utils.deepClone(change);
+              c.effect = effect;
+              c.priority = c.priority ?? (c.mode);
+              c.phase = "initial";
+              return c;
+            }))
+          }
+        }
+        console.log("CUSSA", updatedEffect);
+        yield updatedEffect;
       }
     }
-    changes.sort((a, b) => a.priority - b.priority);
-
-    // Apply all changes
-    for (const change of changes) {
-      if (!change.key) continue;
-      const changes = change.effect.apply(this, change);
-      Object.assign(overrides, changes);
-    }
-
-    // Expand the set of final overrides
-    this.overrides = foundry.utils.expandObject(overrides);
   }
 
   getSupplyItem() {
