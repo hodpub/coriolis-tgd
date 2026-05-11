@@ -34,4 +34,28 @@
     <label class="hint">{{localize 'CORIOLIS_TGD.Automation.FIELDS.macro.drop'}}</label>
     {{/if}}
   </div>
+  {{#if @root.showDefaultTalent}}
+  {{#if @root.talentChoices}}
+  <div class="form-group cgd-custom">
+    <label for="system.automations.{{key}}.defaultTalent">{{localize
+      "CORIOLIS_TGD.Automation.FIELDS.defaultTalent.label"}}</label>
+    <select name="system.automations.{{key}}.defaultTalent">
+      {{selectOptions @root.talentChoices selected=automation.defaultTalent
+      blank=(localize "CORIOLIS_TGD.Automation.FIELDS.defaultTalent.blank")}}
+    </select>
+  </div>
+  {{/if}}
+  {{/if}}
+  {{#if @root.showDefaultGear}}
+  {{#if @root.gearChoices}}
+  <div class="form-group cgd-custom">
+    <label for="system.automations.{{key}}.defaultGear">{{localize
+      "CORIOLIS_TGD.Automation.FIELDS.defaultGear.label"}}</label>
+    <select name="system.automations.{{key}}.defaultGear">
+      {{selectOptions @root.gearChoices selected=automation.defaultGear
+      blank=(localize "CORIOLIS_TGD.Automation.FIELDS.defaultGear.blank")}}
+    </select>
+  </div>
+  {{/if}}
+  {{/if}}
 </div>
