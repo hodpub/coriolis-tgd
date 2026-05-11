@@ -88,7 +88,7 @@ export async function roll(actor, { dice, flavor, gear, birdPower, breakdown, ma
 
   if (options.blightLevel) {
     options.blightSuccesses = roll.successCount;
-    options.blightDamage = Math.max(0, options.blightLevel - roll.successCount);
+    options.blight = Math.max(0, options.blightLevel - roll.successCount);
   }
 
   const speaker = ChatMessage.getSpeaker({ actor });

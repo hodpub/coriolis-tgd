@@ -20,7 +20,7 @@
   </div>
   {{/if}}
 
-  {{#if roll.options.blight}}
+  {{#if (and roll.options.blight (not roll.options.blightLevel))}}
   <div class="roll-blight">
     <span class="label">{{localize "YZUR.CHAT.ROLL.ATTACK.BLIGHT"}}: </span>
     <span class="result">{{roll.options.blight}}</span>
@@ -29,9 +29,9 @@
   {{/if}}
 
   {{#if roll.options.blightLevel}}
-  <div class="roll-blight-calc">
+  <div class="roll-blight">
     <span class="label">{{localize "YZUR.CHAT.ROLL.ATTACK.BLIGHT"}}: </span>
-    <span class="result">{{roll.options.blightLevel}} - {{roll.options.blightSuccesses}} = {{roll.options.blightDamage}}</span>
+    <span class="result">{{roll.options.blightLevel}} - {{roll.options.blightSuccesses}} = {{roll.options.blight}}</span>
   </div>
   {{/if}}
 
