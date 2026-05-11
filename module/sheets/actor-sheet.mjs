@@ -63,6 +63,7 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
     },
     equipments: {
       template: 'systems/coriolis-tgd/templates/actor/explorer/equipments.hbs',
+      templates: ['systems/coriolis-tgd/templates/actor/explorer/equipment-row.hbs'],
       scrollable: [".scrollable"],
     },
     combat: {
@@ -227,7 +228,7 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
           }
         );
         break;
-        case 'notes':
+      case 'notes':
         context.enrichedNotes = await TextEditor.enrichHTML(
           this.actor.system.notes,
           {
@@ -305,6 +306,7 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
     const weaponsInventory = [];
     const attacks = [];
     const abilities = [];
+    const notCarried = [];
     let armor;
 
     // Iterate through items, allocating to containers
@@ -330,6 +332,10 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
         continue;
       }
       if (i.type === 'weapon') {
+        if (!i.system.carried) {
+          notCarried.push(i);
+          continue;
+        }
         if (this.actor.type == "explorer")
           equipments.push(i);
         if (this.actor.type != "explorer" || i.system.atHand)
@@ -339,11 +345,17 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
         continue;
       }
       if (i.type === "armor") {
-        armor = i;
+        if (!i.system.carried)
+          notCarried.push(i);
+        else
+          armor = i;
         continue;
       }
       if (i.type === 'equipment') {
-        equipments.push(i);
+        if (!i.system.carried)
+          notCarried.push(i);
+        else
+          equipments.push(i);
         continue;
       }
       if (i.type === 'affliction') {
@@ -370,6 +382,7 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
     context.abilities = abilities.sort((a, b) => (a.sort || 0) - (b.sort || 0));
     context.attacks = attacks.sort((a, b) => (a.system.attackNumber || 0) - (b.system.attackNumber || 0));
     context.armor = armor;
+    context.notCarried = notCarried.sort((a, b) => (a.sort || 0) - (b.sort || 0));
   }
 
   /**
@@ -546,6 +559,38 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
             return;
           }
           await item.update({ "system.equipped": false });
+        },
+      },
+      {
+        name: "CORIOLIS_TGD.Item.Equipment.FIELDS.carried.markNotCarried",
+        icon: "<i class=\"fa-solid fa-box-open\"></i>",
+        condition: (target) => {
+          let item = this._getEmbeddedDocument(target);
+          return this.actor.isOwner && ["equipment", "weapon", "armor"].includes(item.type) && item.system.carried;
+        },
+        callback: async (target) => {
+          const item = this._getEmbeddedDocument(target);
+          if (!item) {
+            console.error("Could not find item");
+            return;
+          }
+          await item.update({ "system.carried": false });
+        },
+      },
+      {
+        name: "CORIOLIS_TGD.Item.Equipment.FIELDS.carried.markCarried",
+        icon: "<i class=\"fa-solid fa-box\"></i>",
+        condition: (target) => {
+          let item = this._getEmbeddedDocument(target);
+          return this.actor.isOwner && ["equipment", "weapon", "armor"].includes(item.type) && !item.system.carried;
+        },
+        callback: async (target) => {
+          const item = this._getEmbeddedDocument(target);
+          if (!item) {
+            console.error("Could not find item");
+            return;
+          }
+          await item.update({ "system.carried": true });
         },
       },
 
