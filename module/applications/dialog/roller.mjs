@@ -338,13 +338,13 @@ export default class cgdRollDialog extends HandlebarsApplicationMixin(Applicatio
       }
     }
 
-    const baseValue =
+    const baseValue = Math.max(1,
       (this.actor.system.attributes?.[this.attribute] ?? 0) +
       (this.actor.system.attributesBonus?.[this.attribute] ?? 0) +
       (this.talent?.system.bonus ?? 0) +
       (this.creatureAttack?.system.baseDice ?? 0) +
       this.birdEnergy +
-      baseBonus;
+      baseBonus);
     const gearValue = (this.gear?.system.bonus ?? 0) +
       (this.armor?.system.bonus ?? 0) +
       gearBonus;
