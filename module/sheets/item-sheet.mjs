@@ -106,6 +106,7 @@ export class cgdItemSheet extends api.HandlebarsApplicationMixin(
     },
     automations: {
       template: 'systems/coriolis-tgd/templates/item/automations.hbs',
+      templates: ['systems/coriolis-tgd/templates/item/automation-parts/default-item-talent-helper.hbs'],
       scrollable: [""],
     },
     effects: {
