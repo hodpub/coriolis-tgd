@@ -162,3 +162,8 @@ body.isNotGM .dice-buttons.apply-damage {
 select[name="type"] option[value="solo"] {
   display: none;
 }
+
+#token-hud .status-effects {
+  height: calc(2 * (var(--effect-size) + var(--effect-gap)) + 2 * var(--effect-gap));
+  top: 40px;
+}
