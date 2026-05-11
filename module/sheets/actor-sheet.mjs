@@ -565,7 +565,7 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
         icon: "<i class=\"fa-solid fa-box-open\"></i>",
         condition: (target) => {
           let item = this._getEmbeddedDocument(target);
-          return this.actor.isOwner && ["equipment", "weapon", "armor"].includes(item.type) && item.system.carried !== false;
+          return this.actor.isOwner && ["equipment", "weapon", "armor"].includes(item.type) && item.system.carried;
         },
         callback: async (target) => {
           const item = this._getEmbeddedDocument(target);
