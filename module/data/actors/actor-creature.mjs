@@ -55,7 +55,6 @@ export default class cgdCreature extends cgdActorBase {
   }
 
   prepareDerivedData() {
-    super.prepareDerivedData();
     let current = {
       min: 1,
       max: 1,
