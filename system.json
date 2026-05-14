@@ -2,7 +2,7 @@
   "id": "coriolis-tgd",
   "title": "Coriolis: The Great Dark",
   "description": "The Coriolis: The Great Dark system for FoundryVTT!",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "compatibility": {
     "minimum": "14",
     "verified": "14.361"
