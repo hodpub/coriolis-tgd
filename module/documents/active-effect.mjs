@@ -1,13 +1,13 @@
 export default class cgdActiveEffect extends foundry.documents.ActiveEffect {
-  apply(actor, change) {
+  static applyChange(targetDoc, change, { replacementData = {}, modifyTarget = true } = {}) {
     if (change.value.toString().indexOf("@") == -1) {
-      return super.apply(actor, change);
+      return super.applyChange(targetDoc, change, { replacementData, modifyTarget });
     }
 
     change = foundry.utils.deepClone(change);
     const terms = new Roll(change.value, change.effect.parent.getRollData()).evaluateSync();
     change.value = terms.total;
-    return super.apply(actor, change);
+    return super.applyChange(targetDoc, change, { replacementData, modifyTarget });
   }
 
   get active() {
