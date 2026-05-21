@@ -25,13 +25,6 @@ export default class cgdAffliction extends cgdItemBase {
     this.afflictionTypeInfo = game.i18n.localize(`CORIOLIS_TGD.Item.Affliction.FIELDS.afflictionType.${this.afflictionType}`);
   }
 
-  static validateJoint(data) {
-    if (data.currentLevel > data.maxLevel)
-      throw new Error(game.i18n.localize("CORIOLIS_TGD.Item.Talent.FIELDS.currentLevel.error"));
-
-    return super.validateJoint(data);
-  }
-
   get chatTemplate() {
     return "systems/coriolis-tgd/templates/chat/affliction.hbs";
   };

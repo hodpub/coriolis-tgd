@@ -55,9 +55,9 @@ export default class cgdEquipment extends cgdItemBase {
 
   static validateJoint(data) {
     if (data.bonus > data.maxBonus)
-      ui.notifications.error("CORIOLIS_TGD.Item.Equipment.FIELDS.bonus.error")
-      //TODO: check with Foudnry why this is having issues
-      // throw new foundry.data.validation.DataModelValidationError("CORIOLIS_TGD.Item.Equipment.FIELDS.bonus.error");
+      throw new Error(game.i18n.localize("CORIOLIS_TGD.Item.Equipment.FIELDS.bonus.error"));
+
+    return super.validateJoint(data);
   }
 
   prepareDerivedData() {
