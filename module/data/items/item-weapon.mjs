@@ -63,6 +63,6 @@ export default class cgdWeapon extends cgdEquipment {
       return superResult;
 
     return this.parent.actor.type != "explorer" || this.atHand ? undefined :
-      new foundry.data.validation.DataModelValidationFailure({ message: "You can't run automation for weapons that are not at hand" });
+      new foundry.data.validation.DataModelValidationFailure("You can't run automation for weapons that are not at hand");
   }
 }

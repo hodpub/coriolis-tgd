@@ -49,6 +49,6 @@ export default class cgdVehicleUpgrade extends cgdItemBase {
 
   canRunAutomation() {
     return this.maxBonus == 0 || this.bonus > 0 ? undefined :
-      new foundry.data.validation.DataModelValidationFailure({ message: "You can't run automation for equipments that are broken." });
+      new foundry.data.validation.DataModelValidationFailure("You can't run automation for equipments that are broken.");
   }
 }
