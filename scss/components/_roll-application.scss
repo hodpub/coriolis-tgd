@@ -88,7 +88,7 @@
     button {
       @extend %button;
 
-      &[data-action="publicroll"] {
+      &[data-action="public"] {
         grid-column: 1 / 4;
       }
     }

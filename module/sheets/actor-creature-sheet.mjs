@@ -72,7 +72,7 @@ export class cgdActorCreatureSheet extends cgdActorNpcSheet {
     const roll = await new Roll("1d6").roll();
     const content = `<p>${this.actor.system.behaviourPattern[roll.total - 1]}</p>`;
     const speaker = ChatMessage.getSpeaker({ actor: this.actor });
-    const rollMode = game.settings.get('core', 'rollMode');
+    const rollMode = game.settings.get("core", "messageMode");
     const flavor = game.i18n.localize("CORIOLIS_TGD.Actor.Creature.FIELDS.behavior.label");
     await roll.toMessage({ flavor, content, speaker, rollMode });
   }

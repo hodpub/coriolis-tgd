@@ -83,6 +83,7 @@ export async function roll(actor, { dice, flavor, gear, birdPower, breakdown, ma
     options.critical = birdPower.system.critical;
   }
   options.breakdown = breakdown;
+  options.rollMode = rollMode;
 
   let roll = await new YearZeroRoll(formula.join(" + "), { maxPush }, options).roll();
 
@@ -160,8 +161,7 @@ export async function pushRoll(event) {
   const newMessage = await roll.toMessage({
     speaker: message.speaker,
     flavor: message.flavor,
-    rollMode: game.settings.get('core', 'rollMode'),
-  });
+  }, { rollMode: roll.options.rollMode ?? game.settings.get("core", "messageMode"), });
   await game.dice3d?.waitFor3DAnimationByMessageID(newMessage.id);
   return message;
 }

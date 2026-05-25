@@ -855,7 +855,7 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
       await roll.toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
         flavor: label,
-        rollMode: game.settings.get('core', 'rollMode'),
+        rollMode: game.settings.get("core", "messageMode"),
       });
       return roll;
     }

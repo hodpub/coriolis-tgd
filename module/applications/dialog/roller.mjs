@@ -382,29 +382,19 @@ export default class cgdRollDialog extends HandlebarsApplicationMixin(Applicatio
       (this.armor?.system.bonus ?? 0) +
       gearBonus;
 
+    const buttonsList = Object.keys(CONFIG.ChatMessage.modes).filter(it => it != "ic").map(key => {
+      const mode = CONFIG.ChatMessage.modes[key];
+      return {
+        type: "submit",
+        icon: mode.icon,
+        label: mode.label,
+        disabled: !this.hideAttribute && this.requireAttribute && !this.attribute,
+        action: key,
+      };
+    });
+
     const context = {
-      buttons: [
-        {
-          type: "submit", icon: "fa-solid fa-globe", label: "CHAT.MODES.public",
-          disabled: !this.hideAttribute && this.requireAttribute && !this.attribute,
-          action: CONST.DICE_ROLL_MODES.PUBLIC
-        },
-        {
-          type: "submit", icon: "fa-solid fa-user-secret", label: "CHAT.MODES.gm",
-          disabled: !this.hideAttribute && this.requireAttribute && !this.attribute,
-          action: CONST.DICE_ROLL_MODES.PRIVATE
-        },
-        {
-          type: "submit", icon: "fa-solid fa-eye-slash", label: "CHAT.MODES.blind",
-          disabled: !this.hideAttribute && this.requireAttribute && !this.attribute,
-          action: CONST.DICE_ROLL_MODES.BLIND
-        },
-        {
-          type: "submit", icon: "fa-solid fa-user", label: "CHAT.MODES.self",
-          disabled: !this.hideAttribute && this.requireAttribute && !this.attribute,
-          action: CONST.DICE_ROLL_MODES.SELF
-        },
-      ],
+      buttons: buttonsList,
       dice: {
         base: baseValue,
         gear: gearValue,
@@ -495,7 +485,7 @@ export default class cgdRollDialog extends HandlebarsApplicationMixin(Applicatio
   async wait(event) {
     if (event?.shiftKey && (!this.requireAttribute || this.attribute)) {
       event.submitter = {
-        dataset: { action: game.settings.get('core', 'rollMode') }
+        dataset: { action: game.settings.get("core", "messageMode") }
       };
       await this._prepareContext();
       return this._handleRoll(event, undefined, undefined);
