@@ -371,7 +371,7 @@ export default class cgdRollDialog extends HandlebarsApplicationMixin(Applicatio
       }
     }
 
-    const baseValue = Math.max(1,
+    const baseValue = Math.max(this.hideAttribute ? 0 : 1,
       (this.actor.system.attributes?.[this.attribute] ?? 0) +
       (this.actor.system.attributesBonus?.[this.attribute] ?? 0) +
       (this.talent?.system.bonus ?? 0) +
