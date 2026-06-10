@@ -1,0 +1,41 @@
+<div class="box npc">
+  <p class="box-header">
+    <a class="content-link" draggable="true" data-link="" data-uuid="{{actor.uuid}}" data-id="{{actor.id}}" data-type="Actor" data-tooltip=""><i class="fa-solid fa-user" inert=""></i>{{actor.name}}</a>
+  </p>
+  {{#if (not config.hideImg)}}
+  <img src="{{img}}" class="npc-art">
+  {{/if}}
+  {{{actor.system.biography}}}
+  <table class="npc">
+    <tbody>
+      <tr>
+        <td>
+          <p class="stats"><span class="bold small-caps">STR</span> {{actor.system.attributes.strength}} <span class="bold small-caps">AGL</span> {{actor.system.attributes.agility}} <span class="bold small-caps">LOG</span> {{actor.system.attributes.logic}} <span class="bold small-caps">PER </span>{{actor.system.attributes.perception}} <span class="bold small-caps">INS</span> {{actor.system.attributes.insight}} <span class="bold small-caps">EMP</span> {{actor.system.attributes.empathy}}</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p class="stats"><span class="bold small-caps">Health:</span> {{actor.system.derivedAttributes.health.max}} <span class="bold small-caps">HOPE:</span> {{actor.system.derivedAttributes.hope.max}}{{#if config.showHeart}} <span class="bold small-caps">Heart: </span>{{actor.system.derivedAttributes.heart.max}}{{/if}}</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p class="stats"><span class="bold small-caps">Talents: </span>
+            {{#each talents as | T i |}}
+            {{T.name}} {{T.system.currentLevel}}{{ifThen (not @last) ", " ""}}
+            {{/each}}
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p class="stats"><span class="bold small-caps">Equipment: </span>
+            {{#each equipments as | E i |}}
+            {{E.name}}{{E.system.info}}{{ifThen (not @last) ", " ""}}
+            {{/each}}
+          </p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
