@@ -1,0 +1,57 @@
+<div class="box npc creat">
+  <p class="box-header"> <a class="content-link" draggable="true" data-link="" data-uuid="{{actor.uuid}}" data-id="{{actor.id}}" data-type="Actor" data-tooltip=""><i class="fa-solid fa-user" inert=""></i>{{actor.name}}</a>
+  </p>
+  {{{system.biography}}}
+  <table class="npc odd stats">
+    <tbody>
+      <tr>
+        <td>
+          <p class="stats"><span class="bold small-caps">Ferocity:</span> {{system.ferocity}} <span class="bold small-caps">Health:</span> {{system.derivedAttributes.health.max}} <span class="bold small-caps">Armor:</span> {{system.armor}}</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p class="stats">
+            {{#if system.attributes.agility}}
+            <span class="bold small-caps">AGILITY</span> {{system.attributes.agility}}
+            {{/if}}
+            <span class="bold small-caps">PERCEPTION</span> 8
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p><span class="bold small-caps">Abilities</span></p>
+          <ul>
+            {{#each abilities as | A | }}
+            <li class="inline">
+              <p>
+                <span class="bold">{{A.name}}:</span> {{{A.system.description}}}
+              </p>
+            </li>
+            {{/each}}
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  {{log attacks}}
+  <table class="npc">
+    <thead>
+      <tr>
+        <th>
+          <p class="attack-header">{{actor.name}} Signature Attacks</p>
+        </th>
+      </tr>
+    </thead>
+  </table>
+  <ol>
+    {{#each attacks as | At | }}
+    <li class="inline">
+      <p>
+        <span class="bold">{{At.name}}:</span> {{{At.system.description}}}
+      </p>
+    </li>
+    {{/each}}
+  </ol>
+</div>

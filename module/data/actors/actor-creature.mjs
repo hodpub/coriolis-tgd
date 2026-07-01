@@ -82,4 +82,49 @@ export default class cgdCreature extends cgdActorBase {
       this.maxPush[element] = 0;
     }
   }
+
+  _prepareItems(context) {
+    const attacks = [];
+    const abilities = [];
+
+    for (let i of this.parent.items) {
+      if (i.type === 'creatureAttack') {
+        attacks.push(i);
+        continue;
+      }
+      if (i.type === "creatureAbility") {
+        abilities.push(i);
+        continue;
+      }
+    }
+
+    context.abilities = abilities.sort((a, b) => (a.sort || 0) - (b.sort || 0));
+    context.attacks = attacks.sort((a, b) => (a.system.attackNumber || 0) - (b.system.attackNumber || 0));
+    context.nextAttackNumber = attacks.length + 1;
+  }
+
+  EMBED_TEMPLATE = "systems/coriolis-tgd/templates/embeds/creature.hbs";
+
+  async toEmbed(config, options = {}) {
+    config.cite = false;
+    config.caption = false;
+    config.showHeart = config.values.indexOf("showHeart") > -1;
+    config.hideImg = config.values.indexOf("hideImg") > -1;
+
+    console.log(config, options)
+    const context = {
+      system: this,
+      actor: this.parent,
+      img: config.img || this.parent.img,
+      options,
+      config
+    }
+
+    await this._prepareItems(context);
+       const content = await foundry.applications.handlebars.renderTemplate(this.EMBED_TEMPLATE, context);
+    const result = document.createElement("div");
+    result.innerHTML = content;
+    return result.firstChild;
+  }
+
 }
