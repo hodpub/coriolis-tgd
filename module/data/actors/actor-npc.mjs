@@ -50,4 +50,66 @@ export default class cgdNPC extends cgdActorBase {
   prepareDerivedData() {
     super.prepareDerivedData();
   }
+
+  async _prepareItems(context) {
+    // Initialize containers.
+    const talents = [];
+    const equipments = [];
+
+    // Iterate through items, allocating to containers
+    for (let i of this.parent.items) {
+      i.enrichedDescription = await TextEditor.enrichHTML(
+        i.system.description,
+        {
+          // Whether to show secret blocks in the finished html
+          secrets: i.isOwner,
+          // Data to fill in for inline rolls
+          rollData: i.getRollData(),
+          // Relative UUID resolution
+          relativeTo: i,
+        }
+      );
+      if (i.type === 'talent') {
+        talents.push(i);
+        continue;
+      }
+      if (i.type === 'weapon') {
+        i.system.info = ` (+${i.system.bonus})`;
+        equipments.push(i);
+      }
+      if (i.type === "armor") {
+        i.system.info = ` (armor ${i.system.armorRating})`;
+        equipments.push(i);
+      }
+      if (i.type === 'equipment') {
+        equipments.push(i);
+      }
+    }
+
+    context.talents = talents.sort((a, b) => a.name.localeCompare(b.name));
+    context.equipments = equipments.sort((a, b) => (a.sort || 0) - (b.sort || 0));
+  }
+
+  EMBED_TEMPLATE = "systems/coriolis-tgd/templates/embeds/actor.hbs";
+
+  async toEmbed(config, options = {}) {
+    config.cite = false;
+    config.caption = false;
+    config.showHeart = config.values.indexOf("showHeart") > -1;
+    config.hideImg = config.values.indexOf("hideImg") > -1;
+    console.log(config, options)
+    const context = {
+      actor: this.parent,
+      img: config.img || this.parent.img,
+      options,
+      config
+    }
+
+    await this._prepareItems(context);
+    const content = await foundry.applications.handlebars.renderTemplate(this.EMBED_TEMPLATE, context);
+    const result = document.createElement("div");
+    result.innerHTML = content;
+    return result.firstChild;
+  }
+
 }
