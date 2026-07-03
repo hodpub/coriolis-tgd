@@ -18,7 +18,7 @@ export default class RollDialogWithConnectedActorAutomation {
 
   async execute(event) {
     const explorer = game.user.character ?? game.canvas.tokens.controlled[0]?.actor;
-    if (explorer == undefined || explorer.type != "explorer") {
+    if (explorer == undefined || ["explorer", "npc"].indexOf(explorer.type) == -1) {
       ui.notifications.error("CORIOLIS_TGD.Automation.FIELDS.upgrade.noExplorer", { localize: true });
       return;
     }
