@@ -2,7 +2,7 @@
   <p class="box-header"> <a class="content-link" draggable="true" data-link="" data-uuid="{{actor.uuid}}" data-id="{{actor.id}}" data-type="Actor" data-tooltip=""><i class="fa-solid fa-user" inert=""></i>{{actor.name}}</a>
   </p>
   {{{system.biography}}}
-  <table class="npc odd stats">
+  <table class="npc stats">
     <tbody>
       <tr>
         <td>
@@ -12,13 +12,33 @@
       <tr>
         <td>
           <p class="stats">
+            {{#if system.attributes.strength}}
+            <span class="bold small-caps">STRENGTH</span> {{system.attributes.strength}}
+            {{/if}}
+
             {{#if system.attributes.agility}}
             <span class="bold small-caps">AGILITY</span> {{system.attributes.agility}}
             {{/if}}
-            <span class="bold small-caps">PERCEPTION</span> 8
+
+            {{#if system.attributes.logic}}
+            <span class="bold small-caps">LOGIC</span> {{system.attributes.logic}}
+            {{/if}}
+
+            {{#if system.attributes.perception}}
+            <span class="bold small-caps">PERCEPTION</span> {{system.attributes.perception}}
+            {{/if}}
+
+            {{#if system.attributes.insight}}
+            <span class="bold small-caps">INSIGHT</span> {{system.attributes.insight}}
+            {{/if}}
+
+            {{#if system.attributes.empathy}}
+            <span class="bold small-caps">EMPATHY</span> {{system.attributes.empathy}}
+            {{/if}}
           </p>
         </td>
       </tr>
+      {{#if abilities}}
       <tr>
         <td>
           <p><span class="bold small-caps">Abilities</span></p>
@@ -33,10 +53,10 @@
           </ul>
         </td>
       </tr>
+      {{/if}}
     </tbody>
   </table>
-  {{log attacks}}
-  <table class="npc">
+  <table class="npc attacks">
     <thead>
       <tr>
         <th>
@@ -44,14 +64,15 @@
         </th>
       </tr>
     </thead>
-  </table>
-  <ol>
-    {{#each attacks as | At | }}
-    <li class="inline">
-      <p>
-        <span class="bold">{{At.name}}:</span> {{{At.system.description}}}
-      </p>
-    </li>
-    {{/each}}
-  </ol>
+    <tbody>
+      {{#each attacks as | At | }}
+      <tr>
+        <td class="inline">
+          <p>
+            <span class="bold">{{At.name}}:</span>
+          </p>
+          {{{At.system.description}}}
+        </td>
+      </tr>
+      {{/each}}
 </div>

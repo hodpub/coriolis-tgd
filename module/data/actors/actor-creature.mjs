@@ -108,10 +108,7 @@ export default class cgdCreature extends cgdActorBase {
   async toEmbed(config, options = {}) {
     config.cite = false;
     config.caption = false;
-    config.showHeart = config.values.indexOf("showHeart") > -1;
-    config.hideImg = config.values.indexOf("hideImg") > -1;
 
-    console.log(config, options)
     const context = {
       system: this,
       actor: this.parent,
