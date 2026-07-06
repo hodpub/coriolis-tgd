@@ -90,7 +90,7 @@ export default class cgdNPC extends cgdActorBase {
     context.equipments = equipments.sort((a, b) => (a.sort || 0) - (b.sort || 0));
   }
 
-  EMBED_TEMPLATE = "systems/coriolis-tgd/templates/embeds/actor.hbs";
+  EMBED_TEMPLATE = "systems/coriolis-tgd/templates/embeds/actor-npc.hbs";
 
   async toEmbed(config, options = {}) {
     config.cite = false;
