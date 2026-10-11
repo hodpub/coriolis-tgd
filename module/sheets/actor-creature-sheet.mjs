@@ -22,12 +22,23 @@ export class cgdActorCreatureSheet extends cgdActorNpcSheet {
 
     return context;
   }
-  _prepareItems(context) {
+  async _prepareItems(context) {
     const attacks = [];
     const abilities = [];
 
     for (let i of this.document.items) {
       if (i.type === 'creatureAttack') {
+        i.enriched = await TextEditor.enrichHTML(
+          i.system.description,
+          {
+            // Whether to show secret blocks in the finished html
+            secrets: this.document.isOwner,
+            // Data to fill in for inline rolls
+            rollData: this.actor.getRollData(),
+            // Relative UUID resolution
+            relativeTo: this.actor,
+          }
+        );
         attacks.push(i);
         continue;
       }
@@ -67,7 +78,7 @@ export class cgdActorCreatureSheet extends cgdActorNpcSheet {
     await currentAttack.automate(event);
     return this.actor.update({ "system.lastAttack": attackNumber });
   }
-  
+
   static async _behavior(event, target) {
     const roll = await new Roll("1d6").roll();
     const content = `<p>${this.actor.system.behaviourPattern[roll.total - 1]}</p>`;

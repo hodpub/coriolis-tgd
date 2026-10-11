@@ -1,12 +1,16 @@
 <div class="box npc creat">
-  <p class="box-header"> <a class="content-link" draggable="true" data-link="" data-uuid="{{actor.uuid}}" data-id="{{actor.id}}" data-type="Actor" data-tooltip=""><i class="fa-solid fa-user" inert=""></i>{{actor.name}}</a>
+  <p class="box-header"> <a class="content-link" draggable="true" data-link="" data-uuid="{{actor.uuid}}"
+      data-id="{{actor.id}}" data-type="Actor" data-tooltip=""><i class="fa-solid fa-user"
+        inert=""></i>{{actor.name}}</a>
   </p>
   {{{system.biography}}}
   <table class="npc stats">
     <tbody>
       <tr>
         <td>
-          <p class="stats"><span class="bold small-caps">Ferocity:</span> {{system.ferocity}} <span class="bold small-caps">Health:</span> {{system.derivedAttributes.health.max}} <span class="bold small-caps">Armor:</span> {{system.armor}}</p>
+          <p class="stats"><span class="bold small-caps">Ferocity:</span> {{system.ferocity}} <span
+              class="bold small-caps">Health:</span> {{system.derivedAttributes.health.max}} <span
+              class="bold small-caps">Armor:</span> {{system.armor}}</p>
         </td>
       </tr>
       <tr>
@@ -56,6 +60,31 @@
       {{/if}}
     </tbody>
   </table>
+  <table class="npc behaviour">
+    <thead>
+      <tr>
+        <th colspan="2">
+          <p class="attack-header">Behaviour Pattern</p>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each actor.system.behaviourList as | item | }}
+      <tr>
+        <td>
+          <p>
+            <label>{{item.min}}</label>
+            {{#if (not (eq item.min item.max))}}
+            <label>-</label>
+            <label>{{item.max}}</label>
+            {{/if}}
+          </p>
+        </td>
+        <td><p>{{item.text}}</p></td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
   <table class="npc attacks">
     <thead>
       <tr>
@@ -69,9 +98,9 @@
       <tr>
         <td class="inline">
           <p>
-            <span class="bold">{{At.name}}:</span>
+            <strong>{{At.name}}:</strong>
           </p>
-          {{{At.system.description}}}
+          {{{At.enriched}}}
         </td>
       </tr>
       {{/each}}

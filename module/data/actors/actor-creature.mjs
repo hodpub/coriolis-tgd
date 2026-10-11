@@ -83,12 +83,23 @@ export default class cgdCreature extends cgdActorBase {
     }
   }
 
-  _prepareItems(context) {
+  async _prepareItems(context) {
     const attacks = [];
     const abilities = [];
 
     for (let i of this.parent.items) {
       if (i.type === 'creatureAttack') {
+        i.enriched = await TextEditor.enrichHTML(
+          i.system.description,
+          {
+            // Whether to show secret blocks in the finished html
+            secrets: this.parent.isOwner,
+            // Data to fill in for inline rolls
+            rollData: this.parent.getRollData(),
+            // Relative UUID resolution
+            relativeTo: this.parent,
+          }
+        );
         attacks.push(i);
         continue;
       }
@@ -118,7 +129,7 @@ export default class cgdCreature extends cgdActorBase {
     }
 
     await this._prepareItems(context);
-       const content = await foundry.applications.handlebars.renderTemplate(this.EMBED_TEMPLATE, context);
+    const content = await foundry.applications.handlebars.renderTemplate(this.EMBED_TEMPLATE, context);
     const result = document.createElement("div");
     result.innerHTML = content;
     return result.firstChild;

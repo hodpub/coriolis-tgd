@@ -15,9 +15,10 @@
       </tr>
       <tr>
         <td>
-          <p class="stats"><span class="bold small-caps">Health:</span> {{actor.system.derivedAttributes.health.max}} <span class="bold small-caps">HOPE:</span> {{actor.system.derivedAttributes.hope.max}}{{#if config.showHeart}} <span class="bold small-caps">Heart: </span>{{actor.system.derivedAttributes.heart.max}}{{/if}}</p>
+          <p class="stats"><span class="bold small-caps">Health:</span> {{actor.system.derivedAttributes.health.max}} <span class="bold small-caps">Hope:</span> {{actor.system.derivedAttributes.hope.max}}{{#if config.showHeart}} <span class="bold small-caps">Heart: </span>{{actor.system.derivedAttributes.heart.max}}{{/if}}</p>
         </td>
       </tr>
+      {{#if talents}}
       <tr>
         <td>
           <p class="stats"><span class="bold small-caps">Talents: </span>
@@ -27,6 +28,7 @@
           </p>
         </td>
       </tr>
+      {{/if}}
       <tr>
         <td>
           <p class="stats"><span class="bold small-caps">Equipment: </span>
