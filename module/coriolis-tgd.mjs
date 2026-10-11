@@ -21,6 +21,7 @@ import { registerSettings, registerYearZeroCombatSettings } from "./helpers/sett
 import { noteActivator } from "./helpers/notes.mjs";
 import { migrate, registerMigrationSettings } from "./migrations/_base-migration.mjs";
 import * as migrations from "./migrations/_migrations.mjs";
+import { registerEnricherActions, registerEnrichers } from "./helpers/enrichers.mjs";
 
 const collections = foundry.documents.collections;
 const foundrySheets = foundry.appv1.sheets;
@@ -138,6 +139,7 @@ Hooks.once('init', function () {
 
   registerSettings();
   registerMigrationSettings();
+  registerEnrichers();
 });
 
 Hooks.once('yzeCombatReady', registerYearZeroCombatSettings);
@@ -158,6 +160,7 @@ Handlebars.registerHelper('toLowerCase', function (str) {
 
 Hooks.once('ready', function () {
   migrate();
+  registerEnricherActions();
   const roleClass = game.user.isGM ? "isGM" : "isNotGM";
   document.body.classList.add(roleClass);
   // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
