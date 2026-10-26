@@ -582,7 +582,7 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
         icon: "<i class=\"fa-solid fa-box\"></i>",
         condition: (target) => {
           let item = this._getEmbeddedDocument(target);
-          return this.actor.isOwner && ["equipment", "weapon", "armor"].includes(item.type) && !item.system.carried;
+          return this.actor.isOwner && ((["equipment", "weapon"].includes(item.type) && !item.system.carried) || (item.type == "armor" && this.actor.items.filter(x => x.type == "armor" && x.system.carried).length == 0));
         },
         callback: async (target) => {
           const item = this._getEmbeddedDocument(target);
@@ -1097,7 +1097,7 @@ export class cgdActorSheet extends api.HandlebarsApplicationMixin(
     if (item.type == "kiteUpgrade" || item.type == "shuttleUpgrade" || item.type == "roverUpgrade")
       return super._onDropItem(event, item);
 
-    if (!["rover", "shuttle"].includes(this.actor.type) && item.type == "armor" && this.actor.items.filter(it => it.type == "armor").length) {
+    if (!["rover", "shuttle"].includes(this.actor.type) && item.type == "armor" && this.actor.items.filter(it => it.type == "armor" && it.system.carried).length) {
       ui.notifications.error("This actor already has an armor. Remove it before trying to equip another.");
       return;
     }
